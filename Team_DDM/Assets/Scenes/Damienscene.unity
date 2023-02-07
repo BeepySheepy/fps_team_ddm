@@ -322,25 +322,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7275675506801484739, guid: da32cd2dd8605f04f8126206bd6ccc7d, type: 3}
-      propertyPath: sensHor
-      value: -500
-      objectReference: {fileID: 0}
-    - target: {fileID: 7275675506801484739, guid: da32cd2dd8605f04f8126206bd6ccc7d, type: 3}
-      propertyPath: sensVer
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 7275675506801484739, guid: da32cd2dd8605f04f8126206bd6ccc7d, type: 3}
-      propertyPath: lockVerMax
-      value: 75
-      objectReference: {fileID: 0}
     - target: {fileID: 7275675507620032341, guid: da32cd2dd8605f04f8126206bd6ccc7d, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7275675507620032360, guid: da32cd2dd8605f04f8126206bd6ccc7d, type: 3}
-      propertyPath: playerSpeed
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7275675507620032367, guid: da32cd2dd8605f04f8126206bd6ccc7d, type: 3}
       propertyPath: m_RootOrder

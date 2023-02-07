@@ -9,6 +9,7 @@ public class cameraControls : MonoBehaviour
     [SerializeField] int lockVerMin;
     [SerializeField] int lockVerMax;
     [SerializeField] bool invertX;
+    [SerializeField] bool invertY;
     float xRotation;
 
     // Start is called before the first frame update
@@ -36,7 +37,14 @@ public class cameraControls : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, lockVerMin, lockVerMax);
 
         transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        transform.parent.Rotate(Vector3.down * mouseX);
+        if (invertY == true)
+        {
+            transform.parent.Rotate(Vector3.up * mouseX);
+        }
+        else
+        {
+            transform.parent.Rotate(Vector3.down * mouseX);
+        }
 
 
 
