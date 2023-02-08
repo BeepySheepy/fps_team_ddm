@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8455800797167575617}
   - component: {fileID: 5656882399476584711}
+  - component: {fileID: 4343599895785124353}
   - component: {fileID: 8455800797167712511}
   - component: {fileID: 8455800797160377757}
   - component: {fileID: 4495822229026371205}
@@ -85,7 +86,20 @@ MonoBehaviour:
   navMesh: {fileID: 8455800797167712511}
   headPos: {fileID: 6732424331381388257}
   enemyTurnSpeed: 4
+--- !u!114 &4343599895785124353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8455800797167681057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a2d881143181b4488c673818e6f9340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   HP: 3
+  charModel: {fileID: 8455800797164499805}
 --- !u!195 &8455800797167712511
 NavMeshAgent:
   m_ObjectHideFlags: 0
