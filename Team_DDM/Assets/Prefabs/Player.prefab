@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a410dc27307223428fc1acaf1dd6871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensHor: -500
-  sensVer: 500
+  sensHor: 300
+  sensVer: 300
   lockVerMin: -75
-  lockVerMax: 75
+  lockVerMax: -75
   invertX: 0
   invertY: 0
 --- !u!20 &7275675506801484749
@@ -117,9 +117,9 @@ GameObject:
   - component: {fileID: 7275675507620032362}
   - component: {fileID: 7275675507620032363}
   - component: {fileID: 7275675507620032340}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 7275675507620032340}
-  playerSpeed: 8
+  playerSpeed: 1
   jumpTimes: 1
   jumpSpeed: 12
   gravity: 20
