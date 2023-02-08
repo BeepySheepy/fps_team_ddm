@@ -25,11 +25,10 @@ public class enemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (playerInRange)
-        //{
-        //    navMesh.SetDestination(gameManager.instance.player.transform.position);
-        //}
-        navMesh.SetDestination(gameManager.instance.player.transform.position);
+        if (playerInRange)
+        {
+            navMesh.SetDestination(gameManager.instance.player.transform.position);
+        }
     }
 
     /// <summary>
@@ -49,6 +48,7 @@ public class enemyAI : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("Player Entered An Enemy's Range");
             playerInRange = true;
         }
     }
@@ -60,6 +60,7 @@ public class enemyAI : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("Player Exited An Enemy's Range");
             playerInRange = false;
         }
     }
