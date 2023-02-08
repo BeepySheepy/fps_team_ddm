@@ -155,8 +155,8 @@ MonoBehaviour:
   controller: {fileID: 7275675507620032340}
   playerSpeed: 8
   jumpTimes: 1
-  jumpSpeed: 20
-  gravity: 40
+  jumpSpeed: 12
+  gravity: 20
   shootRate: 1
   shootDist: 20
   shootDamage: 0
