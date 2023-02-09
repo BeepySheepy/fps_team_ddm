@@ -18,6 +18,7 @@ public class enemyAI : MonoBehaviour
     [SerializeField] int bulletSpeed;
     [SerializeField] float fireRate;
     [SerializeField] float reloadSpeed;
+    [SerializeField] bool permaAggro;
 
 
     bool playerInRange;// bool if the player is within the range of detection of the enemy
@@ -36,7 +37,7 @@ public class enemyAI : MonoBehaviour
     void Update()
     {
         playerDirection = gameManager.instance.player.transform.position - headPos.position;// creates a vector between the player and the enemy
-        if (playerInRange || playerInVisualRange())
+        if (playerInRange || playerInVisualRange() || permaAggro)
         {
             navMesh.SetDestination(gameManager.instance.player.transform.position);// sets enemy destination as the player
             if (navMesh.remainingDistance < navMesh.stoppingDistance)// enemy is closer than nav mesh stopping distance
