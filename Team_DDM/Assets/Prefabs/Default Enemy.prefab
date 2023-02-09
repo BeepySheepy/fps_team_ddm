@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 8455800797167712511}
   - component: {fileID: 8455800797160377757}
   - component: {fileID: 4495822229026371205}
+  - component: {fileID: 6349955079847867357}
   m_Layer: 0
   m_Name: Default Enemy
   m_TagString: Untagged
@@ -157,6 +158,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 7
   m_Center: {x: 0, y: 2, z: 0}
+--- !u!136 &6349955079847867357
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8455800797167681057}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.4
+  m_Height: 2.75
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.25, z: 0}
 --- !u!1 &8455800797167681059
 GameObject:
   m_ObjectHideFlags: 0
