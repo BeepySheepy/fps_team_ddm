@@ -30,6 +30,7 @@ public class enemyStats : MonoBehaviour, IDamage
         StartCoroutine(flashEnemyDamage());
         if(HP <= 0)
         {
+            gameManager.instance.updateGameGoal(-1);
             Destroy(gameObject);// kill enemy
         }
     }

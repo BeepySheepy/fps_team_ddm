@@ -24,11 +24,14 @@ public class playerController : MonoBehaviour
     Vector3 move;
     Vector3 playerVelocity;
 
+    //My Work
+    int HPOrig;
+
 
     // Start is called before the first frame update
     void Start()
     {
-
+        HPOrig = HP;
     }
 
     // Update is called once per frame
@@ -43,6 +46,7 @@ public class playerController : MonoBehaviour
 
     void movement()
     {
+        
         if (controller.isGrounded)
         {
             playerVelocity.y = 0;
@@ -82,5 +86,25 @@ public class playerController : MonoBehaviour
     public void takeDamage(int dmg)
     {
         HP -= dmg;
+
+        StartCoroutine(flashDamage());
+        updatePlayerHPBar();
+
+        if (HP <= 0)
+        {
+            gameManager.instance.playerDead();
+        }
+    }
+
+    IEnumerator flashDamage()
+    {
+        gameManager.instance.playerDamageFlasher.SetActive(true);
+        yield return new WaitForSeconds(.2f);
+        gameManager.instance.playerDamageFlasher.SetActive(false);
+    }
+
+    public void updatePlayerHPBar()
+    {
+        gameManager.instance.playerHPBar.fillAmount = (float)HP / (float)HPOrig;
     }
 }
