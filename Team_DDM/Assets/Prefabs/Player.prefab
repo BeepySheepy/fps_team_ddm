@@ -157,9 +157,10 @@ MonoBehaviour:
   jumpTimes: 1
   jumpSpeed: 12
   gravity: 20
+  HP: 1
   shootRate: 1
   shootDist: 20
-  shootDamage: 0
+  shootDamage: 1
 --- !u!33 &7275675507620032361
 MeshFilter:
   m_ObjectHideFlags: 0

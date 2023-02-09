@@ -9,7 +9,7 @@ public class gameManager : MonoBehaviour
 
     
     public GameObject player;// player object accesible thorugh other classes
-    // add playerScript
+    public playerController playerScript;
 
     // Start is called before the first frame update
     void Awake()

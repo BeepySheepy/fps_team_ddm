@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour
 {
+    [Header("----- Components -----")]
     [SerializeField] CharacterController controller;
 
+    [Header("----- Player Movement -----")]
     [Range(1, 10)] [SerializeField] int playerSpeed;
     [Range(0, 3)] [SerializeField] int jumpTimes;
     [Range(5, 50)] [SerializeField] int jumpSpeed;
     [Range(5, 150)] [SerializeField] int gravity;
+    [Range(1, 10)] [SerializeField] int HP;
+    [Header("----- Gun Attributes -----")]
     [Range(0.1f, 2.5f)] [SerializeField] float shootRate;
     [Range(1, 200)] [SerializeField] int shootDist;
     [Range(1, 10)] [SerializeField] int shootDamage;
+    [SerializeField] int bulletSpeed;
 
     int jumpsCurrent;
     bool isShooting;
@@ -64,10 +69,18 @@ public class playerController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
         {
-
+            if (hit.collider.GetComponent<IDamage>() != null)
+            {
+                hit.collider.GetComponent<IDamage>().takeDamage(shootDamage);
+            }
         }
 
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
+    }
+
+    public void takeDamage(int dmg)
+    {
+        HP -= dmg;
     }
 }
