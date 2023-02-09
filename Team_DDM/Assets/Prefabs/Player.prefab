@@ -161,6 +161,7 @@ MonoBehaviour:
   shootRate: 1
   shootDist: 20
   shootDamage: 1
+  bulletSpeed: 1
 --- !u!33 &7275675507620032361
 MeshFilter:
   m_ObjectHideFlags: 0
