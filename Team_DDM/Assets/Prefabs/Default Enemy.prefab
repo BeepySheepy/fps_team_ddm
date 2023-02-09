@@ -86,6 +86,8 @@ MonoBehaviour:
   navMesh: {fileID: 8455800797167712511}
   headPos: {fileID: 6732424331381388257}
   enemyTurnSpeed: 4
+  visionDistance: 35
+  visionAngle: 40.1
 --- !u!114 &4343599895785124353
 MonoBehaviour:
   m_ObjectHideFlags: 0

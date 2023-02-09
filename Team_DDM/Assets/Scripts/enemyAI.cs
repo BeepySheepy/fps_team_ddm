@@ -10,12 +10,14 @@ public class enemyAI : MonoBehaviour
     [SerializeField] NavMeshAgent navMesh;// allows for movement
     [SerializeField] Transform headPos;// tracks head pos instead of from (0,0)
     [Range(1, 10)][SerializeField] int enemyTurnSpeed;
+    [Range(1, 50)][SerializeField] float visionDistance;
+    [Range(1, 50)][SerializeField] float visionAngle;
 
-    [Header("-----Stats-----")]
-    [SerializeField] int HP;
+
 
     bool playerInRange;// bool if the player is within the range of detection of the enemy
     Vector3 playerDirection;
+    float angleTowardsPlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +28,8 @@ public class enemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerInRange)
+        playerDirection = gameManager.instance.player.transform.position - headPos.position;// creates a vector between the player and the enemy
+        if (playerInRange || playerInVisualRange())
         {
             navMesh.SetDestination(gameManager.instance.player.transform.position);// sets enemy destination as the player
             if (navMesh.remainingDistance < navMesh.stoppingDistance)// enemy is closer than nav mesh stopping distance
@@ -41,7 +44,7 @@ public class enemyAI : MonoBehaviour
     /// </summary>
     void facePlayer()
     {
-        playerDirection = gameManager.instance.player.transform.position - headPos.position;// creates a vector between the player and the enemy
+        //playerDirection moved to Update
         Quaternion rot = Quaternion.LookRotation(playerDirection);// define quaternion
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * enemyTurnSpeed);
     }
@@ -69,5 +72,28 @@ public class enemyAI : MonoBehaviour
             Debug.Log("Player Exited An Enemy's Range");
             playerInRange = false;
         }
+    }
+
+    bool playerInVisualRange()
+    {
+        
+        float playerDistance = Mathf.Sqrt(Mathf.Pow(playerDirection.x, 2) + Mathf.Pow(playerDirection.z, 2));// distance from x & z values
+        Debug.Log(playerDistance);
+
+        if(playerDistance < visionDistance)// player is close enough to see
+        {
+            angleTowardsPlayer = Vector3.Angle(headPos.position, playerDirection);
+            Debug.DrawRay(headPos.position, playerDirection);
+            RaycastHit hit;
+            if(Physics.Raycast(headPos.position, playerDirection, out hit))//Raycast hit's something
+            {
+                if(hit.collider.CompareTag("Player") && angleTowardsPlayer <= visionAngle)// Raycast hits player while
+                {
+                    return true;
+                }
+            }
+        }
+        
+        return false;// player not close enough to see
     }
 }
