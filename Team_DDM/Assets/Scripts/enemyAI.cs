@@ -121,6 +121,7 @@ public class enemyAI : MonoBehaviour
         isShooting = true;
         GameObject bulletClone = Instantiate(bullet, headPos.position, bullet.transform.rotation);
         bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
+        Debug.Log("Enemy Shooting");
         yield return new WaitForSeconds(fireRate);
         isShooting = false;
 
@@ -129,6 +130,7 @@ public class enemyAI : MonoBehaviour
     IEnumerator gunReload()
     {
         isShooting = true;
+        Debug.Log("Enemy Reload");
         yield return new WaitForSeconds(reloadSpeed);
         bulletsInClip = clipSize;
         isShooting = false;

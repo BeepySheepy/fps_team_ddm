@@ -39,11 +39,11 @@ public class cameraControls : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
         if (invertY == true)
         {
-            transform.parent.Rotate(Vector3.up * mouseX);
+            transform.parent.Rotate(Vector3.down * mouseX);
         }
         else
         {
-            transform.parent.Rotate(Vector3.down * mouseX);
+            transform.parent.Rotate(Vector3.up * mouseX);
         }
 
 

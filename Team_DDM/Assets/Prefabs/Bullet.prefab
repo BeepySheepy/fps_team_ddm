@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 1
-  bulletDamage: 3
+  bulletDamage: 1
 --- !u!135 &5739028856967349281
 SphereCollider:
   m_ObjectHideFlags: 0

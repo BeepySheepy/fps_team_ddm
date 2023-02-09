@@ -41,8 +41,9 @@ public class enemyStats : MonoBehaviour, IDamage
     /// <returns></returns>
     IEnumerator flashEnemyDamage()
     {
+        Color modelColor = charModel.material.color;
         charModel.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        charModel.material.color = Color.white;
+        charModel.material.color = modelColor;
     }
 }
