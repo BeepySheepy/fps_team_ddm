@@ -56,6 +56,10 @@ public class spawner : MonoBehaviour
         isSpawning = true;
         Instantiate(objectToSpawn, spawnPos[spawnCount].position, objectToSpawn.transform.rotation);
         spawnCount++;
+        if(spawnCount == spawnPos.Length && spawnMax == 0)
+        {
+            spawnCount = 0;
+        }
         yield return new WaitForSeconds(timer);
         isSpawning = false;
     }
