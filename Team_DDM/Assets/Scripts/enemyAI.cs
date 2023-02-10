@@ -30,8 +30,7 @@ public class enemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ///My Work
-        gameManager.instance.updateGameGoal(1);
+        
     }
 
     // Update is called once per frame
@@ -64,6 +63,7 @@ public class enemyAI : MonoBehaviour
     void facePlayer()
     {
         //playerDirection moved to Update
+        playerDirection.y = 0;
         Quaternion rot = Quaternion.LookRotation(playerDirection);// define quaternion
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * enemyTurnSpeed);
     }
@@ -101,7 +101,7 @@ public class enemyAI : MonoBehaviour
 
         if (playerDistance < visionDistance)// player is close enough to see
         {
-            angleTowardsPlayer = Vector3.Angle(headPos.position, playerDirection);
+            angleTowardsPlayer = Vector3.Angle(new Vector3(playerDirection.x, 0, playerDirection.z), transform.forward);
             Debug.DrawRay(headPos.position, playerDirection);
             RaycastHit hit;
             if (Physics.Raycast(headPos.position, playerDirection, out hit))//Raycast hit's something
