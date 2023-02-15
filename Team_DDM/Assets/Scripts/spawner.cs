@@ -15,6 +15,7 @@ public class spawner : MonoBehaviour
     int spawnCount;
     bool isSpawning;
     bool playerInRange;
+    List<GameObject> spawnList = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +57,7 @@ public class spawner : MonoBehaviour
         isSpawning = true;
         Instantiate(objectToSpawn, spawnPos[spawnCount].position, objectToSpawn.transform.rotation);
         spawnCount++;
+        
         if(spawnCount == spawnPos.Length && spawnMax == 0)
         {
             spawnCount = 0;

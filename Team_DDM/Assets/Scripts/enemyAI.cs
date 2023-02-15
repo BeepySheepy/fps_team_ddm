@@ -97,7 +97,7 @@ public class enemyAI : MonoBehaviour
     {
 
         float playerDistance = Mathf.Sqrt(Mathf.Pow(playerDirection.x, 2) + Mathf.Pow(playerDirection.z, 2));// distance from x & z values
-        Debug.Log(playerDistance);
+        //Debug.Log(playerDistance);
 
         if (playerDistance < visionDistance)// player is close enough to see
         {
