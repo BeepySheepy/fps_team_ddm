@@ -93,7 +93,7 @@ MonoBehaviour:
   bulletSpeed: 25
   fireRate: 1
   reloadSpeed: 2
-  permaAggro: 1
+  permaAggro: 0
 --- !u!114 &4343599895785124353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,11 +118,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 0
+  m_Speed: 1
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 6
+  m_StoppingDistance: 35
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -175,7 +175,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 11
+  m_Radius: 35
   m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &8455800797167681059
 GameObject:
