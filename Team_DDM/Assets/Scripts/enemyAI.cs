@@ -63,8 +63,9 @@ public class enemyAI : MonoBehaviour
     void facePlayer()
     {
         //playerDirection moved to Update
-        playerDirection.y = 0;
-        Quaternion rot = Quaternion.LookRotation(playerDirection);// define quaternion
+        Vector3 dupPlayerDir = playerDirection;
+        dupPlayerDir.y = 0;
+        Quaternion rot = Quaternion.LookRotation(dupPlayerDir);// define quaternion
         transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * enemyTurnSpeed);
     }
 

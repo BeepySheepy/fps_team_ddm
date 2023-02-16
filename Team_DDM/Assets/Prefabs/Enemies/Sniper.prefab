@@ -89,8 +89,8 @@ MonoBehaviour:
   visionDistance: 35
   visionAngle: 40.1
   clipSize: 6
-  bullet: {fileID: 5739028856967349286, guid: 4e84b856c02e0424b85eb8d26b72b10c, type: 3}
-  bulletSpeed: 25
+  bullet: {fileID: 5739028856967349286, guid: 123119d9e4a9c384682d2c17ca67dcc6, type: 3}
+  bulletSpeed: 1
   fireRate: 1
   reloadSpeed: 2
   permaAggro: 0
