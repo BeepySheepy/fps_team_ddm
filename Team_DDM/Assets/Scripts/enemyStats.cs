@@ -27,6 +27,7 @@ public class enemyStats : MonoBehaviour, IDamage
     public void takeDamage(int dmg)
     {
         HP -= dmg;
+        Debug.Log(this.gameObject.name + "took damage");
         StartCoroutine(flashEnemyDamage());
         if(HP <= 0)
         {

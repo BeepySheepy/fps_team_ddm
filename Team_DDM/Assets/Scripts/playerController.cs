@@ -42,6 +42,8 @@ public class playerController : MonoBehaviour
         {
             StartCoroutine(shoot());
         }
+        //Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward, Color.white, 20);
+        //Debug.DrawLine(move, playerVelocity);
     }
 
     void movement()
@@ -73,6 +75,8 @@ public class playerController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
         {
+            Debug.Log(hit.collider.name + " hit");
+            
             if (hit.collider.GetComponent<IDamage>() != null)
             {
                 hit.collider.GetComponent<IDamage>().takeDamage(shootDamage);
