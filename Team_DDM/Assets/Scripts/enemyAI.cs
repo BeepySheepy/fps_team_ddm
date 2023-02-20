@@ -14,6 +14,7 @@ public class enemyAI : MonoBehaviour
     [Range(1, 50)][SerializeField] float visionAngle;
     [Header("-----Gun-----")]
     [SerializeField] gunScript gun;
+    [SerializeField] int dropHP;
 
     [SerializeField] bool permaAggro;
 

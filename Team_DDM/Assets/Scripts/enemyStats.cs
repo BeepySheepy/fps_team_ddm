@@ -7,6 +7,9 @@ public class enemyStats : MonoBehaviour, IDamage
 
     [SerializeField] int HP;
     [SerializeField] Renderer charModel;
+    [SerializeField] GameObject gunToDrop;
+    [SerializeField] GameObject ammoToDrop;
+    [SerializeField] GameObject healthToDrop;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +35,9 @@ public class enemyStats : MonoBehaviour, IDamage
         if(HP <= 0)
         {
             gameManager.instance.updateGameGoal(-1);
+
+            DropItems();
+
             Destroy(gameObject);// kill enemy
         }
     }
@@ -46,5 +52,21 @@ public class enemyStats : MonoBehaviour, IDamage
         charModel.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         charModel.material.color = modelColor;
+    }
+
+    void DropItems()
+    {
+        if(gunToDrop != null)
+        {
+            Instantiate(gunToDrop, transform.position, transform.rotation);
+        }
+        if(ammoToDrop != null)
+        {
+            Instantiate(ammoToDrop, transform.position + new Vector3(1, 1, 0), transform.rotation);
+        }
+        if(healthToDrop != null)
+        {
+            Instantiate(healthToDrop, transform.position + new Vector3(-1, 1, 0), transform.rotation);
+        }
     }
 }

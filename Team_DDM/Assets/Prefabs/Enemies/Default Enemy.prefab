@@ -90,6 +90,7 @@ MonoBehaviour:
   visionDistance: 35
   visionAngle: 40.1
   gun: {fileID: 2051488521287741140}
+  dropHP: 0
   permaAggro: 1
 --- !u!114 &4343599895785124353
 MonoBehaviour:
@@ -105,6 +106,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 3
   charModel: {fileID: 8455800797164499805}
+  gunToDrop: {fileID: 0}
+  ammoToDrop: {fileID: 6521278121679382960, guid: 90e9c77c45601f743a097380c1b0bc6a, type: 3}
+  healthToDrop: {fileID: 8299478468419812798, guid: 1dcbeda09fd3e6d46b6b1aee614d07a3, type: 3}
 --- !u!114 &2051488521287741140
 MonoBehaviour:
   m_ObjectHideFlags: 0
