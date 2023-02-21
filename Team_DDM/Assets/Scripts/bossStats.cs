@@ -5,6 +5,7 @@ using UnityEngine;
 public class bossStats : MonoBehaviour, IDamage
 {
     [SerializeField] int HP;
+    int hpOrig;
     [SerializeField] Renderer charModel;
     [SerializeField] GameObject gunToDrop;
     [SerializeField] GameObject ammoToDrop;
@@ -14,6 +15,7 @@ public class bossStats : MonoBehaviour, IDamage
     void Start()
     {
         gameManager.instance.updateGameGoal(1);
+        hpOrig = HP;
     }
 
     // Update is called once per frame
@@ -33,10 +35,8 @@ public class bossStats : MonoBehaviour, IDamage
         StartCoroutine(flashEnemyDamage());
         if (HP <= 0)
         {
-
             gameManager.instance.updateGameGoal(-1);
             DropItems();
-
             Destroy(gameObject);// kill enemy
         }
     }
@@ -51,6 +51,11 @@ public class bossStats : MonoBehaviour, IDamage
         charModel.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         charModel.material.color = modelColor;
+    }
+
+    public void updateBossHPBar()
+    {
+        gameManager.instance.BossHPBar.fillAmount = (float)HP / (float)hpOrig;
     }
 
     void DropItems()

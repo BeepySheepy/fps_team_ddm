@@ -2333,7 +2333,7 @@ GameObject:
   - component: {fileID: 7379276350349671870}
   - component: {fileID: 7379276350349671871}
   m_Layer: 5
-  m_Name: Level's Button
+  m_Name: Levels Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3633,7 +3633,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level's
+  m_text: Levels
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4008,7 +4008,7 @@ GameObject:
   - component: {fileID: 7379276350880025320}
   - component: {fileID: 7379276350880025321}
   m_Layer: 5
-  m_Name: Level's Screen
+  m_Name: Levels Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
