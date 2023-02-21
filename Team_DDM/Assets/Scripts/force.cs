@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class force : MonoBehaviour
 {
+    [Header("----- Push Stats -----")]
     [SerializeField] int pushBackAmount;
     [SerializeField] bool push;
-    [SerializeField] bool isConstant;
     [SerializeField] float timer;
     [SerializeField] bool negateX;
     [SerializeField] bool negateY;
     [SerializeField] bool negateZ;
+
+    [Header("----- Options -----")]
+    [SerializeField] bool isConstant;
+    [SerializeField] bool isHazard;
+    [SerializeField] int dmgVal;
 
     float xT, yT, zT;
     Vector3 pushCheck;
@@ -54,6 +59,10 @@ public class force : MonoBehaviour
             {
                 gameManager.instance.playerScript.pushBackDir((pushCheck - transform.position).normalized * pushBackAmount);
 
+            }
+            if (isHazard)
+            {
+                gameManager.instance.playerScript.takeDamage(dmgVal);
             }
         }
     }
