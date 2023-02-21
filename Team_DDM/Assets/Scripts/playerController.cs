@@ -13,7 +13,6 @@ public class playerController : MonoBehaviour
     [Range(5, 50)] [SerializeField] int jumpSpeed;
     [Range(5, 150)] [SerializeField] public int gravity;
     [Range(1, 10)] [SerializeField] int HP;
-    [SerializeField] float pushBackTime;
     [Header("----- Gun Attributes -----")]
     [Range(0.1f, 2.5f)] [SerializeField] float shootRate;
     [Range(1, 200)] [SerializeField] int shootDist;
@@ -28,7 +27,6 @@ public class playerController : MonoBehaviour
     public int wallRunSpeed;
     Vector3 move;
     public Vector3 playerVelocity;
-    Vector3 pushBack;
     int HPOrig;
 
 
@@ -43,9 +41,6 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        pushBack = Vector3.Lerp(pushBack, Vector3.zero, Time.deltaTime * pushBackTime);
-
         movement();
         if (!isShooting && Input.GetButton("Shoot"))
         {
@@ -73,7 +68,7 @@ public class playerController : MonoBehaviour
         }
 
         playerVelocity.y -= gravity * Time.deltaTime;
-        controller.Move((playerVelocity + pushBack) * Time.deltaTime);
+        controller.Move(playerVelocity * Time.deltaTime);
 
         if (isWallRun)
         {
@@ -128,10 +123,5 @@ public class playerController : MonoBehaviour
     public void updatePlayerHPBar()
     {
         gameManager.instance.playerHPBar.fillAmount = (float)HP / (float)HPOrig;
-    }
-    public void pushBackDir(Vector3 dir)
-    {
-        Debug.Log("Push Back Go");
-        pushBack += dir;
     }
 }
