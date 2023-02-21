@@ -22,11 +22,13 @@ public class gameManager : MonoBehaviour
 
     [Header("---- Health ----")]
     public Image playerHPBar;
+    public Image BossHPBar;
     public GameObject playerDamageFlasher;
 
     [Header("--- Enemies ----")]
     public int enemiesRemaining;
     [SerializeField] TextMeshProUGUI enemiesRemainingText;
+    public int BossesRemaining;
 
     // Start is called before the first frame update
     void Awake()
@@ -73,12 +75,21 @@ public class gameManager : MonoBehaviour
         activeMenu = null;
     }
 
-    public void updateGameGoal(int amount)
+    public void RoomFinished(int amount)
     {
         enemiesRemaining += amount;
         enemiesRemainingText.text = enemiesRemaining.ToString("F0");
-
         if (enemiesRemaining <= 0)
+        {
+            //Open Door
+            //Probly Delete Spawner
+        }
+    }
+
+    public void updateGameGoal(int amount)
+    {
+        BossesRemaining += amount;
+        if (BossesRemaining <= 0)
         {
             paused();
             activeMenu = winMenu;

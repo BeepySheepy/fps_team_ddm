@@ -27,8 +27,6 @@ public class playerController : MonoBehaviour
     public int wallRunSpeed;
     Vector3 move;
     public Vector3 playerVelocity;
-
-    //My Work
     int HPOrig;
 
 
