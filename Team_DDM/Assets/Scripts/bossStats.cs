@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemyStats : MonoBehaviour, IDamage
+public class bossStats : MonoBehaviour, IDamage
 {
-
     [SerializeField] int HP;
     [SerializeField] Renderer charModel;
     [SerializeField] GameObject gunToDrop;
@@ -14,7 +13,7 @@ public class enemyStats : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
-            gameManager.instance.RoomFinished(1);
+        gameManager.instance.updateGameGoal(1);
     }
 
     // Update is called once per frame
@@ -32,9 +31,10 @@ public class enemyStats : MonoBehaviour, IDamage
         HP -= dmg;
         Debug.Log(this.gameObject.name + "took damage");
         StartCoroutine(flashEnemyDamage());
-        if(HP <= 0)
+        if (HP <= 0)
         {
-            gameManager.instance.RoomFinished(-1);
+
+            gameManager.instance.updateGameGoal(-1);
             DropItems();
 
             Destroy(gameObject);// kill enemy
@@ -55,15 +55,15 @@ public class enemyStats : MonoBehaviour, IDamage
 
     void DropItems()
     {
-        if(gunToDrop != null)
+        if (gunToDrop != null)
         {
             Instantiate(gunToDrop, transform.position, transform.rotation);
         }
-        if(ammoToDrop != null)
+        if (ammoToDrop != null)
         {
             Instantiate(ammoToDrop, transform.position + new Vector3(1, 1, 0), transform.rotation);
         }
-        if(healthToDrop != null)
+        if (healthToDrop != null)
         {
             Instantiate(healthToDrop, transform.position + new Vector3(-1, 1, 0), transform.rotation);
         }
