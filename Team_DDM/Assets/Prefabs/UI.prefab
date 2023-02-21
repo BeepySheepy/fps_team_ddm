@@ -2421,6 +2421,7 @@ MonoBehaviour:
   loseMenu: {fileID: 3100166891584384023}
   playerHPBar: {fileID: 3100166890754853716}
   BossHPBar: {fileID: 125066292709441315}
+  EnemyHPBar: {fileID: 0}
   playerDamageFlasher: {fileID: 3100166891137454054}
   enemiesRemaining: 0
   enemiesRemainingText: {fileID: 3100166892075824676}
