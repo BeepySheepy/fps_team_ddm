@@ -13,24 +13,20 @@ public class enemyAI : MonoBehaviour
     [Range(1, 50)][SerializeField] float visionDistance;
     [Range(1, 50)][SerializeField] float visionAngle;
     [Header("-----Gun-----")]
-    [SerializeField] int clipSize;
-    [SerializeField] GameObject bullet;
-    [SerializeField] int bulletSpeed;
-    [SerializeField] float fireRate;
-    [SerializeField] float reloadSpeed;
+    [SerializeField] gunScript gun;
+    [SerializeField] int dropHP;
+
     [SerializeField] bool permaAggro;
 
 
     bool playerInRange;// bool if the player is within the range of detection of the enemy
     Vector3 playerDirection;
     float angleTowardsPlayer;
-    bool isShooting;
-    int bulletsInClip;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gun.SetShootPos(headPos);
     }
 
     // Update is called once per frame
@@ -46,13 +42,14 @@ public class enemyAI : MonoBehaviour
             }
 
             // gun stuff
-            if(!isShooting && bulletsInClip != 0)
+            if(!gun.IsShooting() && gun.GetBulletsInClip() != 0)
             {
-                bulletsInClip--;
-                StartCoroutine(shoot());
-            }else if(!isShooting && bulletsInClip == 0)// reload
+                Debug.Log("Enemy Shooting");
+                gun.shootInterface(playerDirection);
+            }else if(!gun.IsShooting() && !gun.IsReloading() && gun.GetBulletsInClip() == 0)// reload
             {
-                StartCoroutine(gunReload());
+                Debug.Log("Enemy Reloading");
+                gun.Reload();
             }
         }
     }
@@ -117,23 +114,5 @@ public class enemyAI : MonoBehaviour
         return false;// player not close enough to see
     }
 
-    IEnumerator shoot()
-    {
-        isShooting = true;
-        GameObject bulletClone = Instantiate(bullet, headPos.position, bullet.transform.rotation);
-        bulletClone.GetComponent<Rigidbody>().velocity = playerDirection * bulletSpeed;
-        Debug.Log("Enemy Shooting");
-        yield return new WaitForSeconds(fireRate);
-        isShooting = false;
-
-    }
-
-    IEnumerator gunReload()
-    {
-        isShooting = true;
-        Debug.Log("Enemy Reload");
-        yield return new WaitForSeconds(reloadSpeed);
-        bulletsInClip = clipSize;
-        isShooting = false;
-    }
+    
 }

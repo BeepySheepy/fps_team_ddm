@@ -5,13 +5,13 @@ using UnityEngine;
 public class playerController : MonoBehaviour
 {
     [Header("----- Components -----")]
-    [SerializeField] CharacterController controller;
+    [SerializeField] public CharacterController controller;
 
     [Header("----- Player Movement -----")]
-    [Range(1, 10)] [SerializeField] int playerSpeed;
+    [Range(1, 50)] [SerializeField] int playerSpeed;
     [Range(0, 3)] [SerializeField] int jumpTimes;
     [Range(5, 50)] [SerializeField] int jumpSpeed;
-    [Range(5, 150)] [SerializeField] int gravity;
+    [Range(5, 150)] [SerializeField] public int gravity;
     [Range(1, 10)] [SerializeField] int HP;
     [Header("----- Gun Attributes -----")]
     [Range(0.1f, 2.5f)] [SerializeField] float shootRate;
@@ -20,9 +20,13 @@ public class playerController : MonoBehaviour
     [SerializeField] int bulletSpeed;
 
     int jumpsCurrent;
+    public int speedOrig;
+    public int gravOrig;
     bool isShooting;
+    public bool isWallRun;
+    public int wallRunSpeed;
     Vector3 move;
-    Vector3 playerVelocity;
+    public Vector3 playerVelocity;
 
     //My Work
     int HPOrig;
@@ -32,6 +36,8 @@ public class playerController : MonoBehaviour
     void Start()
     {
         HPOrig = HP;
+        gravOrig = gravity;
+        speedOrig = playerSpeed;
     }
 
     // Update is called once per frame
@@ -48,7 +54,6 @@ public class playerController : MonoBehaviour
 
     void movement()
     {
-        
         if (controller.isGrounded)
         {
             playerVelocity.y = 0;
@@ -66,6 +71,16 @@ public class playerController : MonoBehaviour
 
         playerVelocity.y -= gravity * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+
+        if (isWallRun)
+        {
+            playerSpeed = wallRunSpeed;
+        }
+        else
+        {
+            playerSpeed = speedOrig;
+            gravity = gravOrig;
+        }
     }
 
     IEnumerator shoot()

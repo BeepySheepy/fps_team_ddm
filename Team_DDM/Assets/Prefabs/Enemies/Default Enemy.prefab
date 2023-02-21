@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 8455800797167575617}
   - component: {fileID: 5656882399476584711}
   - component: {fileID: 4343599895785124353}
+  - component: {fileID: 2051488521287741140}
   - component: {fileID: 8455800797167712511}
   - component: {fileID: 8455800797160377757}
   - component: {fileID: 6349955079847867357}
@@ -88,11 +89,8 @@ MonoBehaviour:
   enemyTurnSpeed: 4
   visionDistance: 35
   visionAngle: 40.1
-  clipSize: 6
-  bullet: {fileID: 5739028856967349286, guid: 123119d9e4a9c384682d2c17ca67dcc6, type: 3}
-  bulletSpeed: 25
-  fireRate: 1
-  reloadSpeed: 2
+  gun: {fileID: 2051488521287741140}
+  dropHP: 0
   permaAggro: 1
 --- !u!114 &4343599895785124353
 MonoBehaviour:
@@ -108,6 +106,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 3
   charModel: {fileID: 8455800797164499805}
+  gunToDrop: {fileID: 0}
+  ammoToDrop: {fileID: 6521278121679382960, guid: 90e9c77c45601f743a097380c1b0bc6a, type: 3}
+  healthToDrop: {fileID: 8299478468419812798, guid: 1dcbeda09fd3e6d46b6b1aee614d07a3, type: 3}
+--- !u!114 &2051488521287741140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8455800797167681057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072501e7c9eab70488898ccce25d4682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mGun: {fileID: 11400000, guid: 93dff05600af7af4cba8d9ba75d39864, type: 2}
+  autoLockOnPlayer: 1
 --- !u!195 &8455800797167712511
 NavMeshAgent:
   m_ObjectHideFlags: 0
