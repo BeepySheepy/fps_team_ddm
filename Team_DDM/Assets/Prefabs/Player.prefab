@@ -113,6 +113,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7275675507620032367}
   - component: {fileID: 7275675507620032360}
+  - component: {fileID: -4717359228108097337}
   - component: {fileID: 7275675507620032361}
   - component: {fileID: 7275675507620032362}
   - component: {fileID: 7275675507620032363}
@@ -157,11 +158,38 @@ MonoBehaviour:
   jumpTimes: 1
   jumpSpeed: 10
   gravity: 20
+  wallRunSpeed: 0
   HP: 8
   shootRate: 0.25
   shootDist: 12
   shootDamage: 1
   bulletSpeed: 1
+  speedOrig: 0
+  isWallRun: 0
+  playerVelocity: {x: 0, y: 0, z: 0}
+--- !u!114 &-4717359228108097337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7275675507620032341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5248919764ee8784e854ca3636b3cecb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wall:
+    serializedVersion: 2
+    m_Bits: 512
+  ground:
+    serializedVersion: 2
+    m_Bits: 1024
+  wrSpeed: 10
+  wrMaxTime: 2
+  wallDist: 0.7
+  groundDist: 2
+  dir: {fileID: 7275675507620032367}
 --- !u!33 &7275675507620032361
 MeshFilter:
   m_ObjectHideFlags: 0
