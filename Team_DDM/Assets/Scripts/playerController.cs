@@ -44,15 +44,20 @@ public class playerController : MonoBehaviour
     int numShots;
     bool isSpread;
 
+    int newGun;
+    int invincibleHP;
+
 
     // Start is called before the first frame update
     void Start()
     {
         HPOrig = HP;
+        invincibleHP = HP;
         gravOrig = gravity;
         speedOrig = playerSpeed;
         numShots = 0;
         isReloading = false;
+        newGun = -1;
     }
 
     // Update is called once per frame
@@ -87,6 +92,7 @@ public class playerController : MonoBehaviour
 
         playerVelocity.y -= gravity * Time.deltaTime;
         controller.Move((playerVelocity + pushBack) * Time.deltaTime);
+        
 
         if (isWallRun)
         {
@@ -203,7 +209,8 @@ public class playerController : MonoBehaviour
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat.gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
 
-        //gunIconIndicator(gunList.Capacity);
+        newGun++;
+        gunIconIndicator(newGun);
 
     }
     void selectGun()
@@ -233,8 +240,8 @@ public class playerController : MonoBehaviour
 
     void gunIconIndicator(int selected)
     {
-
-        switch (selectedGun)
+        
+        switch (selected)
         {
             case 0:
                 pistolIcon.SetActive(true);
@@ -268,4 +275,6 @@ public class playerController : MonoBehaviour
         Debug.Log("Push Back Go");
         pushBack += dir;
     }
+
+    
 }
