@@ -130,18 +130,20 @@ public class playerController : MonoBehaviour
             else
             {
                 Debug.Log("Enters Spread");
-                Quaternion spreadL = Quaternion.Euler(0f, -90, 0f);
-                Quaternion spreadR = Quaternion.Euler(0f, 90, 0f);
-                //Vector3 spreadR = new Vector3(gunList[selectedGun].bullet.transform.rotation.x, gunList[selectedGun].bullet.transform.rotation.y + 15, gunList[selectedGun].bullet.transform.rotation.z);
+                //Quaternion spreadL = Quaternion.Euler(0f, -90, 0f);
+                //Quaternion spreadR = Quaternion.Euler(0f, 90, 0f);
+                
+                Vector3 spreadL = new Vector3(gunModel.transform.forward.x, gunModel.transform.forward.y, gunModel.transform.position.z + 1);
+                Vector3 spreadR = new Vector3(gunModel.transform.forward.x, gunModel.transform.forward.y, gunModel.transform.position.z - 1);
                 Debug.Log("Fired 1");
-                GameObject bulletClone1 = Instantiate(gunList[selectedGun].bullet, transform.position, spreadL);
-                bulletClone1.GetComponent<Rigidbody>().velocity = transform.forward * gunList[selectedGun].bulletSpeed;
+                GameObject bulletClone1 = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
+                bulletClone1.GetComponent<Rigidbody>().velocity = spreadL * gunList[selectedGun].bulletSpeed;
                 Debug.Log("Fired 2");
                 GameObject bulletClone2 = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
-                bulletClone2.GetComponent<Rigidbody>().velocity = transform.forward * gunList[selectedGun].bulletSpeed;
+                bulletClone2.GetComponent<Rigidbody>().velocity = gunModel.transform.forward * gunList[selectedGun].bulletSpeed;
                 Debug.Log("Fired 3");
-                GameObject bulletClone3 = Instantiate(gunList[selectedGun].bullet, transform.position, spreadR);
-                bulletClone3.GetComponent<Rigidbody>().velocity = transform.forward * gunList[selectedGun].bulletSpeed;
+                GameObject bulletClone3 = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
+                bulletClone3.GetComponent<Rigidbody>().velocity = spreadR * gunList[selectedGun].bulletSpeed;
 
 
 

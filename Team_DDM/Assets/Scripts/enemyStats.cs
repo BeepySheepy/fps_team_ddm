@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+enum enemies
+{
+    beeRange = 0, beeAttacker, spider
+}
+
 public class enemyStats : MonoBehaviour, IDamage
 {
 
@@ -12,18 +17,21 @@ public class enemyStats : MonoBehaviour, IDamage
     [SerializeField] GameObject ammoToDrop;
     [SerializeField] GameObject healthToDrop;
 
+    enemyAI aiScript;
+    Animator anim;
+    int enemyTypeID;
+
     // Start is called before the first frame update
     void Start()
     {
         gameManager.instance.RoomFinished(1);
         HPOrig = HP;
+        anim = GetComponent<Animator>();
+        aiScript = GetComponent<enemyAI>();
+        enemyTypeID = aiScript.GetEnemyTypeID();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
 
     /// <summary>
     /// inherited takeDamage class that subtracts enemy HP
@@ -33,13 +41,23 @@ public class enemyStats : MonoBehaviour, IDamage
     {
         HP -= dmg;
         Debug.Log(this.gameObject.name + "took damage");
-        StartCoroutine(flashEnemyDamage());
-        if(HP <= 0)
+        if (HP <= 0)
         {
             gameManager.instance.RoomFinished(-1);
             DropItems();
-
-            Destroy(gameObject);// kill enemy
+            if ((enemies)enemyTypeID == enemies.spider)
+            {
+                Destroy(gameObject);// kill enemy
+            }
+            else
+            {
+                anim.SetBool("Dead", true);
+            }
+        }
+        else
+        {
+            anim.SetTrigger("Hit");
+            StartCoroutine(flashEnemyDamage());
         }
     }
 
@@ -57,17 +75,19 @@ public class enemyStats : MonoBehaviour, IDamage
 
     void DropItems()
     {
-        if(gunToDrop != null)
+        if (gunToDrop != null)
         {
             Instantiate(gunToDrop, transform.position, transform.rotation);
         }
-        if(ammoToDrop != null)
+        if (ammoToDrop != null)
         {
             Instantiate(ammoToDrop, transform.position + new Vector3(1, 1, 0), transform.rotation);
         }
-        if(healthToDrop != null)
+        if (healthToDrop != null)
         {
             Instantiate(healthToDrop, transform.position + new Vector3(-1, 1, 0), transform.rotation);
         }
     }
+
+
 }
