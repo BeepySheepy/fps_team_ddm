@@ -49,12 +49,10 @@ public class playerController : MonoBehaviour
     {
         pushBack = Vector3.Lerp(pushBack, Vector3.zero, Time.deltaTime * pushBackTime);
         movement();
-        if (!isShooting && Input.GetButton("Shoot"))
+        if (!isShooting && Input.GetButton("Shoot") && gunList.Count > 0)
         {
             StartCoroutine(shoot());
         }
-        //Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward, Color.white, 20);
-        //Debug.DrawLine(move, playerVelocity);
     }
 
     void movement()
@@ -134,13 +132,36 @@ public class playerController : MonoBehaviour
 
     public void gunPick(gunStats gunStat)
     {
+        Debug.Log("Got" + gunStat);
         gunList.Add(gunStat);
 
         shootRate = gunStat.fireRate;
 
+        Debug.Log("Gun Model Set");
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat.gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
 
+    }
+    void selectGun()
+    {
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < gunList.Count - 1)
+        {
+            selectedGun++;
+            changeGun();
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
+        {
+            selectedGun--;
+            changeGun();
+        }
+    }
+
+    void changeGun()
+    {
+        shootRate = gunList[selectedGun].fireRate;
+
+        gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
+        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
     }
 
     public void pushBackDir(Vector3 dir)
