@@ -12,14 +12,10 @@ public class enemyStats : MonoBehaviour, IDamage
     [SerializeField] GameObject ammoToDrop;
     [SerializeField] GameObject healthToDrop;
 
-    public GameObject EnemyAliveHP;
-
     // Start is called before the first frame update
     void Start()
     {
-        EnemyAliveHP.SetActive(true);
         gameManager.instance.RoomFinished(1);
-        updateEnemyHPBar();
         HPOrig = HP;
     }
 
@@ -36,7 +32,6 @@ public class enemyStats : MonoBehaviour, IDamage
     public void takeDamage(int dmg)
     {
         HP -= dmg;
-        updateEnemyHPBar();
         Debug.Log(this.gameObject.name + "took damage");
         StartCoroutine(flashEnemyDamage());
         if(HP <= 0)
@@ -58,11 +53,6 @@ public class enemyStats : MonoBehaviour, IDamage
         charModel.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         charModel.material.color = modelColor;
-    }
-
-    public void updateEnemyHPBar()
-    {
-        gameManager.instance.EnemyHPBar.fillAmount = (float)HP / (float)HPOrig;
     }
 
     void DropItems()
