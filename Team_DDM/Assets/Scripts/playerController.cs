@@ -15,10 +15,12 @@ public class playerController : MonoBehaviour
     [Range(1, 10)] [SerializeField] int HP;
     [SerializeField] float pushBackTime;
     [Header("----- Gun Attributes -----")]
-    [Range(0.1f, 2.5f)] [SerializeField] float shootRate;
-    [Range(1, 200)] [SerializeField] int shootDist;
-    [Range(1, 10)] [SerializeField] int shootDamage;
-    [SerializeField] int bulletSpeed;
+    [SerializeField] List<gunStats> gunList = new List<gunStats>();
+    [Range(0.1f, 5)] [SerializeField] float shootRate;
+    [Range(1, 100)] [SerializeField] int shootDist;
+    [Range(1, 20)] [SerializeField] int shootDamage;
+    [SerializeField] GameObject gunModel;
+    [SerializeField] float zoomMax;
 
     int jumpsCurrent;
     public int speedOrig;
@@ -26,6 +28,8 @@ public class playerController : MonoBehaviour
     bool isShooting;
     public bool isWallRun;
     public int wallRunSpeed;
+    int selectedGun;
+    float zoomOrig;
     Vector3 move;
     public Vector3 playerVelocity;
     Vector3 pushBack;
@@ -129,6 +133,18 @@ public class playerController : MonoBehaviour
     {
         gameManager.instance.playerHPBar.fillAmount = (float)HP / (float)HPOrig;
     }
+
+    public void gunPick(gunStats gunStat)
+    {
+        gunList.Add(gunStat);
+
+        shootRate = gunStat.fireRate;
+
+        gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat.gunModel.GetComponent<MeshFilter>().sharedMesh;
+        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
+
+    }
+
     public void pushBackDir(Vector3 dir)
     {
         Debug.Log("Push Back Go");
