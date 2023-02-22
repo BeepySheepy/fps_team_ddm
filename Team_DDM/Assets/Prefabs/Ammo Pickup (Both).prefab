@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6521278121679382966}
+  - component: {fileID: -5190193196081742333}
   - component: {fileID: 6521278121679382965}
   - component: {fileID: 6521278121679382964}
   - component: {fileID: 7406422201255628486}
@@ -16,7 +17,7 @@ GameObject:
   - component: {fileID: 6521278121679382963}
   - component: {fileID: 6521278121679382961}
   m_Layer: 0
-  m_Name: Ammo Pickup
+  m_Name: Ammo Pickup (Both)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,6 +38,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-5190193196081742333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6521278121679382960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 524f9e4b6f36f4b4eb41059c4ef38472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFire: 1
+  isIce: 1
 --- !u!33 &6521278121679382965
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -65,7 +80,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e11ebe0c5c20cbc4eba3c77810991741, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,8 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 524f9e4b6f36f4b4eb41059c4ef38472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunType: {fileID: 11400000, guid: 2964995c5a144da42b0d7e1c52dd4266, type: 2}
-  ammoAmount: 3
+  isFire: 0
+  isIce: 0
 --- !u!135 &6521278121679382962
 SphereCollider:
   m_ObjectHideFlags: 0

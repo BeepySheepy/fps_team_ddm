@@ -10,7 +10,7 @@ public class healthPickUp : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // add your stuffs
+            gameManager.instance.playerScript.giveHP(HP);
             Destroy(gameObject);
         }
     }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ammoPickUp : MonoBehaviour
 {
-    [SerializeField] gunStats gunType;
     [SerializeField] bool isFire;
     [SerializeField] bool isIce;
 
@@ -14,7 +13,12 @@ public class ammoPickUp : MonoBehaviour
         {
             if (isFire)
             {
-                gameManager.instance.
+                gameManager.instance.playerScript.setFireAmmo(4);
+            }
+            if (isIce)
+            {
+                gameManager.instance.playerScript.setFireAmmo(2);
+
             }
             Destroy(gameObject);
         }

@@ -248,4 +248,16 @@ public class playerController : MonoBehaviour
         Debug.Log("Push Back Go");
         pushBack += dir;
     }
+    public void setFireAmmo(int amt)
+    {
+        fireAmmoCt += amt;
+    }
+    public void seticeAmmo(int amt)
+    {
+        iceAmmoCt += amt;
+    }
+    public void giveHP(int amt)
+    {
+        HP += amt;
+    }
 }
