@@ -13,4 +13,5 @@ public class gunStats : ScriptableObject
     public int bulletSpeed;
     public float fireRate;
     public float reloadSpeed;
+    public bool spreadShot;
 }

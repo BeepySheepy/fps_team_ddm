@@ -26,6 +26,7 @@ public class playerController : MonoBehaviour
     public int speedOrig;
     public int gravOrig;
     bool isShooting;
+    bool isReloading;
     public bool isWallRun;
     public int wallRunSpeed;
     int selectedGun;
@@ -34,6 +35,8 @@ public class playerController : MonoBehaviour
     public Vector3 playerVelocity;
     int HPOrig;
     Vector3 pushBack;
+    int numShots;
+    bool isSpread;
 
 
     // Start is called before the first frame update
@@ -42,6 +45,8 @@ public class playerController : MonoBehaviour
         HPOrig = HP;
         gravOrig = gravity;
         speedOrig = playerSpeed;
+        numShots = 0;
+        isReloading = false;
     }
 
     // Update is called once per frame
@@ -49,8 +54,10 @@ public class playerController : MonoBehaviour
     {
         pushBack = Vector3.Lerp(pushBack, Vector3.zero, Time.deltaTime * pushBackTime);
         movement();
-        if (!isShooting && Input.GetButton("Shoot") && gunList.Count > 0)
+        selectGun();
+        if (!isShooting && !isReloading && Input.GetButton("Shoot") && gunList.Count > 0)
         {
+            Debug.Log("Update Func Working.");
             StartCoroutine(shoot());
         }
     }
@@ -88,21 +95,67 @@ public class playerController : MonoBehaviour
 
     IEnumerator shoot()
     {
-        isShooting = true;
-
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
+        Debug.Log("Enters IE");
+        if (numShots < gunList[selectedGun].clipSize)
         {
-            Debug.Log(hit.collider.name + " hit");
-            
-            if (hit.collider.GetComponent<IDamage>() != null)
+            Debug.Log("Enters if statement");
+            isShooting = true;
+
+            //RaycastHit hit;
+            //if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDist))
+            //{
+            //    Debug.Log(hit.collider.name + " hit");
+            //    
+            //    if (hit.collider.GetComponent<IDamage>() != null)
+            //    {
+            //        hit.collider.GetComponent<IDamage>().takeDamage(shootDamage);
+            //    }
+            //}
+
+            if (!isSpread)
             {
-                hit.collider.GetComponent<IDamage>().takeDamage(shootDamage);
+                Debug.Log("Enters NoSpread");
+                GameObject bulletClone = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
+                bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * gunList[selectedGun].bulletSpeed;
+                numShots++;
+                yield return new WaitForSeconds(shootRate);
+                isShooting = false;
+            }
+            else
+            {
+                Debug.Log("Enters Spread");
+                Quaternion spreadL = Quaternion.Euler(0f, -90, 0f);
+                Quaternion spreadR = Quaternion.Euler(0f, 90, 0f);
+                //Vector3 spreadR = new Vector3(gunList[selectedGun].bullet.transform.rotation.x, gunList[selectedGun].bullet.transform.rotation.y + 15, gunList[selectedGun].bullet.transform.rotation.z);
+                Debug.Log("Fired 1");
+                GameObject bulletClone1 = Instantiate(gunList[selectedGun].bullet, transform.position, spreadL);
+                bulletClone1.GetComponent<Rigidbody>().velocity = transform.forward * gunList[selectedGun].bulletSpeed;
+                Debug.Log("Fired 2");
+                GameObject bulletClone2 = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
+                bulletClone2.GetComponent<Rigidbody>().velocity = transform.forward * gunList[selectedGun].bulletSpeed;
+                Debug.Log("Fired 3");
+                GameObject bulletClone3 = Instantiate(gunList[selectedGun].bullet, transform.position, spreadR);
+                bulletClone3.GetComponent<Rigidbody>().velocity = transform.forward * gunList[selectedGun].bulletSpeed;
+
+
+
+                numShots++;
+                yield return new WaitForSeconds(shootRate);
+                isShooting = false;
             }
         }
+        else
+        {
+            StartCoroutine(reload());
+        }
+    }
 
-        yield return new WaitForSeconds(shootRate);
-        isShooting = false;
+    IEnumerator reload()
+    {
+        isReloading = true;
+        numShots = 0;
+        yield return new WaitForSeconds(gunList[selectedGun].reloadSpeed);
+        isReloading = false;
     }
 
     public void takeDamage(int dmg)
@@ -136,6 +189,7 @@ public class playerController : MonoBehaviour
         gunList.Add(gunStat);
 
         shootRate = gunStat.fireRate;
+        isSpread = gunStat.spreadShot;
 
         Debug.Log("Gun Model Set");
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat.gunModel.GetComponent<MeshFilter>().sharedMesh;
@@ -159,6 +213,7 @@ public class playerController : MonoBehaviour
     void changeGun()
     {
         shootRate = gunList[selectedGun].fireRate;
+        isSpread = gunList[selectedGun].spreadShot;
 
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
