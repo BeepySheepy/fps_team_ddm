@@ -5,22 +5,17 @@ using UnityEngine;
 public class bossStats : MonoBehaviour, IDamage
 {
     [SerializeField] int HP;
-    int HPOrig;
+    int hpOrig;
     [SerializeField] Renderer charModel;
     [SerializeField] GameObject gunToDrop;
     [SerializeField] GameObject ammoToDrop;
     [SerializeField] GameObject healthToDrop;
 
-    public GameObject bossAliveHP;
-
     // Start is called before the first frame update
     void Start()
     {
-        bossAliveHP.SetActive(true);
-
         gameManager.instance.updateGameGoal(1);
-        updateBossHPBar();
-        HPOrig = HP;
+        hpOrig = HP;
     }
 
     // Update is called once per frame
@@ -36,12 +31,10 @@ public class bossStats : MonoBehaviour, IDamage
     public void takeDamage(int dmg)
     {
         HP -= dmg;
-        updateBossHPBar();
         Debug.Log(this.gameObject.name + "took damage");
         StartCoroutine(flashEnemyDamage());
         if (HP <= 0)
         {
-            bossAliveHP.SetActive(false);
             gameManager.instance.updateGameGoal(-1);
             DropItems();
             Destroy(gameObject);// kill enemy
@@ -62,7 +55,7 @@ public class bossStats : MonoBehaviour, IDamage
 
     public void updateBossHPBar()
     {
-        gameManager.instance.BossHPBar.fillAmount = (float)HP / (float)HPOrig;
+        gameManager.instance.BossHPBar.fillAmount = (float)HP / (float)hpOrig;
     }
 
     void DropItems()

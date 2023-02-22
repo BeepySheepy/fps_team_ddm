@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8455800797167575617}
   - component: {fileID: 5656882399476584711}
-  - component: {fileID: 1638981933}
+  - component: {fileID: 4343599895785124353}
   - component: {fileID: -5545852707564603254}
   - component: {fileID: 8455800797167712511}
   - component: {fileID: 8455800797160377757}
@@ -90,9 +90,8 @@ MonoBehaviour:
   visionDistance: 50
   visionAngle: 50
   gun: {fileID: -5545852707564603254}
-  dropHP: 0
   permaAggro: 1
---- !u!114 &1638981933
+--- !u!114 &4343599895785124353
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,15 +100,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8455800797167681057}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c64f9e8b199f92e46859d80b4725e594, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a2d881143181b4488c673818e6f9340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 0
+  HP: 10
   charModel: {fileID: 8455800797164499805}
-  gunToDrop: {fileID: 0}
-  ammoToDrop: {fileID: 0}
-  healthToDrop: {fileID: 0}
-  bossAliveHP: {fileID: 0}
 --- !u!114 &-5545852707564603254
 MonoBehaviour:
   m_ObjectHideFlags: 0

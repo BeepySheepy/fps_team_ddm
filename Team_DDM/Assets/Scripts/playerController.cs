@@ -32,8 +32,8 @@ public class playerController : MonoBehaviour
     float zoomOrig;
     Vector3 move;
     public Vector3 playerVelocity;
-    Vector3 pushBack;
     int HPOrig;
+    Vector3 pushBack;
 
 
     // Start is called before the first frame update
@@ -47,9 +47,7 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         pushBack = Vector3.Lerp(pushBack, Vector3.zero, Time.deltaTime * pushBackTime);
-
         movement();
         if (!isShooting && Input.GetButton("Shoot"))
         {
