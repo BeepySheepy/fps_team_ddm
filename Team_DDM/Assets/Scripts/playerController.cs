@@ -48,14 +48,12 @@ public class playerController : MonoBehaviour
     int iceAmmoCt;
 
     int newGun;
-    int invincibleHP;
 
 
     // Start is called before the first frame update
     void Start()
     {
         HPOrig = HP;
-        invincibleHP = HP;
         gravOrig = gravity;
         speedOrig = playerSpeed;
         numShots = 0;
@@ -310,5 +308,9 @@ public class playerController : MonoBehaviour
         HP += amt;
     }
 
-    
+    public void setHP(int amt)
+    {
+        HP = amt;
+    }
+
 }

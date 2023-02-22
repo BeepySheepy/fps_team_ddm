@@ -6,11 +6,30 @@ using UnityEngine.UI;
 
 public class buttonFunction : MonoBehaviour
 {
+    bool isGod;
+    private void Start()
+    {
+        isGod = false;
+    }
+    private void Update()
+    {
+        godCheck();
+    }
     public void invincibilityOn()
     {
+        isGod = !isGod;
+        
     }
-    public void invincibilityOff()
+    public void godCheck()
     {
+        if (isGod)
+        {
+            gameManager.instance.playerScript.setHP(9999);
+        }
+        else
+        {
+            gameManager.instance.playerScript.setHP(8);
+        }
     }
     public void resume()
     {
