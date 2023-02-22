@@ -35,26 +35,30 @@ public class enemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        anim.SetFloat("Speed", navMesh.velocity.normalized.magnitude);
-
-        playerDirection = gameManager.instance.player.transform.position - headPos.position;// creates a vector between the player and the enemy
-        if (playerInRange || playerInVisualRange() || permaAggro)
+        if (navMesh.isActiveAndEnabled)
         {
-            navMesh.SetDestination(gameManager.instance.player.transform.position);// sets enemy destination as the player
-            if (navMesh.remainingDistance < navMesh.stoppingDistance)// enemy is closer than nav mesh stopping distance
-            {
-                facePlayer();
-            }
+            anim.SetFloat("Speed", navMesh.velocity.normalized.magnitude);
 
-            // gun stuff
-            if(!gun.IsShooting() && gun.GetBulletsInClip() != 0)
+            playerDirection = gameManager.instance.player.transform.position - headPos.position;// creates a vector between the player and the enemy
+            if (playerInRange || playerInVisualRange() || permaAggro)
             {
-                Debug.Log("Enemy Shooting");
-                gun.shootInterface(playerDirection);
-            }else if(!gun.IsShooting() && !gun.IsReloading() && gun.GetBulletsInClip() == 0)// reload
-            {
-                Debug.Log("Enemy Reloading");
-                gun.Reload();
+                navMesh.SetDestination(gameManager.instance.player.transform.position);// sets enemy destination as the player
+                if (navMesh.remainingDistance < navMesh.stoppingDistance)// enemy is closer than nav mesh stopping distance
+                {
+                    facePlayer();
+                }
+
+                // gun stuff
+                if (!gun.IsShooting() && gun.GetBulletsInClip() != 0)
+                {
+                    Debug.Log("Enemy Shooting");
+                    gun.shootInterface(playerDirection);
+                }
+                else if (!gun.IsShooting() && !gun.IsReloading() && gun.GetBulletsInClip() == 0)// reload
+                {
+                    Debug.Log("Enemy Reloading");
+                    gun.Reload();
+                }
             }
         }
     }
