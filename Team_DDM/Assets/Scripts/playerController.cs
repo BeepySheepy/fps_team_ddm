@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class playerController : MonoBehaviour
@@ -21,6 +22,11 @@ public class playerController : MonoBehaviour
     [Range(1, 20)] [SerializeField] int shootDamage;
     [SerializeField] GameObject gunModel;
     [SerializeField] float zoomMax;
+    [Header("---- Gun Icons ----")]
+    public GameObject pistolIcon;
+    public GameObject shotgunIcon;
+    public GameObject sniperIcon;
+    //GameObject ammoEconomy;
 
     int jumpsCurrent;
     public int speedOrig;
@@ -195,6 +201,8 @@ public class playerController : MonoBehaviour
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat.gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
 
+        //gunIconIndicator(gunList.Capacity);
+
     }
     void selectGun()
     {
@@ -202,11 +210,13 @@ public class playerController : MonoBehaviour
         {
             selectedGun++;
             changeGun();
+            gunIconIndicator(selectedGun);
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
         {
             selectedGun--;
             changeGun();
+            gunIconIndicator(selectedGun);
         }
     }
 
@@ -218,6 +228,38 @@ public class playerController : MonoBehaviour
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
     }
+
+    void gunIconIndicator(int selected)
+    {
+
+        switch (selectedGun)
+        {
+            case 0:
+                pistolIcon.SetActive(true);
+                shotgunIcon.SetActive(false);
+                sniperIcon.SetActive(false);
+                //gameEconomy.SetActive(false);
+                break;
+            case 1:
+                pistolIcon.SetActive(false);
+                shotgunIcon.SetActive(true);
+                sniperIcon.SetActive(false);
+                //gameEconomy.SetActive(true);
+                break;
+            case 2:
+                pistolIcon.SetActive(false);
+                shotgunIcon.SetActive(false);
+                sniperIcon.SetActive(true);
+                //gameEconomy.SetActive(true);
+                break;
+
+        }
+    }
+
+    //void ammoUpdater(int chamber, int allBullets)
+    //{
+
+    //}
 
     public void pushBackDir(Vector3 dir)
     {
