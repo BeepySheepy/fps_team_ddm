@@ -6,10 +6,11 @@ using UnityEngine;
 
 public class gunStats : ScriptableObject
 {
-    public int clipSize;
+    public Transform shootPos;
     public GameObject bullet;
+    public GameObject gunModel;
+    public int clipSize;
     public int bulletSpeed;
     public float fireRate;
     public float reloadSpeed;
-    public Transform shootPos;
 }

@@ -93,7 +93,6 @@ public class gameManager : MonoBehaviour
         if (BossesRemaining <= 0)
         {
             paused();
-            //add Text that says new weapon is unlocked
             activeMenu = winMenu;
             activeMenu.SetActive(true);
         }

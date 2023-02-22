@@ -160,10 +160,13 @@ MonoBehaviour:
   jumpSpeed: 12
   gravity: 20
   HP: 5
+  pushBackTime: 1
+  gunList: []
   shootRate: 0.25
   shootDist: 12
   shootDamage: 1
-  bulletSpeed: 1
+  gunModel: {fileID: 0}
+  zoomMax: 0
   speedOrig: 0
   gravOrig: 0
   isWallRun: 0
@@ -188,7 +191,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   wrSpeed: 8
-  wallDist: 0.7
+  wallDist: 2
   groundDist: 0.7
   exitTimer: 1.5
   dir: {fileID: 7275675507620032367}
