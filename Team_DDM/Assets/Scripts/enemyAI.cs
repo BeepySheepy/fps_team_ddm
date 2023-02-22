@@ -17,21 +17,26 @@ public class enemyAI : MonoBehaviour
     [SerializeField] int dropHP;
 
     [SerializeField] bool permaAggro;
+    [SerializeField] int enemyTypeID;
 
 
     bool playerInRange;// bool if the player is within the range of detection of the enemy
     Vector3 playerDirection;
     float angleTowardsPlayer;
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         gun.SetShootPos(headPos);
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        anim.SetFloat("Speed", navMesh.velocity.normalized.magnitude);
+
         playerDirection = gameManager.instance.player.transform.position - headPos.position;// creates a vector between the player and the enemy
         if (playerInRange || playerInVisualRange() || permaAggro)
         {
@@ -114,5 +119,8 @@ public class enemyAI : MonoBehaviour
         return false;// player not close enough to see
     }
 
-    
+    public int GetEnemyTypeID()
+    {
+        return enemyTypeID;
+    }
 }

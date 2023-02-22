@@ -11,7 +11,13 @@ public class gunScript : MonoBehaviour
     bool isShooting;
     Vector3 shootDirection;
     int bulletsInClip;
-    
+    Animator anim;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     /// <summary>
     /// basic gun setter
     /// </summary>
@@ -24,6 +30,20 @@ public class gunScript : MonoBehaviour
     IEnumerator shoot()
     {
         isShooting = true;
+        if (anim != null)
+        {
+            anim.SetTrigger("Hit");
+        }
+        else
+        {
+            createBullet();
+        }
+        yield return new WaitForSeconds(mGun.fireRate);
+        isShooting = false;
+    }
+
+    void createBullet()
+    {
         GameObject bulletClone = Instantiate(mGun.bullet, mGun.shootPos.position, mGun.bullet.transform.rotation);// create bullet
         if (autoLockOnPlayer)//  locks onto Player
         {
@@ -33,8 +53,6 @@ public class gunScript : MonoBehaviour
         {
             bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * mGun.bulletSpeed;
         }
-        yield return new WaitForSeconds(mGun.fireRate);
-        isShooting = false;
     }
     /// <summary>
     /// interface for the IEnumerator(IEnumerators can't pass in parameters)
