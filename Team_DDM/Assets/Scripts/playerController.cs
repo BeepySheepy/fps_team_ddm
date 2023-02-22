@@ -303,6 +303,14 @@ public class playerController : MonoBehaviour
     {
         iceAmmoCt += amt;
     }
+    public int getFireAmmo()
+    {
+        return fireAmmoCt;
+    }
+    public int geticeAmmo()
+    {
+        return iceAmmoCt;
+    }
     public void giveHP(int amt)
     {
         HP += amt;
