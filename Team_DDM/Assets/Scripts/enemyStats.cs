@@ -4,7 +4,7 @@ using UnityEngine;
 
 enum enemies
 {
-    beeRange = 0, beeAttacker, spider
+    beeRange = 0, beeAttacker, spider, zombie, zombieSoldier, titan
 }
 
 public class enemyStats : MonoBehaviour, IDamage
