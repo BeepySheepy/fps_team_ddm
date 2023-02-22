@@ -9,7 +9,7 @@ public class gunPickUp : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")){
-            // call Player PickUp
+            gameManager.instance.playerScript.gunPick(gun);
             Destroy(gameObject);
         }
     }
