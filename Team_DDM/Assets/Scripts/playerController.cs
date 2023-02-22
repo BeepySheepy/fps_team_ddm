@@ -44,6 +44,9 @@ public class playerController : MonoBehaviour
     int numShots;
     bool isSpread;
 
+    int fireAmmoCt;
+    int iceAmmoCt;
+
     int newGun;
     int invincibleHP;
 
@@ -57,6 +60,8 @@ public class playerController : MonoBehaviour
         speedOrig = playerSpeed;
         numShots = 0;
         isReloading = false;
+        fireAmmoCt = 0;
+        iceAmmoCt = 0;
         newGun = -1;
     }
 
@@ -126,30 +131,38 @@ public class playerController : MonoBehaviour
 
             if (!isSpread)
             {
-                Debug.Log("Enters NoSpread");
-                GameObject bulletClone = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
-                bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * gunList[selectedGun].bulletSpeed;
-                numShots++;
-                yield return new WaitForSeconds(shootRate);
-                isShooting = false;
+                if (gunList[selectedGun].name == ("DefaultPistol") || (gunList[selectedGun].name == ("IceSniper") && iceAmmoCt > 0))
+                {
+                    //Debug.Log("Enters NoSpread");
+                    GameObject bulletClone = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
+                    bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * gunList[selectedGun].bulletSpeed;
+                    numShots++;
+                    yield return new WaitForSeconds(shootRate);
+                    isShooting = false;
+                }
             }
             else
             {
-                Debug.Log("Enters Spread");
+                //Debug.Log("Enters Spread");
                 //Quaternion spreadL = Quaternion.Euler(0f, -90, 0f);
                 //Quaternion spreadR = Quaternion.Euler(0f, 90, 0f);
-                
-                Vector3 spreadL = new Vector3(gunModel.transform.forward.x, gunModel.transform.forward.y, gunModel.transform.position.z + 1);
-                Vector3 spreadR = new Vector3(gunModel.transform.forward.x, gunModel.transform.forward.y, gunModel.transform.position.z - 1);
-                Debug.Log("Fired 1");
-                GameObject bulletClone1 = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
-                bulletClone1.GetComponent<Rigidbody>().velocity = spreadL * gunList[selectedGun].bulletSpeed;
-                Debug.Log("Fired 2");
-                GameObject bulletClone2 = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
-                bulletClone2.GetComponent<Rigidbody>().velocity = gunModel.transform.forward * gunList[selectedGun].bulletSpeed;
-                Debug.Log("Fired 3");
-                GameObject bulletClone3 = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
-                bulletClone3.GetComponent<Rigidbody>().velocity = spreadR * gunList[selectedGun].bulletSpeed;
+
+                if (gunList[selectedGun].name == ("FireShotgun") && fireAmmoCt > 0)
+                {
+                    Vector3 spreadL = new Vector3(gunModel.transform.forward.x, gunModel.transform.forward.y, gunModel.transform.position.z + 1);
+                    Vector3 spreadR = new Vector3(gunModel.transform.forward.x, gunModel.transform.forward.y, gunModel.transform.position.z - 1);
+                    Debug.Log("Fired 1");
+                    GameObject bulletClone1 = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
+                    bulletClone1.GetComponent<Rigidbody>().velocity = spreadL * gunList[selectedGun].bulletSpeed;
+                    Debug.Log("Fired 2");
+                    GameObject bulletClone2 = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
+                    bulletClone2.GetComponent<Rigidbody>().velocity = gunModel.transform.forward * gunList[selectedGun].bulletSpeed;
+                    Debug.Log("Fired 3");
+                    GameObject bulletClone3 = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
+                    bulletClone3.GetComponent<Rigidbody>().velocity = spreadR * gunList[selectedGun].bulletSpeed;
+
+                    fireAmmoCt--;
+                }
 
 
 
@@ -208,6 +221,15 @@ public class playerController : MonoBehaviour
         Debug.Log("Gun Model Set");
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat.gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
+
+        if(gunList[selectedGun].name == ("FireShotgun"))
+        {
+            fireAmmoCt = 4;
+        }
+        if(gunList[selectedGun].name == ("IceSniper"))
+        {
+            iceAmmoCt = 2;
+        }
 
         newGun++;
         gunIconIndicator(newGun);
@@ -274,6 +296,18 @@ public class playerController : MonoBehaviour
     {
         Debug.Log("Push Back Go");
         pushBack += dir;
+    }
+    public void setFireAmmo(int amt)
+    {
+        fireAmmoCt += amt;
+    }
+    public void seticeAmmo(int amt)
+    {
+        iceAmmoCt += amt;
+    }
+    public void giveHP(int amt)
+    {
+        HP += amt;
     }
 
     

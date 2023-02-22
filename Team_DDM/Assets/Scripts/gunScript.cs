@@ -32,7 +32,7 @@ public class gunScript : MonoBehaviour
         isShooting = true;
         if (anim != null)
         {
-            anim.SetTrigger("Hit");
+            anim.SetTrigger("Shoot");
         }
         else
         {
@@ -44,7 +44,7 @@ public class gunScript : MonoBehaviour
 
     void createBullet()
     {
-        GameObject bulletClone = Instantiate(mGun.bullet, transform.position, mGun.bullet.transform.rotation);// create bullet
+        GameObject bulletClone = Instantiate(mGun.bullet, mGun.shootPos.position, mGun.bullet.transform.rotation);// create bullet
         if (autoLockOnPlayer)//  locks onto Player
         {
             bulletClone.GetComponent<Rigidbody>().velocity = shootDirection * mGun.bulletSpeed;
