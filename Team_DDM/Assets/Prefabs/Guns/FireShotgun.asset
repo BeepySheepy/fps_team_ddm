@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: FireShotgun
   m_EditorClassIdentifier: 
   shootPos: {fileID: 0}
-  bullet: {fileID: 0}
+  bullet: {fileID: 5739028856967349286, guid: 123119d9e4a9c384682d2c17ca67dcc6, type: 3}
   gunModel: {fileID: 0}
-  clipSize: 0
-  bulletSpeed: 0
-  fireRate: 0
-  reloadSpeed: 0
+  clipSize: 2
+  bulletSpeed: 10
+  fireRate: 1.5
+  reloadSpeed: 2
