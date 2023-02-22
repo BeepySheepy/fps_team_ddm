@@ -5,13 +5,17 @@ using UnityEngine;
 public class ammoPickUp : MonoBehaviour
 {
     [SerializeField] gunStats gunType;
-    [SerializeField] int ammoAmount;
+    [SerializeField] bool isFire;
+    [SerializeField] bool isIce;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            // add health to player
+            if (isFire)
+            {
+                gameManager.instance.
+            }
             Destroy(gameObject);
         }
     }
