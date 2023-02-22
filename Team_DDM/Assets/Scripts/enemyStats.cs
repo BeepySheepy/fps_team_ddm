@@ -6,6 +6,7 @@ public class enemyStats : MonoBehaviour, IDamage
 {
 
     [SerializeField] int HP;
+    int HPOrig;
     [SerializeField] Renderer charModel;
     [SerializeField] GameObject gunToDrop;
     [SerializeField] GameObject ammoToDrop;
@@ -14,7 +15,8 @@ public class enemyStats : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
-            gameManager.instance.RoomFinished(1);
+        gameManager.instance.RoomFinished(1);
+        HPOrig = HP;
     }
 
     // Update is called once per frame

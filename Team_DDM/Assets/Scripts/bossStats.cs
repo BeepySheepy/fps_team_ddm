@@ -11,10 +11,14 @@ public class bossStats : MonoBehaviour, IDamage
     [SerializeField] GameObject ammoToDrop;
     [SerializeField] GameObject healthToDrop;
 
+    public GameObject BossAliveHP;
+
     // Start is called before the first frame update
     void Start()
     {
+        BossAliveHP.SetActive(true);
         gameManager.instance.updateGameGoal(1);
+        updateBossHPBar();
         hpOrig = HP;
     }
 
@@ -31,10 +35,12 @@ public class bossStats : MonoBehaviour, IDamage
     public void takeDamage(int dmg)
     {
         HP -= dmg;
+        updateBossHPBar();
         Debug.Log(this.gameObject.name + "took damage");
         StartCoroutine(flashEnemyDamage());
         if (HP <= 0)
         {
+            BossAliveHP.SetActive(true);
             gameManager.instance.updateGameGoal(-1);
             DropItems();
             Destroy(gameObject);// kill enemy
