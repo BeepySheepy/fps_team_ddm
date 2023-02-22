@@ -575,7 +575,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sorry You Lost
+  m_text: Game Over
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -848,9 +848,11 @@ MonoBehaviour:
   winMenu: {fileID: 3078863996347877027}
   loseMenu: {fileID: 3078863994248216130}
   playerHPBar: {fileID: 3078863995682756865}
+  BossHPBar: {fileID: 0}
   playerDamageFlasher: {fileID: 3078863996365512115}
   enemiesRemaining: 0
   enemiesRemainingText: {fileID: 3078863994890282097}
+  BossesRemaining: 0
 --- !u!1 &3078863994532823143
 GameObject:
   m_ObjectHideFlags: 0
@@ -3060,7 +3062,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Congrats You Won!!!
+  m_text: Level Complete!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
