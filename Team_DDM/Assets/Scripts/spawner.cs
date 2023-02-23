@@ -13,6 +13,7 @@ public class spawner : MonoBehaviour
     [SerializeField] Transform[] doorPos;
     [SerializeField] GameObject doorObj;
     [SerializeField] bool stopSpawnWhenExitSpawner;
+    [SerializeField] bool isBoss;
 
     [SerializeField] GameObject[] doors = new GameObject[10];
     GameObject obj;

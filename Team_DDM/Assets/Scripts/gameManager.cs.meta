@@ -3,7 +3,24 @@ guid: 253d55492d4c3d34a9fc2603936f9f5e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - player: {instanceID: 0}
+  - playerScript: {instanceID: 0}
+  - pauseMenu: {instanceID: 0}
+  - activeMenu: {instanceID: 0}
+  - winMenu: {instanceID: 0}
+  - loseMenu: {instanceID: 0}
+  - playerHPBar: {instanceID: 0}
+  - BossHPBar: {instanceID: 0}
+  - playerDamageFlasher: {instanceID: 0}
+  - enemiesRemainingText: {instanceID: 0}
+  - ammoEconomyF: {instanceID: 0}
+  - ammoEconomyI: {instanceID: 0}
+  - shotgunSpot: {instanceID: 0}
+  - shotgunPickup: {instanceID: 0}
+  - sniperSpot: {instanceID: 0}
+  - sniperPickup: {instanceID: 0}
+  - Realoading: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

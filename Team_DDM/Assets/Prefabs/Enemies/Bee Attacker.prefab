@@ -704,8 +704,8 @@ MonoBehaviour:
   HP: 3
   charModel: {fileID: 2785143888131459757}
   gunToDrop: {fileID: 0}
-  ammoToDrop: {fileID: 0}
-  healthToDrop: {fileID: 0}
+  ammoToDrop: {fileID: 6521278121679382960, guid: 90e9c77c45601f743a097380c1b0bc6a, type: 3}
+  healthToDrop: {fileID: 8299478468419812798, guid: 1dcbeda09fd3e6d46b6b1aee614d07a3, type: 3}
 --- !u!114 &8514673147778497885
 MonoBehaviour:
   m_ObjectHideFlags: 0

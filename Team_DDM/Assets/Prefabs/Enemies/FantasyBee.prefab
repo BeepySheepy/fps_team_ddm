@@ -665,14 +665,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navMesh: {fileID: 5401296367714568739}
-  headPos: {fileID: 1115369710427265002}
+  headPos: {fileID: 0}
   enemyTurnSpeed: 3
-  anim: {fileID: 2785143888127259757}
   visionDistance: 30.4
   visionAngle: 40.5
   gun: {fileID: 8514673147778497885}
-  dropHP: 0
+  dropHP: 1
+  meleeTimer: 0
   permaAggro: 1
+  enemyTypeID: 0
 --- !u!114 &542213546057887246
 MonoBehaviour:
   m_ObjectHideFlags: 0

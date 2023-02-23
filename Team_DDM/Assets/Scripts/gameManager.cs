@@ -33,8 +33,14 @@ public class gameManager : MonoBehaviour
     [Header("---- Ammo ----")]
     [SerializeField] TextMeshProUGUI ammoEconomyF;
     [SerializeField] TextMeshProUGUI ammoEconomyI;
+
+    [Header("---- Gun Spawns ----")]
+    [SerializeField] GameObject shotgunSpot;
+    [SerializeField] GameObject shotgunPickup;
+    [SerializeField] GameObject sniperSpot;
+    [SerializeField] GameObject sniperPickup;
     public GameObject Realoading;
-    int gunSelected;
+    int gunSpawn;
     public int BossesRemaining;
 
     spawner spawn;
@@ -46,6 +52,11 @@ public class gameManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<playerController>();
         spawn = GetComponent<spawner>();
+        shotgunSpot = GameObject.Find("ShotgunSpawn");
+        shotgunPickup = GameObject.Find("Gun - Shotgun");
+        sniperSpot = GameObject.Find("SniperSpawn");
+        sniperPickup = GameObject.Find("Gun - Sniper");
+        gunSpawn = 0;
     }
 
     // Update is called once per frame
@@ -91,16 +102,33 @@ public class gameManager : MonoBehaviour
         enemiesRemainingText.text = enemiesRemaining.ToString("F0");
         if (enemiesRemaining <= 0)
         {
+            gunSpawn++;
             //Debug.Log("Should end.");
             //for (int i = 0; i < spawn.getDoors().Length; i++)
             //{
             //    //Destroy(spawn.getDoors()[i]);
             //    //spawn.getDoors()[i].GetComponent<door>().turnOff();
             //}
-            Debug.Log("Doors About to be Destroyed!");
-            Destroy(GameObject.FindWithTag("Door"));
-            Debug.Log("Doors Destroyed!");
-            Destroy(GameObject.FindWithTag("Spawner"));
+            //Destroy(GameObject.FindWithTag("Door"));
+            //Destroy(GameObject.FindWithTag("Spawner"));
+            shotgunSpot = GameObject.Find("ShotgunSpawn");
+            shotgunPickup = GameObject.Find("Gun - Shotgun");
+            sniperSpot = GameObject.Find("SniperSpawn");
+            sniperPickup = GameObject.Find("Gun - Sniper");
+            if (gunSpawn == 1)
+            {
+                Instantiate(shotgunPickup, shotgunSpot.transform.position, shotgunSpot.transform.rotation);
+
+            }
+            else if (gunSpawn == 2)
+            {
+                Instantiate(sniperPickup, sniperSpot.transform.position, sniperSpot.transform.rotation);
+
+            }
+            else
+            {
+                updateGameGoal(-10);
+            }
         }
     }
 

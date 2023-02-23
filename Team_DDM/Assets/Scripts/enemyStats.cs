@@ -45,7 +45,7 @@ public class enemyStats : MonoBehaviour, IDamage
     {
         HP -= dmg;
         Debug.Log(this.gameObject.name + "took damage");
-        aiScript.GetHeadPos().gameObject.GetComponent<Collider>().enabled = false;
+        //aiScript.GetHeadPos().gameObject.GetComponent<Collider>().enabled = false;
         if (HP <= 0)
         {
             gameManager.instance.RoomFinished(-1);
