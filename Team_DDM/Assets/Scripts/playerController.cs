@@ -17,7 +17,7 @@ public class playerController : MonoBehaviour
     [Range(1, 10)] [SerializeField] int HP;
     [SerializeField] float pushBackTime;
     [Header("----- Gun Attributes -----")]
-    [SerializeField] List<gunStats> gunList = new List<gunStats>();
+    [SerializeField] public List<gunStats> gunList = new List<gunStats>();
     [Range(0.1f, 5)] [SerializeField] float shootRate;
     [Range(1, 100)] [SerializeField] int shootDist;
     [Range(1, 20)] [SerializeField] int shootDamage;
@@ -130,27 +130,35 @@ public class playerController : MonoBehaviour
 
             if (!isSpread)
             {
-                if (gunList[selectedGun].name == ("DefaultPistol") || (gunList[selectedGun].name == ("IceSniper") && iceAmmoCt > 0))
+                if (selectedGun == 0)
                 {
                     GameObject bulletClone = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
                     bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * gunList[selectedGun].bulletSpeed;
                     numShots++;
-                    if (gunList[selectedGun].name == ("IceSniper"))
-                    {
-                        iceAmmoCt--;
-                    }
                     yield return new WaitForSeconds(shootRate);
                     isShooting = false;
                 }
+                else if (selectedGun == 2 && iceAmmoCt > 0)
+                {
+                    Debug.Log("Fire Shot");
+                    GameObject bulletClone = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
+                    bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * gunList[selectedGun].bulletSpeed;
+                    numShots++;
+                    setIceAmmo(-1);
+                    yield return new WaitForSeconds(shootRate);
+                    isShooting = false;
+                }
+
             }
             else
             {
-                //Debug.Log("Enters Spread");
+                Debug.Log("Enters Spread");
                 //Quaternion spreadL = Quaternion.Euler(0f, -90, 0f);
                 //Quaternion spreadR = Quaternion.Euler(0f, 90, 0f);
-
-                if (gunList[selectedGun].name == ("FireShotgun") && fireAmmoCt > 0)
+                
+                if ( fireAmmoCt > 0)
                 {
+                    Debug.Log("Fire Shot");
                     Vector3 spreadL = new Vector3(gunModel.transform.forward.x, gunModel.transform.forward.y, gunModel.transform.position.z + 1);
                     Vector3 spreadR = new Vector3(gunModel.transform.forward.x, gunModel.transform.forward.y, gunModel.transform.position.z - 1);
                     Debug.Log("Fired 1");
@@ -163,7 +171,7 @@ public class playerController : MonoBehaviour
                     GameObject bulletClone3 = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
                     bulletClone3.GetComponent<Rigidbody>().velocity = spreadR * gunList[selectedGun].bulletSpeed;
 
-                    fireAmmoCt--;
+                    setFireAmmo(-1);
                 }
 
 
@@ -183,8 +191,10 @@ public class playerController : MonoBehaviour
     {
         isReloading = true;
         numShots = 0;
+        gameManager.instance.reloadDisplay(true);
         yield return new WaitForSeconds(gunList[selectedGun].reloadSpeed);
         isReloading = false;
+        gameManager.instance.reloadDisplay(false);
     }
 
     public void takeDamage(int dmg)
@@ -223,11 +233,11 @@ public class playerController : MonoBehaviour
         Debug.Log("Gun Model Set");
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat.gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
-        if (gunList[selectedGun].name == ("FireShotgun"))
+        if (selectedGun == 1)
         {
             setFireAmmo(4);
         }
-        if (gunList[selectedGun].name == ("IceSniper"))
+        else if (selectedGun == 2)
         {
             setIceAmmo(2);
         }
@@ -241,12 +251,14 @@ public class playerController : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < gunList.Count - 1)
         {
             selectedGun++;
+            Debug.Log(selectedGun);
             changeGun();
             gunIconIndicator(selectedGun);
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
         {
             selectedGun--;
+            Debug.Log(selectedGun);
             changeGun();
             gunIconIndicator(selectedGun);
         }
@@ -305,6 +317,10 @@ public class playerController : MonoBehaviour
     public int geticeAmmo()
     {
         return iceAmmoCt;
+    }
+    public int getSelectedGun()
+    {
+        return selectedGun;
     }
     public void giveHP(int amt)
     {

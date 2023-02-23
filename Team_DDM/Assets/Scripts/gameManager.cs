@@ -24,7 +24,6 @@ public class gameManager : MonoBehaviour
     [Header("---- Health ----")]
     public Image playerHPBar;
     public Image BossHPBar;
-    public Image EnemyHPBar;
     public GameObject playerDamageFlasher;
 
     [Header("--- Enemies ----")]
@@ -34,6 +33,8 @@ public class gameManager : MonoBehaviour
     [Header("---- Ammo ----")]
     [SerializeField] TextMeshProUGUI ammoEconomyF;
     [SerializeField] TextMeshProUGUI ammoEconomyI;
+    public GameObject Realoading;
+    int gunSelected;
     public int BossesRemaining;
 
     // Start is called before the first frame update
@@ -114,6 +115,17 @@ public class gameManager : MonoBehaviour
         ammoEconomyI.text = amount.ToString("F0");
     }
 
+    public void reloadDisplay(bool reloading)
+    {
+        if (reloading == true)
+        {
+            Realoading.SetActive(true);
+        }
+        else
+        {
+            Realoading.SetActive(false);
+        }
+    }
 
     public void playerDead()
     {

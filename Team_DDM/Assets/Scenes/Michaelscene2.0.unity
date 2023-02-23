@@ -448,63 +448,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90e9c77c45601f743a097380c1b0bc6a, type: 3}
---- !u!1001 &785353733
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8206047395071623920, guid: 69bd696669b3e244d9babf7a13a7eafd, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8206047395071623920, guid: 69bd696669b3e244d9babf7a13a7eafd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 7.7290497
-      objectReference: {fileID: 0}
-    - target: {fileID: 8206047395071623920, guid: 69bd696669b3e244d9babf7a13a7eafd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.741553
-      objectReference: {fileID: 0}
-    - target: {fileID: 8206047395071623920, guid: 69bd696669b3e244d9babf7a13a7eafd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -6.4044733
-      objectReference: {fileID: 0}
-    - target: {fileID: 8206047395071623920, guid: 69bd696669b3e244d9babf7a13a7eafd, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8206047395071623920, guid: 69bd696669b3e244d9babf7a13a7eafd, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8206047395071623920, guid: 69bd696669b3e244d9babf7a13a7eafd, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8206047395071623920, guid: 69bd696669b3e244d9babf7a13a7eafd, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8206047395071623920, guid: 69bd696669b3e244d9babf7a13a7eafd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8206047395071623920, guid: 69bd696669b3e244d9babf7a13a7eafd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8206047395071623920, guid: 69bd696669b3e244d9babf7a13a7eafd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8838996018603481162, guid: 69bd696669b3e244d9babf7a13a7eafd, type: 3}
-      propertyPath: m_Name
-      value: Gun - Sniper
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 69bd696669b3e244d9babf7a13a7eafd, type: 3}
 --- !u!1 &998799678
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,6 +599,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be3f787aac33c9d45972727c95595dd7, type: 3}
+--- !u!1001 &1190072124
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8206047395071623920, guid: 69bd696669b3e244d9babf7a13a7eafd, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206047395071623920, guid: 69bd696669b3e244d9babf7a13a7eafd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206047395071623920, guid: 69bd696669b3e244d9babf7a13a7eafd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206047395071623920, guid: 69bd696669b3e244d9babf7a13a7eafd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206047395071623920, guid: 69bd696669b3e244d9babf7a13a7eafd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206047395071623920, guid: 69bd696669b3e244d9babf7a13a7eafd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206047395071623920, guid: 69bd696669b3e244d9babf7a13a7eafd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206047395071623920, guid: 69bd696669b3e244d9babf7a13a7eafd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206047395071623920, guid: 69bd696669b3e244d9babf7a13a7eafd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206047395071623920, guid: 69bd696669b3e244d9babf7a13a7eafd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206047395071623920, guid: 69bd696669b3e244d9babf7a13a7eafd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8838996018603481162, guid: 69bd696669b3e244d9babf7a13a7eafd, type: 3}
+      propertyPath: m_Name
+      value: Gun - Sniper
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 69bd696669b3e244d9babf7a13a7eafd, type: 3}
 --- !u!1 &1662090209 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2111545361761158793, guid: a12ccc7a16e23e445a5d8b198634163b, type: 3}
@@ -671,6 +671,10 @@ PrefabInstance:
     - target: {fileID: 7275675507620032341, guid: da32cd2dd8605f04f8126206bd6ccc7d, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7275675507620032360, guid: da32cd2dd8605f04f8126206bd6ccc7d, type: 3}
+      propertyPath: Realoader
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7275675507620032360, guid: da32cd2dd8605f04f8126206bd6ccc7d, type: 3}
       propertyPath: pistolIcon
