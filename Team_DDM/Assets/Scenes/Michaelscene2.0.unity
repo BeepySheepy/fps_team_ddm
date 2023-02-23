@@ -673,10 +673,6 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7275675507620032360, guid: da32cd2dd8605f04f8126206bd6ccc7d, type: 3}
-      propertyPath: Realoader
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7275675507620032360, guid: da32cd2dd8605f04f8126206bd6ccc7d, type: 3}
       propertyPath: pistolIcon
       value: 
       objectReference: {fileID: 1662090209}
