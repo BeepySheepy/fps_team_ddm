@@ -20,6 +20,7 @@ public class enemyStats : MonoBehaviour, IDamage
     enemyAI aiScript;
     Animator anim;
     int enemyTypeID;
+    CapsuleCollider collider;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,7 @@ public class enemyStats : MonoBehaviour, IDamage
         anim = GetComponent<Animator>();
         aiScript = GetComponent<enemyAI>();
         enemyTypeID = aiScript.GetEnemyTypeID();
+        collider = GetComponent<CapsuleCollider>();
     }
 
 
@@ -52,6 +54,8 @@ public class enemyStats : MonoBehaviour, IDamage
             else
             {
                 anim.SetBool("Dead", true);
+                aiScript.TurnOffNavMesh();
+                collider.enabled = false;
             }
         }
         else
