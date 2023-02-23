@@ -4053,7 +4053,7 @@ MonoBehaviour:
   enemiesRemainingText: {fileID: 5980249562481083905}
   ammoEconomyF: {fileID: 2258659177650488218}
   ammoEconomyI: {fileID: 8662360162993221179}
-  Realoader: {fileID: 9086645545931167922}
+  Realoading: {fileID: 9086645545931167922}
   BossesRemaining: 0
 --- !u!1 &6007297960969286030
 GameObject:

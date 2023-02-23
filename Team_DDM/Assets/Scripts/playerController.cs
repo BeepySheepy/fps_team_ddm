@@ -62,6 +62,7 @@ public class playerController : MonoBehaviour
         fireAmmoCt = 0;
         iceAmmoCt = 0;
         newGun = -1;
+
     }
 
     // Update is called once per frame
@@ -233,16 +234,16 @@ public class playerController : MonoBehaviour
         Debug.Log("Gun Model Set");
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat.gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
-        if (selectedGun == 1)
+        newGun++;
+
+        if (newGun == 1)
         {
             setFireAmmo(4);
         }
-        else if (selectedGun == 2)
+        else if (newGun == 2)
         {
             setIceAmmo(2);
         }
-
-        newGun++;
         gunIconIndicator(newGun);
 
     }
