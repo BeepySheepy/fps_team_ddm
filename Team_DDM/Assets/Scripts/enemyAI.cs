@@ -127,4 +127,9 @@ public class enemyAI : MonoBehaviour
     {
         return enemyTypeID;
     }
+
+    public void TurnOffNavMesh()
+    {
+        navMesh.enabled = false;
+    }
 }
