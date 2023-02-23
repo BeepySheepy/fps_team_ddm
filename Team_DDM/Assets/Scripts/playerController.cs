@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.Rendering;
 using UnityEngine;
 
@@ -22,11 +23,11 @@ public class playerController : MonoBehaviour
     [Range(1, 20)] [SerializeField] int shootDamage;
     [SerializeField] GameObject gunModel;
     [SerializeField] float zoomMax;
+
     [Header("---- Gun Icons ----")]
     public GameObject pistolIcon;
     public GameObject shotgunIcon;
     public GameObject sniperIcon;
-    //GameObject ammoEconomy;
 
     int jumpsCurrent;
     public int speedOrig;
@@ -131,10 +132,13 @@ public class playerController : MonoBehaviour
             {
                 if (gunList[selectedGun].name == ("DefaultPistol") || (gunList[selectedGun].name == ("IceSniper") && iceAmmoCt > 0))
                 {
-                    //Debug.Log("Enters NoSpread");
                     GameObject bulletClone = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
                     bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * gunList[selectedGun].bulletSpeed;
                     numShots++;
+                    if (gunList[selectedGun].name == ("IceSniper"))
+                    {
+                        iceAmmoCt--;
+                    }
                     yield return new WaitForSeconds(shootRate);
                     isShooting = false;
                 }
@@ -219,14 +223,13 @@ public class playerController : MonoBehaviour
         Debug.Log("Gun Model Set");
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat.gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
-
-        if(gunList[selectedGun].name == ("FireShotgun"))
+        if (gunList[selectedGun].name == ("FireShotgun"))
         {
-            fireAmmoCt = 4;
+            setFireAmmo(4);
         }
-        if(gunList[selectedGun].name == ("IceSniper"))
+        if (gunList[selectedGun].name == ("IceSniper"))
         {
-            iceAmmoCt = 2;
+            setIceAmmo(2);
         }
 
         newGun++;
@@ -257,39 +260,29 @@ public class playerController : MonoBehaviour
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
     }
-
-    void gunIconIndicator(int selected)
+    public void gunIconIndicator(int selected)
     {
-        
-        switch (selected)
-        {
-            case 0:
-                pistolIcon.SetActive(true);
-                shotgunIcon.SetActive(false);
-                sniperIcon.SetActive(false);
-                //gameEconomy.SetActive(false);
-                break;
-            case 1:
-                pistolIcon.SetActive(false);
-                shotgunIcon.SetActive(true);
-                sniperIcon.SetActive(false);
-                //gameEconomy.SetActive(true);
-                break;
-            case 2:
-                pistolIcon.SetActive(false);
-                shotgunIcon.SetActive(false);
-                sniperIcon.SetActive(true);
-                //gameEconomy.SetActive(true);
-                break;
 
-        }
+       switch (selected)
+       {
+           case 0:
+               pistolIcon.SetActive(true);
+               shotgunIcon.SetActive(false);
+               sniperIcon.SetActive(false);
+               break;
+           case 1:
+               pistolIcon.SetActive(false);
+               shotgunIcon.SetActive(true);
+               sniperIcon.SetActive(false);
+               break;
+           case 2:
+               pistolIcon.SetActive(false);
+               shotgunIcon.SetActive(false);
+               sniperIcon.SetActive(true);
+               break;
+       
+       }
     }
-
-    //void ammoUpdater(int chamber, int allBullets)
-    //{
-
-    //}
-
     public void pushBackDir(Vector3 dir)
     {
         Debug.Log("Push Back Go");
@@ -298,10 +291,12 @@ public class playerController : MonoBehaviour
     public void setFireAmmo(int amt)
     {
         fireAmmoCt += amt;
+        gameManager.instance.ammoUpdaterF(fireAmmoCt);
     }
-    public void seticeAmmo(int amt)
+    public void setIceAmmo(int amt)
     {
         iceAmmoCt += amt;
+        gameManager.instance.ammoUpdaterI(iceAmmoCt);
     }
     public int getFireAmmo()
     {

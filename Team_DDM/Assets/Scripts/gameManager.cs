@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class gameManager : MonoBehaviour
 {
@@ -29,6 +30,10 @@ public class gameManager : MonoBehaviour
     [Header("--- Enemies ----")]
     public int enemiesRemaining;
     [SerializeField] TextMeshProUGUI enemiesRemainingText;
+
+    [Header("---- Ammo ----")]
+    [SerializeField] TextMeshProUGUI ammoEconomyF;
+    [SerializeField] TextMeshProUGUI ammoEconomyI;
     public int BossesRemaining;
 
     // Start is called before the first frame update
@@ -97,6 +102,18 @@ public class gameManager : MonoBehaviour
             activeMenu.SetActive(true);
         }
     }
+    
+
+    public void ammoUpdaterF(int amount)
+    {
+        ammoEconomyF.text = amount.ToString("F0");
+    }
+
+    public void ammoUpdaterI(int amount)
+    {
+        ammoEconomyI.text = amount.ToString("F0");
+    }
+
 
     public void playerDead()
     {
