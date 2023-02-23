@@ -125,6 +125,10 @@ public class playerController : MonoBehaviour
                     GameObject bulletClone = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
                     bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * gunList[selectedGun].bulletSpeed;
                     numShots++;
+                    if(gunList[selectedGun].name == ("IceSniper"))
+                    {
+                        iceAmmoCt--;
+                    }
                     yield return new WaitForSeconds(shootRate);
                     isShooting = false;
                 }
@@ -210,11 +214,11 @@ public class playerController : MonoBehaviour
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat.gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
 
-        if(gunList[selectedGun].name == ("FireShotgun"))
+        if(gunStat.name == ("FireShotgun") || gunStat.name == ("FireShotgun"))
         {
             fireAmmoCt = 4;
         }
-        if(gunList[selectedGun].name == ("IceSniper"))
+        if(gunStat.name == ("IceSniper"))
         {
             iceAmmoCt = 2;
         }

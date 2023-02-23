@@ -31,12 +31,15 @@ public class gameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI enemiesRemainingText;
     public int BossesRemaining;
 
+    spawner spawn;
+
     // Start is called before the first frame update
     void Awake()
     {
         instance = this;
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<playerController>();
+        spawn = GetComponent<spawner>();
     }
 
     // Update is called once per frame
@@ -82,8 +85,16 @@ public class gameManager : MonoBehaviour
         enemiesRemainingText.text = enemiesRemaining.ToString("F0");
         if (enemiesRemaining <= 0)
         {
-            //Open Door
-            //Probly Delete Spawner
+            //Debug.Log("Should end.");
+            //for (int i = 0; i < spawn.getDoors().Length; i++)
+            //{
+            //    //Destroy(spawn.getDoors()[i]);
+            //    //spawn.getDoors()[i].GetComponent<door>().turnOff();
+            //}
+            Debug.Log("Doors About to be Destroyed!");
+            Destroy(GameObject.FindWithTag("Door"));
+            Debug.Log("Doors Destroyed!");
+            Destroy(GameObject.FindWithTag("Spawner"));
         }
     }
 

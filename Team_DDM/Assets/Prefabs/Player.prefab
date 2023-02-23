@@ -239,12 +239,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 7275675507620032340}
-  playerSpeed: 12
+  playerSpeed: 20
   jumpTimes: 1
   jumpSpeed: 12
   gravity: 20
   HP: 8
-  pushBackTime: 1
+  pushBackTime: 2
   gunList: []
   shootRate: 0.25
   shootDist: 20
@@ -254,7 +254,7 @@ MonoBehaviour:
   speedOrig: 0
   gravOrig: 0
   isWallRun: 0
-  wallRunSpeed: 10
+  wallRunSpeed: 20
   playerVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &-4717359228108097337
 MonoBehaviour:
@@ -274,9 +274,9 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 1024
-  wrSpeed: 8
+  wrSpeed: 20
   wallDist: 2
-  groundDist: 0.7
+  groundDist: 3
   exitTimer: 1.5
   dir: {fileID: 7275675507620032367}
 --- !u!33 &7275675507620032361

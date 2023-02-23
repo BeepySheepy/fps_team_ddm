@@ -30,6 +30,7 @@ public class enemyAI : MonoBehaviour
     {
         gun.SetShootPos(headPos);
         anim = GetComponent<Animator>();
+        navMesh.enabled = true;
     }
 
     // Update is called once per frame
@@ -126,5 +127,20 @@ public class enemyAI : MonoBehaviour
     public int GetEnemyTypeID()
     {
         return enemyTypeID;
+    }
+    public void flipAgent()
+    {
+        navMesh.enabled = !navMesh.enabled;
+    }
+    public bool getAgent()
+    {
+        if (navMesh.isActiveAndEnabled)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

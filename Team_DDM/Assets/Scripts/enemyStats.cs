@@ -41,7 +41,7 @@ public class enemyStats : MonoBehaviour, IDamage
     {
         HP -= dmg;
         Debug.Log(this.gameObject.name + "took damage");
-        if (HP <= 0)
+        if (HP <= 0 && aiScript.getAgent())
         {
             gameManager.instance.RoomFinished(-1);
             DropItems();
@@ -52,6 +52,8 @@ public class enemyStats : MonoBehaviour, IDamage
             else
             {
                 anim.SetBool("Dead", true);
+                Debug.Log("Flipping Agent.");
+                aiScript.flipAgent();
             }
         }
         else

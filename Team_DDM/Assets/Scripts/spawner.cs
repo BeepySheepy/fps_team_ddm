@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class spawner : MonoBehaviour
 {
-
     [SerializeField] GameObject objectToSpawn;
     [SerializeField] int spawnMax;
     [SerializeField] float timer;
     [SerializeField] bool countEnemies;
     [SerializeField] Transform[] spawnPos;
+    //[SerializeField] Transform[] spawnDoor;
+    [SerializeField] Transform[] doorPos;
+    [SerializeField] GameObject doorObj;
     [SerializeField] bool stopSpawnWhenExitSpawner;
 
+    [SerializeField] GameObject[] doors = new GameObject[10];
+    GameObject obj;
     int spawnCount;
     bool isSpawning;
     bool playerInRange;
@@ -23,6 +27,7 @@ public class spawner : MonoBehaviour
         {
             gameManager.instance.updateGameGoal(spawnMax);
         }
+        //doorObj = GetComponent<door>().getDoor();
     }
 
     // Update is called once per frame
@@ -41,6 +46,12 @@ public class spawner : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
+            for (int i = 0; i < doorPos.Length; i++)
+            {
+                //doors[i] = doorObj;
+                obj = Instantiate(doorObj, doorPos[i].transform.position, doorPos[i].transform.rotation);
+                obj.tag = "Door";
+            }
         }
     }
 
@@ -65,4 +76,9 @@ public class spawner : MonoBehaviour
         yield return new WaitForSeconds(timer);
         isSpawning = false;
     }
+
+    //public void turnOff()
+    //{
+    //    Destroy(gameObject);
+    //}
 }
