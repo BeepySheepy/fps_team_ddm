@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class playerController : MonoBehaviour
@@ -15,12 +17,17 @@ public class playerController : MonoBehaviour
     [Range(1, 10)] [SerializeField] int HP;
     [SerializeField] float pushBackTime;
     [Header("----- Gun Attributes -----")]
-    [SerializeField] List<gunStats> gunList = new List<gunStats>();
+    [SerializeField] public List<gunStats> gunList = new List<gunStats>();
     [Range(0.1f, 5)] [SerializeField] float shootRate;
     [Range(1, 100)] [SerializeField] int shootDist;
     [Range(1, 20)] [SerializeField] int shootDamage;
     [SerializeField] GameObject gunModel;
     [SerializeField] float zoomMax;
+
+    [Header("---- Gun Icons ----")]
+    public GameObject pistolIcon;
+    public GameObject shotgunIcon;
+    public GameObject sniperIcon;
 
     int jumpsCurrent;
     public int speedOrig;
@@ -41,6 +48,8 @@ public class playerController : MonoBehaviour
     int fireAmmoCt;
     int iceAmmoCt;
 
+    int newGun;
+
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +61,8 @@ public class playerController : MonoBehaviour
         isReloading = false;
         fireAmmoCt = 0;
         iceAmmoCt = 0;
+        newGun = -1;
+
     }
 
     // Update is called once per frame
@@ -86,6 +97,7 @@ public class playerController : MonoBehaviour
 
         playerVelocity.y -= gravity * Time.deltaTime;
         controller.Move((playerVelocity + pushBack) * Time.deltaTime);
+        
 
         if (isWallRun)
         {
@@ -119,24 +131,35 @@ public class playerController : MonoBehaviour
 
             if (!isSpread)
             {
-                if (gunList[selectedGun].name == ("DefaultPistol") || (gunList[selectedGun].name == ("IceSniper") && iceAmmoCt > 0))
+                if (selectedGun == 0)
                 {
-                    //Debug.Log("Enters NoSpread");
                     GameObject bulletClone = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
                     bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * gunList[selectedGun].bulletSpeed;
                     numShots++;
                     yield return new WaitForSeconds(shootRate);
                     isShooting = false;
                 }
+                else if (selectedGun == 2 && iceAmmoCt > 0)
+                {
+                    Debug.Log("Fire Shot");
+                    GameObject bulletClone = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
+                    bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * gunList[selectedGun].bulletSpeed;
+                    numShots++;
+                    setIceAmmo(-1);
+                    yield return new WaitForSeconds(shootRate);
+                    isShooting = false;
+                }
+
             }
             else
             {
-                //Debug.Log("Enters Spread");
+                Debug.Log("Enters Spread");
                 //Quaternion spreadL = Quaternion.Euler(0f, -90, 0f);
                 //Quaternion spreadR = Quaternion.Euler(0f, 90, 0f);
-
-                if (gunList[selectedGun].name == ("FireShotgun") && fireAmmoCt > 0)
+                
+                if ( fireAmmoCt > 0)
                 {
+                    Debug.Log("Fire Shot");
                     Vector3 spreadL = new Vector3(gunModel.transform.forward.x, gunModel.transform.forward.y, gunModel.transform.position.z + 1);
                     Vector3 spreadR = new Vector3(gunModel.transform.forward.x, gunModel.transform.forward.y, gunModel.transform.position.z - 1);
                     Debug.Log("Fired 1");
@@ -149,7 +172,7 @@ public class playerController : MonoBehaviour
                     GameObject bulletClone3 = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
                     bulletClone3.GetComponent<Rigidbody>().velocity = spreadR * gunList[selectedGun].bulletSpeed;
 
-                    fireAmmoCt--;
+                    setFireAmmo(-1);
                 }
 
 
@@ -169,8 +192,10 @@ public class playerController : MonoBehaviour
     {
         isReloading = true;
         numShots = 0;
+        gameManager.instance.reloadDisplay(true);
         yield return new WaitForSeconds(gunList[selectedGun].reloadSpeed);
         isReloading = false;
+        gameManager.instance.reloadDisplay(false);
     }
 
     public void takeDamage(int dmg)
@@ -209,15 +234,17 @@ public class playerController : MonoBehaviour
         Debug.Log("Gun Model Set");
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat.gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
+        newGun++;
 
-        if(gunList[selectedGun].name == ("FireShotgun"))
+        if (newGun == 1)
         {
-            fireAmmoCt = 4;
+            setFireAmmo(4);
         }
-        if(gunList[selectedGun].name == ("IceSniper"))
+        else if (newGun == 2)
         {
-            iceAmmoCt = 2;
+            setIceAmmo(2);
         }
+        gunIconIndicator(newGun);
 
     }
     void selectGun()
@@ -225,12 +252,16 @@ public class playerController : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < gunList.Count - 1)
         {
             selectedGun++;
+            Debug.Log(selectedGun);
             changeGun();
+            gunIconIndicator(selectedGun);
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
         {
             selectedGun--;
+            Debug.Log(selectedGun);
             changeGun();
+            gunIconIndicator(selectedGun);
         }
     }
 
@@ -242,7 +273,29 @@ public class playerController : MonoBehaviour
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
     }
+    public void gunIconIndicator(int selected)
+    {
 
+       switch (selected)
+       {
+           case 0:
+               pistolIcon.SetActive(true);
+               shotgunIcon.SetActive(false);
+               sniperIcon.SetActive(false);
+               break;
+           case 1:
+               pistolIcon.SetActive(false);
+               shotgunIcon.SetActive(true);
+               sniperIcon.SetActive(false);
+               break;
+           case 2:
+               pistolIcon.SetActive(false);
+               shotgunIcon.SetActive(false);
+               sniperIcon.SetActive(true);
+               break;
+       
+       }
+    }
     public void pushBackDir(Vector3 dir)
     {
         Debug.Log("Push Back Go");
@@ -251,10 +304,12 @@ public class playerController : MonoBehaviour
     public void setFireAmmo(int amt)
     {
         fireAmmoCt += amt;
+        gameManager.instance.ammoUpdaterF(fireAmmoCt);
     }
-    public void seticeAmmo(int amt)
+    public void setIceAmmo(int amt)
     {
         iceAmmoCt += amt;
+        gameManager.instance.ammoUpdaterI(iceAmmoCt);
     }
     public int getFireAmmo()
     {
@@ -264,8 +319,18 @@ public class playerController : MonoBehaviour
     {
         return iceAmmoCt;
     }
+    public int getSelectedGun()
+    {
+        return selectedGun;
+    }
     public void giveHP(int amt)
     {
         HP += amt;
     }
+
+    public void setHP(int amt)
+    {
+        HP = amt;
+    }
+
 }

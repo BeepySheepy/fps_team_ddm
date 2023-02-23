@@ -251,6 +251,9 @@ MonoBehaviour:
   shootDamage: 1
   gunModel: {fileID: 1387304039}
   zoomMax: 0
+  pistolIcon: {fileID: 0}
+  shotgunIcon: {fileID: 0}
+  sniperIcon: {fileID: 0}
   speedOrig: 0
   gravOrig: 0
   isWallRun: 0
