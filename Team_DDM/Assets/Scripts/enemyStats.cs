@@ -20,6 +20,8 @@ public class enemyStats : MonoBehaviour, IDamage
     enemyAI aiScript;
     Animator anim;
     int enemyTypeID;
+    CapsuleCollider collider;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,8 @@ public class enemyStats : MonoBehaviour, IDamage
         anim = GetComponent<Animator>();
         aiScript = GetComponent<enemyAI>();
         enemyTypeID = aiScript.GetEnemyTypeID();
+        collider = GetComponent<CapsuleCollider>();
+        
     }
 
 
@@ -41,7 +45,8 @@ public class enemyStats : MonoBehaviour, IDamage
     {
         HP -= dmg;
         Debug.Log(this.gameObject.name + "took damage");
-        if (HP <= 0 && aiScript.getAgent())
+        aiScript.GetHeadPos().gameObject.GetComponent<Collider>().enabled = false;
+        if (HP <= 0)
         {
             gameManager.instance.RoomFinished(-1);
             DropItems();
@@ -52,8 +57,8 @@ public class enemyStats : MonoBehaviour, IDamage
             else
             {
                 anim.SetBool("Dead", true);
-                Debug.Log("Flipping Agent.");
-                aiScript.flipAgent();
+                aiScript.TurnOffNavMesh();
+                collider.enabled = false;
             }
         }
         else

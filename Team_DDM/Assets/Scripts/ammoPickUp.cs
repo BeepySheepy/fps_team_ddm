@@ -17,7 +17,7 @@ public class ammoPickUp : MonoBehaviour
             }
             if (isIce)
             {
-                gameManager.instance.playerScript.setFireAmmo(2);
+                gameManager.instance.playerScript.setIceAmmo(2);
 
             }
             Destroy(gameObject);

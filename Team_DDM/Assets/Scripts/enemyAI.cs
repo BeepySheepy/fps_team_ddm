@@ -15,6 +15,9 @@ public class enemyAI : MonoBehaviour
     [Header("-----Gun-----")]
     [SerializeField] gunScript gun;
     [SerializeField] int dropHP;
+    [Header("-----Melee-----")]
+    
+    [SerializeField] float meleeTimer;
 
     [SerializeField] bool permaAggro;
     [SerializeField] int enemyTypeID;
@@ -24,10 +27,12 @@ public class enemyAI : MonoBehaviour
     Vector3 playerDirection;
     float angleTowardsPlayer;
     Animator anim;
+    bool isInMelee;
 
     // Start is called before the first frame update
     void Start()
     {
+
         gun.SetShootPos(headPos);
         anim = GetComponent<Animator>();
         navMesh.enabled = true;
@@ -38,7 +43,11 @@ public class enemyAI : MonoBehaviour
     {
         if (navMesh.isActiveAndEnabled)
         {
-            anim.SetFloat("Speed", navMesh.velocity.normalized.magnitude);
+            if (anim != null)
+            {
+                anim.SetFloat("Speed", navMesh.velocity.normalized.magnitude);
+            }
+            
 
             playerDirection = gameManager.instance.player.transform.position - headPos.position;// creates a vector between the player and the enemy
             if (playerInRange || playerInVisualRange() || permaAggro)
@@ -49,17 +58,28 @@ public class enemyAI : MonoBehaviour
                     facePlayer();
                 }
 
-                // gun stuff
-                if (!gun.IsShooting() && gun.GetBulletsInClip() != 0)
+                if(gun != null)
                 {
-                    Debug.Log("Enemy Shooting");
-                    gun.shootInterface(playerDirection);
+                    // gun stuff
+                    if (!gun.IsShooting() && gun.GetBulletsInClip() != 0)
+                    {
+                        Debug.Log("Enemy Shooting");
+                        gun.shootInterface(playerDirection);
+                    }
+                    else if (!gun.IsShooting() && !gun.IsReloading() && gun.GetBulletsInClip() == 0)// reload
+                    {
+                        Debug.Log("Enemy Reloading");
+                        gun.Reload();
+                    }
                 }
-                else if (!gun.IsShooting() && !gun.IsReloading() && gun.GetBulletsInClip() == 0)// reload
+                else// melee system
                 {
-                    Debug.Log("Enemy Reloading");
-                    gun.Reload();
+                    if (!isInMelee)
+                    {
+                        StartCoroutine(melee());
+                    }
                 }
+                
             }
         }
     }
@@ -128,6 +148,28 @@ public class enemyAI : MonoBehaviour
     {
         return enemyTypeID;
     }
+
+    public void TurnOffNavMesh()
+    {
+        navMesh.enabled = false;
+    }
+
+    
+
+    IEnumerator melee()
+    {
+        isInMelee = true;
+        anim.SetTrigger("Melee");
+        yield return new WaitForSeconds(meleeTimer);
+        isInMelee = false;
+    }
+
+    public Transform GetHeadPos()
+    {
+        return headPos;
+    }
+
+    
     public void flipAgent()
     {
         navMesh.enabled = !navMesh.enabled;

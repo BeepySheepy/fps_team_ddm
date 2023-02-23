@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class gameManager : MonoBehaviour
 {
@@ -23,12 +24,17 @@ public class gameManager : MonoBehaviour
     [Header("---- Health ----")]
     public Image playerHPBar;
     public Image BossHPBar;
-    public Image EnemyHPBar;
     public GameObject playerDamageFlasher;
 
     [Header("--- Enemies ----")]
     public int enemiesRemaining;
     [SerializeField] TextMeshProUGUI enemiesRemainingText;
+
+    [Header("---- Ammo ----")]
+    [SerializeField] TextMeshProUGUI ammoEconomyF;
+    [SerializeField] TextMeshProUGUI ammoEconomyI;
+    public GameObject Realoading;
+    int gunSelected;
     public int BossesRemaining;
 
     spawner spawn;
@@ -106,6 +112,29 @@ public class gameManager : MonoBehaviour
             paused();
             activeMenu = winMenu;
             activeMenu.SetActive(true);
+        }
+    }
+    
+
+    public void ammoUpdaterF(int amount)
+    {
+        ammoEconomyF.text = amount.ToString("F0");
+    }
+
+    public void ammoUpdaterI(int amount)
+    {
+        ammoEconomyI.text = amount.ToString("F0");
+    }
+
+    public void reloadDisplay(bool reloading)
+    {
+        if (reloading == true)
+        {
+            Realoading.SetActive(true);
+        }
+        else
+        {
+            Realoading.SetActive(false);
         }
     }
 
