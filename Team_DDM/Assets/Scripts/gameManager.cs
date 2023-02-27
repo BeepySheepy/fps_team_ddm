@@ -43,6 +43,11 @@ public class gameManager : MonoBehaviour
     int gunSpawn;
     public int BossesRemaining;
 
+    [Header("---- Gun Icons ----")]
+    public GameObject pistolIcon;
+    public GameObject shotgunIcon;
+    public GameObject sniperIcon;
+
     spawner spawn;
 
     // Start is called before the first frame update
@@ -142,7 +147,30 @@ public class gameManager : MonoBehaviour
             activeMenu.SetActive(true);
         }
     }
-    
+
+    public void gunIconIndicator(int selected)
+    {
+
+        switch (selected)
+        {
+            case 0:
+                pistolIcon.SetActive(true);
+                shotgunIcon.SetActive(false);
+                sniperIcon.SetActive(false);
+                break;
+            case 1:
+                pistolIcon.SetActive(false);
+                shotgunIcon.SetActive(true);
+                sniperIcon.SetActive(false);
+                break;
+            case 2:
+                pistolIcon.SetActive(false);
+                shotgunIcon.SetActive(false);
+                sniperIcon.SetActive(true);
+                break;
+
+        }
+    }
 
     public void ammoUpdaterF(int amount)
     {

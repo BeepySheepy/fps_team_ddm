@@ -24,11 +24,6 @@ public class playerController : MonoBehaviour
     [SerializeField] GameObject gunModel;
     [SerializeField] float zoomMax;
 
-    [Header("---- Gun Icons ----")]
-    public GameObject pistolIcon;
-    public GameObject shotgunIcon;
-    public GameObject sniperIcon;
-
     int jumpsCurrent;
     public int speedOrig;
     public int gravOrig;
@@ -248,7 +243,7 @@ public class playerController : MonoBehaviour
         {
             setIceAmmo(2);
         }
-        gunIconIndicator(newGun);
+        gameManager.instance.gunIconIndicator(newGun);
 
     }
     void selectGun()
@@ -258,14 +253,14 @@ public class playerController : MonoBehaviour
             selectedGun++;
             Debug.Log(selectedGun);
             changeGun();
-            gunIconIndicator(selectedGun);
+            gameManager.instance.gunIconIndicator(selectedGun);
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
         {
             selectedGun--;
             Debug.Log(selectedGun);
             changeGun();
-            gunIconIndicator(selectedGun);
+            gameManager.instance.gunIconIndicator(selectedGun);
         }
     }
 
@@ -277,29 +272,7 @@ public class playerController : MonoBehaviour
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
     }
-    public void gunIconIndicator(int selected)
-    {
-
-       switch (selected)
-       {
-           case 0:
-               pistolIcon.SetActive(true);
-               shotgunIcon.SetActive(false);
-               sniperIcon.SetActive(false);
-               break;
-           case 1:
-               pistolIcon.SetActive(false);
-               shotgunIcon.SetActive(true);
-               sniperIcon.SetActive(false);
-               break;
-           case 2:
-               pistolIcon.SetActive(false);
-               shotgunIcon.SetActive(false);
-               sniperIcon.SetActive(true);
-               break;
-       
-       }
-    }
+    
     public void pushBackDir(Vector3 dir)
     {
         Debug.Log("Push Back Go");
