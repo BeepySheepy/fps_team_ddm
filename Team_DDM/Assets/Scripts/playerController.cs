@@ -330,11 +330,20 @@ public class playerController : MonoBehaviour
     public void giveHP(int amt)
     {
         HP += amt;
+        updatePlayerHPBar();
+        StartCoroutine(flashHeal());
     }
 
     public void setHP(int amt)
     {
         HP = amt;
+        updatePlayerHPBar();
+    }
+    IEnumerator flashHeal()
+    {
+        gameManager.instance.playerHealFlasher.SetActive(true);
+        yield return new WaitForSeconds(.2f);
+        gameManager.instance.playerHealFlasher.SetActive(false);
     }
 
 }

@@ -25,6 +25,7 @@ public class gameManager : MonoBehaviour
     public Image playerHPBar;
     public Image BossHPBar;
     public GameObject playerDamageFlasher;
+    public GameObject playerHealFlasher;
 
     [Header("--- Enemies ----")]
     public int enemiesRemaining;
