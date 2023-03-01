@@ -5,6 +5,12 @@ using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
 
+enum weapons
+{
+    pistol = 0,
+    shotgun,
+    sniper
+}
 public class gameManager : MonoBehaviour
 {
 
@@ -150,7 +156,7 @@ public class gameManager : MonoBehaviour
 
     public void gunIconIndicator(int selected)
     {
-
+        
         switch (selected)
         {
             case 0:

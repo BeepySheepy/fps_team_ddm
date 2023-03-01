@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine.Rendering;
 using UnityEngine;
 
+
 public class playerController : MonoBehaviour
 {
     [Header("----- Components -----")]
