@@ -32,8 +32,8 @@ public class enemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        headPos = GameObject.Find("shootPos (1)").transform;
-        gun.SetShootPos(headPos.transform);
+        
+        gun.SetShootPos(headPos);
         anim = GetComponent<Animator>();
         navMesh.enabled = true;
     }

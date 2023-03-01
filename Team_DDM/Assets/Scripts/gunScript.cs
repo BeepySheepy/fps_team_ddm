@@ -12,6 +12,7 @@ public class gunScript : MonoBehaviour
     Vector3 shootDirection;
     int bulletsInClip;
     Animator anim;
+    Transform mShootPos;
 
     private void Start()
     {
@@ -44,7 +45,7 @@ public class gunScript : MonoBehaviour
 
     void createBullet()
     {
-        GameObject bulletClone = Instantiate(mGun.bullet, mGun.shootPos.position, mGun.bullet.transform.rotation);// create bullet
+        GameObject bulletClone = Instantiate(mGun.bullet, mShootPos.position, mGun.bullet.transform.rotation);// create bullet
         if (autoLockOnPlayer)//  locks onto Player
         {
             bulletClone.GetComponent<Rigidbody>().velocity = shootDirection * mGun.bulletSpeed;
@@ -110,7 +111,7 @@ public class gunScript : MonoBehaviour
     /// <param name="shootPos">the transform for the shoot position for the player or enemy</param>
     public void SetShootPos(Transform shootPos)
     {
-        mGun.shootPos = shootPos;
+        mShootPos = shootPos;
     }
 
 }

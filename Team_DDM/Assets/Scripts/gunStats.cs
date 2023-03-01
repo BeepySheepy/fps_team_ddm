@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class gunStats : ScriptableObject
 {
-    public Transform shootPos;
     public GameObject bullet;
     public GameObject gunModel;
     public int clipSize;
