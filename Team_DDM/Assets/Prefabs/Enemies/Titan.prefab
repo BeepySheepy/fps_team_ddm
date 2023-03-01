@@ -699,8 +699,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 072501e7c9eab70488898ccce25d4682, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mGun: {fileID: 11400000, guid: 93dff05600af7af4cba8d9ba75d39864, type: 2}
-  autoLockOnPlayer: 0
+  mGun: {fileID: 11400000, guid: 8a9d786af110f534cb9dcecfd802258b, type: 2}
+  autoLockOnPlayer: 1
 --- !u!95 &2216076257014098898
 Animator:
   serializedVersion: 5

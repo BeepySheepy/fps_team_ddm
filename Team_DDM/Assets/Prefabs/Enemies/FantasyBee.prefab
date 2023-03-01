@@ -665,7 +665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navMesh: {fileID: 5401296367714568739}
-  headPos: {fileID: 0}
+  headPos: {fileID: 1115369710427265002}
   enemyTurnSpeed: 3
   visionDistance: 30.4
   visionAngle: 40.5
