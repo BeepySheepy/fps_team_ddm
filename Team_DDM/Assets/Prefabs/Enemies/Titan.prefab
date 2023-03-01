@@ -667,7 +667,7 @@ MonoBehaviour:
   visionAngle: 0
   gun: {fileID: 2216076257014098895}
   dropHP: 0
-  meleeTimer: 0
+  meleeTimer: 2
   permaAggro: 1
   enemyTypeID: 0
 --- !u!114 &2216076257014098894
