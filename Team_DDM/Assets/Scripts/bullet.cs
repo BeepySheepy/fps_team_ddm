@@ -5,6 +5,7 @@ using UnityEngine;
 public class bullet : MonoBehaviour
 {
     [SerializeField] int timer;
+    [SerializeField] bool homingBullet;
     public int bulletDamage;
 
     Vector3 mShootDirection;
@@ -19,7 +20,10 @@ public class bullet : MonoBehaviour
 
     void Update()// will be use for homing bullet
     {
-        
+        if (homingBullet)// bullet follows you
+        {
+            bulletShootInterface(gameManager.instance.player.transform.position - transform.position, mBulletSpeed);
+        }
     }
 
     public void OnTriggerEnter(Collider other)
@@ -33,7 +37,8 @@ public class bullet : MonoBehaviour
         {
             other.GetComponent<IDamage>().takeDamage(bulletDamage);
         }
-        else if (other.CompareTag("Wall")){
+        else if (other.CompareTag("Wall"))
+        {
             Destroy(gameObject);
         }
 

@@ -50,7 +50,7 @@ public class enemyAI : MonoBehaviour
             }
             
 
-            playerDirection = (gameManager.instance.player.transform.position - headPos.position);// creates a vector between the player and the enemy
+            playerDirection = gameManager.instance.player.transform.position - headPos.position;// creates a vector between the player and the enemy
             playerDirection.y += plusYAimDir;
             if (playerInRange || playerInVisualRange() || permaAggro)
             {
