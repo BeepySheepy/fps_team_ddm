@@ -249,7 +249,7 @@ public class playerController : MonoBehaviour
     IEnumerator IFrames()
     {
         invuln = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1);
         invuln = false;
     }
 
