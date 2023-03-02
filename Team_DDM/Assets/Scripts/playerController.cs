@@ -132,10 +132,6 @@ public class playerController : MonoBehaviour
                     GameObject bulletClone = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
                     bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * gunList[selectedGun].bulletSpeed;
                     numShots++;
-                    if(gunList[selectedGun].name == ("IceSniper"))
-                    {
-                        iceAmmoCt--;
-                    }
                     yield return new WaitForSeconds(shootRate);
                     isShooting = false;
                 }
