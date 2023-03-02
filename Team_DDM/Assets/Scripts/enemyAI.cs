@@ -9,6 +9,9 @@ public class enemyAI : MonoBehaviour
     [SerializeField] NavMeshAgent navMesh;// allows for movement
     [SerializeField] Transform headPos;// tracks head pos instead of from (0,0)
     [Range(1, 10)][SerializeField] int enemyTurnSpeed;
+    [SerializeField] ParticleSystem footStepParticle;
+    [SerializeField] Transform leftFoot;
+    [SerializeField] Transform rightFoot;
     [Header("-----Vision-----")]
     [Range(1, 50)][SerializeField] float visionDistance;
     [Range(1, 50)][SerializeField] float visionAngle;
@@ -17,7 +20,6 @@ public class enemyAI : MonoBehaviour
     [SerializeField] int dropHP;
     [SerializeField] float plusYAimDir;
     [Header("-----Melee-----")]
-    
     [SerializeField] float meleeTimer;
 
     [SerializeField] bool permaAggro;
@@ -186,5 +188,17 @@ public class enemyAI : MonoBehaviour
         {
             return false;
         }
+    }
+
+    void rightFootStepParticleEffect()
+    {
+        Debug.Log("Right Foot Step");
+        Instantiate(footStepParticle, rightFoot);
+    }
+
+    void leftFootStepParticleEffect()
+    {
+        Debug.Log("Left Foot Step");
+        Instantiate(footStepParticle, leftFoot);
     }
 }
