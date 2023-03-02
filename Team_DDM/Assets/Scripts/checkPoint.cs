@@ -4,19 +4,13 @@ using UnityEngine;
 
 public class checkPoint : MonoBehaviour
 {
-    Transform localT;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        localT = GetComponent<Transform>();
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            gameManager.instance.updateSpawn(localT);
-            Destroy(gameObject);
+            Debug.Log("Checkpoint");
+            gameManager.instance.playerSpawn.transform.position = transform.position;
+            //Destroy(gameObject);
         }
     }
 }
