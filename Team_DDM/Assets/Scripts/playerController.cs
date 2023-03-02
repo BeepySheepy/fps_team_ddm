@@ -152,8 +152,8 @@ public class playerController : MonoBehaviour
             {
                 if (selectedGun == 0)
                 {
-                    GameObject bulletClone = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
-                    bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * gunList[selectedGun].bulletSpeed;
+                    GameObject bulletClone = Instantiate(gunList[selectedGun].bullet, transform.position, transform.rotation);
+                    bulletClone.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * gunList[selectedGun].bulletSpeed;
                     numShots++;
                     if(gunList[selectedGun].name == ("IceSniper"))
                     {
@@ -249,7 +249,7 @@ public class playerController : MonoBehaviour
     IEnumerator IFrames()
     {
         invuln = true;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         invuln = false;
     }
 

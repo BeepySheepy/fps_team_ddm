@@ -55,7 +55,6 @@ public class buttonFunction : MonoBehaviour
         gameManager.instance.unPaused();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         gameManager.instance.respawnPlayer();
-        //Debug.Log($"Spawning at:  + {gameManager.instance.playerSpawn.transform.position.x}, {gameManager.instance.playerSpawn.transform.position.y}, {gameManager.instance.playerSpawn.transform.position.z}");
     }
 
     public void quit()

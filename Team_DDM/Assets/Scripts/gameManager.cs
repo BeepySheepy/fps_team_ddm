@@ -64,11 +64,6 @@ public class gameManager : MonoBehaviour
         respawnPlayer();
     }
 
-    private void Start()
-    {
-        respawnPlayer();
-    }
-
     // Update is called once per frame
     void Update()
     {
