@@ -15,6 +15,7 @@ public class enemyAI : MonoBehaviour
     [Header("-----Gun-----")]
     [SerializeField] gunScript gun;
     [SerializeField] int dropHP;
+    [SerializeField] float plusYAimDir;
     [Header("-----Melee-----")]
     
     [SerializeField] float meleeTimer;
@@ -50,6 +51,7 @@ public class enemyAI : MonoBehaviour
             
 
             playerDirection = gameManager.instance.player.transform.position - headPos.position;// creates a vector between the player and the enemy
+            playerDirection.y += plusYAimDir;
             if (playerInRange || playerInVisualRange() || permaAggro)
             {
                 navMesh.SetDestination(gameManager.instance.player.transform.position);// sets enemy destination as the player

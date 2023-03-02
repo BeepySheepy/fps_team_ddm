@@ -48,11 +48,11 @@ public class gunScript : MonoBehaviour
         GameObject bulletClone = Instantiate(mGun.bullet, mShootPos.position, mGun.bullet.transform.rotation);// create bullet
         if (autoLockOnPlayer)//  locks onto Player
         {
-            bulletClone.GetComponent<Rigidbody>().velocity = shootDirection * mGun.bulletSpeed;
+            bulletClone.GetComponent<bullet>().bulletShootInterface(shootDirection, mGun.bulletSpeed);
         }
         else// shoots straight forward
         {
-            bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * mGun.bulletSpeed;
+            bulletClone.GetComponent<bullet>().bulletShootInterface(mGun.bulletSpeed);
         }
     }
     /// <summary>
@@ -62,7 +62,7 @@ public class gunScript : MonoBehaviour
     public void shootInterface(Vector3 shootDir)
     {
         bulletsInClip--;
-        shootDirection = shootDir;
+        shootDirection = shootDir;// maybe edit this later(mult by new Vector(0,1,0))
         StartCoroutine(shoot());
     }
 
