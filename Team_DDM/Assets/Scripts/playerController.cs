@@ -38,6 +38,7 @@ public class playerController : MonoBehaviour
     Vector3 move;
     public Vector3 playerVelocity;
     int HPOrig;
+    int checkpointHP;
     Vector3 pushBack;
     int numShots;
     bool isSpread;
@@ -70,7 +71,7 @@ public class playerController : MonoBehaviour
         invulnStatus = false;
         isBurning = false;
         levelSpawn = gameManager.instance.playerSpawn;
-        respawnPlayer();
+        spawnPlayer();
 
     }
 
@@ -376,18 +377,35 @@ public class playerController : MonoBehaviour
         HP = amt;
         updatePlayerHPBar();
     }
+    public int getHP()
+    {
+        return HP;
+    }
     IEnumerator flashHeal()
     {
         gameManager.instance.playerHealFlasher.SetActive(true);
         yield return new WaitForSeconds(.2f);
         gameManager.instance.playerHealFlasher.SetActive(false);
     }
+    public void spawnPlayer()
+    {
+        controller.enabled = false;
+        transform.position = gameManager.instance.playerSpawn.transform.position;
+        HP = HPOrig;
+        updatePlayerHPBar();
+        controller.enabled = true;
+    }
+
     public void respawnPlayer()
     {
         controller.enabled = false;
         transform.position = gameManager.instance.playerSpawn.transform.position;
-        //HP = HPOrig;
-        //updatePlayerHPBar();
+        setHP(checkpointHP);
         controller.enabled = true;
+    }
+
+    public void checkpointHPTracker()
+    {
+        checkpointHP = HP;
     }
 }
