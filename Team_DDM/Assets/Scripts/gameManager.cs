@@ -72,7 +72,7 @@ public class gameManager : MonoBehaviour
         playerSpawn = GameObject.FindGameObjectWithTag("Respawn");
         //Debug.Log($"Spawn:  + {playerSpawn.transform.position.x}, {playerSpawn.transform.position.y}, {playerSpawn.transform.position.z}");
         //levelspawn = playerSpawn;
-        respawnPlayer();
+        //respawnPlayer();
         activeMenu = null;
     }
 

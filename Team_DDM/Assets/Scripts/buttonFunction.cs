@@ -36,6 +36,12 @@ public class buttonFunction : MonoBehaviour
         gameManager.instance.unPaused();
         gameManager.instance.isPaused = !gameManager.instance.isPaused;
     }
+
+    public void respawn()
+    {
+        gameManager.instance.unPaused();
+        gameManager.instance.playerScript.respawnPlayer();
+    }
     public void nextLevel() //Starts the first Level
     {
         if  (SceneManager.GetActiveScene().buildIndex <= 4)

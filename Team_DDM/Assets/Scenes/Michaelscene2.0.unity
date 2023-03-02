@@ -275,18 +275,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5980249563072480645, guid: a12ccc7a16e23e445a5d8b198634163b, type: 3}
-      propertyPath: pistolIcon
-      value: 
-      objectReference: {fileID: 1662090209}
-    - target: {fileID: 5980249563072480645, guid: a12ccc7a16e23e445a5d8b198634163b, type: 3}
-      propertyPath: sniperIcon
-      value: 
-      objectReference: {fileID: 1858422073}
-    - target: {fileID: 5980249563072480645, guid: a12ccc7a16e23e445a5d8b198634163b, type: 3}
-      propertyPath: shotgunIcon
-      value: 
-      objectReference: {fileID: 2049746589}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a12ccc7a16e23e445a5d8b198634163b, type: 3}
 --- !u!1001 &351150756
