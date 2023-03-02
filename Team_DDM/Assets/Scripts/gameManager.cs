@@ -13,6 +13,7 @@ public class gameManager : MonoBehaviour
     [Header("---- Player ----")]
     public GameObject player;// player object accesible thorugh other classes
     public playerController playerScript;
+    public GameObject playerSpawn;
 
     [Header("---- Menus ----")]
     public GameObject pauseMenu;
@@ -44,7 +45,7 @@ public class gameManager : MonoBehaviour
     int gunSpawn;
     public int BossesRemaining;
 
-    spawner spawn;
+    GameObject levelSpawn;
 
     // Start is called before the first frame update
     void Awake()
@@ -52,12 +53,20 @@ public class gameManager : MonoBehaviour
         instance = this;
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<playerController>();
-        spawn = GetComponent<spawner>();
         shotgunSpot = GameObject.Find("ShotgunSpawn");
         shotgunPickup = GameObject.Find("Gun - Shotgun");
         sniperSpot = GameObject.Find("SniperSpawn");
         sniperPickup = GameObject.Find("Gun - Sniper");
         gunSpawn = 0;
+        playerSpawn = GameObject.FindGameObjectWithTag("Respawn");
+        //Debug.Log($"Spawn:  + {playerSpawn.transform.position.x}, {playerSpawn.transform.position.y}, {playerSpawn.transform.position.z}");
+        levelSpawn = playerSpawn;
+        respawnPlayer();
+    }
+
+    private void Start()
+    {
+        respawnPlayer();
     }
 
     // Update is called once per frame
@@ -172,5 +181,15 @@ public class gameManager : MonoBehaviour
         paused();
         activeMenu = loseMenu;
         activeMenu.SetActive(true);
+    }
+    public void respawnPlayer()
+    {
+        player.transform.position = new Vector3(playerSpawn.transform.position.x, playerSpawn.transform.position.y, playerSpawn.transform.position.z);
+        Debug.Log($"Respawned at:  + {player.transform.position.x}, {player.transform.position.y}, {player.transform.position.z}");
+    }
+    public void updateSpawn(Transform newSpawn)
+    {
+        playerSpawn.transform.position = new Vector3(newSpawn.transform.position.x, newSpawn.transform.position.y, newSpawn.transform.position.z);
+        Debug.Log($"New Spawn:  + {playerSpawn.transform.position.x}, {playerSpawn.transform.position.y}, {playerSpawn.transform.position.z}");
     }
 }
