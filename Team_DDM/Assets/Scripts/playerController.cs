@@ -367,6 +367,7 @@ public class playerController : MonoBehaviour
         else
         {
             HP = HPOrig;
+            updatePlayerHPBar();
         }
         StartCoroutine(flashHeal());
     }
