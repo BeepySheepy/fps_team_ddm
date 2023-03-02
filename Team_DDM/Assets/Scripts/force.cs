@@ -15,6 +15,7 @@ public class force : MonoBehaviour
     [Header("----- Options -----")]
     [SerializeField] bool isConstant;
     [SerializeField] bool isHazard;
+    [SerializeField] bool isFire;
     [SerializeField] int dmgVal;
 
     float xT, yT, zT;
@@ -60,7 +61,11 @@ public class force : MonoBehaviour
                 gameManager.instance.playerScript.pushBackDir((pushCheck - transform.position).normalized * pushBackAmount);
 
             }
-            if (isHazard)
+            if (isHazard && isFire)
+            {
+                gameManager.instance.playerScript.takeFireDamage(dmgVal);
+            }
+            else if (isHazard)
             {
                 gameManager.instance.playerScript.takeDamage(dmgVal);
             }

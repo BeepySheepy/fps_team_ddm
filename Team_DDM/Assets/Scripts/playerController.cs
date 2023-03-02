@@ -9,6 +9,7 @@ public class playerController : MonoBehaviour
 {
     [Header("----- Components -----")]
     [SerializeField] public CharacterController controller;
+    public GameObject playerSpawn;
 
     [Header("----- Player Movement -----")]
     [Range(1, 50)] [SerializeField] int playerSpeed;
@@ -45,7 +46,12 @@ public class playerController : MonoBehaviour
     int iceAmmoCt;
 
     int newGun;
+    GameObject levelSpawn;
 
+    bool invuln;
+    bool invulnStatus;
+    public bool isBurning;
+    public bool god;
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +64,11 @@ public class playerController : MonoBehaviour
         fireAmmoCt = 0;
         iceAmmoCt = 0;
         newGun = -1;
+        invuln = false;
+        invulnStatus = false;
+        isBurning = false;
+        levelSpawn = playerSpawn;
+        //respawnPlayer();
 
     }
 
@@ -71,6 +82,14 @@ public class playerController : MonoBehaviour
         {
             Debug.Log("Update Func Working.");
             StartCoroutine(shoot());
+        }
+        if (isBurning)
+        {
+            StartCoroutine(burnTick());
+        }
+        if (invulnStatus)
+        {
+            StartCoroutine(statusInvuln());
         }
     }
 
@@ -129,8 +148,8 @@ public class playerController : MonoBehaviour
             {
                 if (selectedGun == 0)
                 {
-                    GameObject bulletClone = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
-                    bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * gunList[selectedGun].bulletSpeed;
+                    GameObject bulletClone = Instantiate(gunList[selectedGun].bullet, transform.position, transform.rotation);
+                    bulletClone.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * gunList[selectedGun].bulletSpeed;
                     numShots++;
                     yield return new WaitForSeconds(shootRate);
                     isShooting = false;
@@ -196,15 +215,53 @@ public class playerController : MonoBehaviour
 
     public void takeDamage(int dmg)
     {
-        HP -= dmg;
-
-        StartCoroutine(flashDamage());
-        updatePlayerHPBar();
-
-        if (HP <= 0)
+        if (!invuln && !god)
         {
-            gameManager.instance.playerDead();
+            StartCoroutine(flashDamage());
+            HP -= dmg;
+            updatePlayerHPBar();
+
+            if (HP <= 0)
+            {
+                gameManager.instance.playerDead();
+            }
+
+            StartCoroutine(IFrames());
         }
+    }
+    public void takeFireDamage(int dmg)
+    {
+        StartCoroutine(flashDamage());
+        if (!invuln && !god)
+        {
+            takeDamage(dmg);
+            StartCoroutine(statusBurning());
+        }
+    }
+    IEnumerator IFrames()
+    {
+        invuln = true;
+        yield return new WaitForSeconds(0.5f);
+        invuln = false;
+    }
+
+    IEnumerator statusInvuln()
+    {
+        invuln = true;
+        yield return new WaitForSeconds(5);
+        invuln = false;
+    }
+
+    IEnumerator statusBurning()
+    {
+        isBurning = true;
+        yield return new WaitForSeconds(2);
+        isBurning = false;
+    }
+    IEnumerator burnTick()
+    {
+        takeDamage(1);
+        yield return new WaitForSeconds(1);
     }
 
     IEnumerator flashDamage()
@@ -299,12 +356,37 @@ public class playerController : MonoBehaviour
     }
     public void giveHP(int amt)
     {
-        HP += amt;
+        if (HP + amt <= HPOrig)
+        {
+            HP += amt;
+            updatePlayerHPBar();
+        }
+        else
+        {
+            HP = HPOrig;
+        }
+        StartCoroutine(flashHeal());
     }
 
     public void setHP(int amt)
     {
         HP = amt;
+        updatePlayerHPBar();
     }
-
+    IEnumerator flashHeal()
+    {
+        gameManager.instance.playerHealFlasher.SetActive(true);
+        yield return new WaitForSeconds(.2f);
+        gameManager.instance.playerHealFlasher.SetActive(false);
+    }
+    //public void respawnPlayer()
+    //{
+    //    controller.transform.position.Set(playerSpawn.transform.position.x, playerSpawn.transform.position.y, playerSpawn.transform.position.z);
+    //    //Debug.Log($"Respawned at:  + {player.transform.position.x}, {player.transform.position.y}, {player.transform.position.z}");
+    //}
+    //public void updateSpawn(Transform newSpawn)
+    //{
+    //    playerSpawn.transform.position = newSpawn.transform.position;
+    //    //Debug.Log($"New Spawn:  + {playerSpawn.transform.position.x}, {playerSpawn.transform.position.y}, {playerSpawn.transform.position.z}");
+    //}
 }

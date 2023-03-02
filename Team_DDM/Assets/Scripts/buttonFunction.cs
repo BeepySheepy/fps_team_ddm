@@ -24,11 +24,11 @@ public class buttonFunction : MonoBehaviour
     {
         if (isGod)
         {
-            gameManager.instance.playerScript.setHP(9999);
+            gameManager.instance.playerScript.god = true;
         }
         else
         {
-            gameManager.instance.playerScript.setHP(8);
+            gameManager.instance.playerScript.god = false;
         }
     }
     public void resume()
@@ -54,6 +54,7 @@ public class buttonFunction : MonoBehaviour
     {
         gameManager.instance.unPaused();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        gameManager.instance.respawnPlayer();
     }
 
     public void quit()
