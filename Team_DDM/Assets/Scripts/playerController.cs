@@ -4,10 +4,12 @@ using TMPro;
 using UnityEngine.Rendering;
 using UnityEngine;
 
+
 public class playerController : MonoBehaviour
 {
     [Header("----- Components -----")]
     [SerializeField] public CharacterController controller;
+    [SerializeField] Camera mainCamera;
 
     [Header("----- Player Movement -----")]
     [Range(1, 50)] [SerializeField] int playerSpeed;
@@ -24,11 +26,6 @@ public class playerController : MonoBehaviour
     [SerializeField] GameObject gunModel;
     [SerializeField] float zoomMax;
 
-    [Header("---- Gun Icons ----")]
-    public GameObject pistolIcon;
-    public GameObject shotgunIcon;
-    public GameObject sniperIcon;
-
     int jumpsCurrent;
     public int speedOrig;
     public int gravOrig;
@@ -41,6 +38,7 @@ public class playerController : MonoBehaviour
     Vector3 move;
     public Vector3 playerVelocity;
     int HPOrig;
+    int checkpointHP;
     Vector3 pushBack;
     int numShots;
     bool isSpread;
@@ -49,11 +47,18 @@ public class playerController : MonoBehaviour
     int iceAmmoCt;
 
     int newGun;
+    //levelSpawn needs fix
+    GameObject levelSpawn;
 
+    bool invuln;
+    bool invulnStatus;
+    public bool isBurning;
+    public bool god;
 
     // Start is called before the first frame update
     void Start()
     {
+        mainCamera = Camera.main;
         HPOrig = HP;
         gravOrig = gravity;
         speedOrig = playerSpeed;
@@ -62,6 +67,11 @@ public class playerController : MonoBehaviour
         fireAmmoCt = 0;
         iceAmmoCt = 0;
         newGun = -1;
+        invuln = false;
+        invulnStatus = false;
+        isBurning = false;
+        levelSpawn = gameManager.instance.playerSpawn;
+        spawnPlayer();
 
     }
 
@@ -75,6 +85,14 @@ public class playerController : MonoBehaviour
         {
             Debug.Log("Update Func Working.");
             StartCoroutine(shoot());
+        }
+        if (isBurning)
+        {
+            StartCoroutine(burnTick());
+        }
+        if (invulnStatus)
+        {
+            StartCoroutine(statusInvuln());
         }
     }
 
@@ -133,13 +151,9 @@ public class playerController : MonoBehaviour
             {
                 if (selectedGun == 0)
                 {
-                    GameObject bulletClone = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
-                    bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * gunList[selectedGun].bulletSpeed;
+                    GameObject bulletClone = Instantiate(gunList[selectedGun].bullet, transform.position, transform.rotation);
+                    bulletClone.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * gunList[selectedGun].bulletSpeed;
                     numShots++;
-                    if(gunList[selectedGun].name == ("IceSniper"))
-                    {
-                        iceAmmoCt--;
-                    }
                     yield return new WaitForSeconds(shootRate);
                     isShooting = false;
                 }
@@ -204,15 +218,53 @@ public class playerController : MonoBehaviour
 
     public void takeDamage(int dmg)
     {
-        HP -= dmg;
-
-        StartCoroutine(flashDamage());
-        updatePlayerHPBar();
-
-        if (HP <= 0)
+        if (!invuln && !god)
         {
-            gameManager.instance.playerDead();
+            StartCoroutine(flashDamage());
+            HP -= dmg;
+            updatePlayerHPBar();
+
+            if (HP <= 0)
+            {
+                gameManager.instance.playerDead();
+            }
+
+            StartCoroutine(IFrames());
         }
+    }
+    public void takeFireDamage(int dmg)
+    {
+        StartCoroutine(flashDamage());
+        if (!invuln && !god)
+        {
+            takeDamage(dmg);
+            StartCoroutine(statusBurning());
+        }
+    }
+    IEnumerator IFrames()
+    {
+        invuln = true;
+        yield return new WaitForSeconds(0.5f);
+        invuln = false;
+    }
+
+    IEnumerator statusInvuln()
+    {
+        invuln = true;
+        yield return new WaitForSeconds(5);
+        invuln = false;
+    }
+
+    IEnumerator statusBurning()
+    {
+        isBurning = true;
+        yield return new WaitForSeconds(2);
+        isBurning = false;
+    }
+    IEnumerator burnTick()
+    {
+        takeDamage(1);
+        yield return new WaitForSeconds(1);
     }
 
     IEnumerator flashDamage()
@@ -248,7 +300,7 @@ public class playerController : MonoBehaviour
         {
             setIceAmmo(2);
         }
-        gunIconIndicator(newGun);
+        gameManager.instance.gunIconIndicator(newGun);
 
     }
     void selectGun()
@@ -258,14 +310,14 @@ public class playerController : MonoBehaviour
             selectedGun++;
             Debug.Log(selectedGun);
             changeGun();
-            gunIconIndicator(selectedGun);
+            gameManager.instance.gunIconIndicator(selectedGun);
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
         {
             selectedGun--;
             Debug.Log(selectedGun);
             changeGun();
-            gunIconIndicator(selectedGun);
+            gameManager.instance.gunIconIndicator(selectedGun);
         }
     }
 
@@ -277,29 +329,7 @@ public class playerController : MonoBehaviour
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
     }
-    public void gunIconIndicator(int selected)
-    {
-
-       switch (selected)
-       {
-           case 0:
-               pistolIcon.SetActive(true);
-               shotgunIcon.SetActive(false);
-               sniperIcon.SetActive(false);
-               break;
-           case 1:
-               pistolIcon.SetActive(false);
-               shotgunIcon.SetActive(true);
-               sniperIcon.SetActive(false);
-               break;
-           case 2:
-               pistolIcon.SetActive(false);
-               shotgunIcon.SetActive(false);
-               sniperIcon.SetActive(true);
-               break;
-       
-       }
-    }
+    
     public void pushBackDir(Vector3 dir)
     {
         Debug.Log("Push Back Go");
@@ -329,12 +359,53 @@ public class playerController : MonoBehaviour
     }
     public void giveHP(int amt)
     {
-        HP += amt;
+        if (HP + amt <= HPOrig)
+        {
+            HP += amt;
+            updatePlayerHPBar();
+        }
+        else
+        {
+            HP = HPOrig;
+            updatePlayerHPBar();
+        }
+        StartCoroutine(flashHeal());
     }
 
     public void setHP(int amt)
     {
         HP = amt;
+        updatePlayerHPBar();
+    }
+    public int getHP()
+    {
+        return HP;
+    }
+    IEnumerator flashHeal()
+    {
+        gameManager.instance.playerHealFlasher.SetActive(true);
+        yield return new WaitForSeconds(.2f);
+        gameManager.instance.playerHealFlasher.SetActive(false);
+    }
+    public void spawnPlayer()
+    {
+        controller.enabled = false;
+        transform.position = gameManager.instance.playerSpawn.transform.position;
+        HP = HPOrig;
+        updatePlayerHPBar();
+        controller.enabled = true;
     }
 
+    public void respawnPlayer()
+    {
+        controller.enabled = false;
+        transform.position = gameManager.instance.playerSpawn.transform.position;
+        setHP(checkpointHP);
+        controller.enabled = true;
+    }
+
+    public void checkpointHPTracker()
+    {
+        checkpointHP = HP;
+    }
 }

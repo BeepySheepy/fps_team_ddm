@@ -24,17 +24,23 @@ public class buttonFunction : MonoBehaviour
     {
         if (isGod)
         {
-            gameManager.instance.playerScript.setHP(9999);
+            gameManager.instance.playerScript.god = true;
         }
         else
         {
-            gameManager.instance.playerScript.setHP(8);
+            gameManager.instance.playerScript.god = false;
         }
     }
     public void resume()
     {
         gameManager.instance.unPaused();
         gameManager.instance.isPaused = !gameManager.instance.isPaused;
+    }
+
+    public void respawn()
+    {
+        gameManager.instance.unPaused();
+        gameManager.instance.playerScript.respawnPlayer();
     }
     public void nextLevel() //Starts the first Level
     {

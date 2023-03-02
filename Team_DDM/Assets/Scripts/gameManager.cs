@@ -5,6 +5,12 @@ using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
 
+enum weapons
+{
+    pistol = 0,
+    shotgun,
+    sniper
+}
 public class gameManager : MonoBehaviour
 {
 
@@ -13,6 +19,7 @@ public class gameManager : MonoBehaviour
     [Header("---- Player ----")]
     public GameObject player;// player object accesible thorugh other classes
     public playerController playerScript;
+    public GameObject playerSpawn;
 
     [Header("---- Menus ----")]
     public GameObject pauseMenu;
@@ -25,6 +32,7 @@ public class gameManager : MonoBehaviour
     public Image playerHPBar;
     public Image BossHPBar;
     public GameObject playerDamageFlasher;
+    public GameObject playerHealFlasher;
 
     [Header("--- Enemies ----")]
     public int enemiesRemaining;
@@ -43,6 +51,11 @@ public class gameManager : MonoBehaviour
     int gunSpawn;
     public int BossesRemaining;
 
+    [Header("---- Gun Icons ----")]
+    public GameObject pistolIcon;
+    public GameObject shotgunIcon;
+    public GameObject sniperIcon;
+
     spawner spawn;
 
     // Start is called before the first frame update
@@ -51,17 +64,22 @@ public class gameManager : MonoBehaviour
         instance = this;
         player = GameObject.FindGameObjectWithTag("Player");
         playerScript = player.GetComponent<playerController>();
-        spawn = GetComponent<spawner>();
         shotgunSpot = GameObject.Find("ShotgunSpawn");
         shotgunPickup = GameObject.Find("Gun - Shotgun");
         sniperSpot = GameObject.Find("SniperSpawn");
         sniperPickup = GameObject.Find("Gun - Sniper");
         gunSpawn = 0;
+        playerSpawn = GameObject.FindGameObjectWithTag("Respawn");
+        //Debug.Log($"Spawn:  + {playerSpawn.transform.position.x}, {playerSpawn.transform.position.y}, {playerSpawn.transform.position.z}");
+        //levelspawn = playerSpawn;
+        //respawnPlayer();
+        activeMenu = null;
     }
 
     // Update is called once per frame
     void Update()
     {
+       
         if(Input.GetButtonDown("Cancel") && activeMenu == null)
         {
             isPaused = !isPaused;
@@ -142,7 +160,30 @@ public class gameManager : MonoBehaviour
             activeMenu.SetActive(true);
         }
     }
-    
+
+    public void gunIconIndicator(int selected)
+    {
+        
+        switch (selected)
+        {
+            case 0:
+                pistolIcon.SetActive(true);
+                shotgunIcon.SetActive(false);
+                sniperIcon.SetActive(false);
+                break;
+            case 1:
+                pistolIcon.SetActive(false);
+                shotgunIcon.SetActive(true);
+                sniperIcon.SetActive(false);
+                break;
+            case 2:
+                pistolIcon.SetActive(false);
+                shotgunIcon.SetActive(false);
+                sniperIcon.SetActive(true);
+                break;
+
+        }
+    }
 
     public void ammoUpdaterF(int amount)
     {
