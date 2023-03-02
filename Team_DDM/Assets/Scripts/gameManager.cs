@@ -71,7 +71,7 @@ public class gameManager : MonoBehaviour
         gunSpawn = 0;
         playerSpawn = GameObject.FindGameObjectWithTag("Respawn");
         //Debug.Log($"Spawn:  + {playerSpawn.transform.position.x}, {playerSpawn.transform.position.y}, {playerSpawn.transform.position.z}");
-        levelSpawn = playerSpawn;
+        //levelspawn = playerSpawn;
         respawnPlayer();
     }
 
