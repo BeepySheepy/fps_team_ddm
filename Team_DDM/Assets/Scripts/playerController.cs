@@ -9,7 +9,6 @@ public class playerController : MonoBehaviour
 {
     [Header("----- Components -----")]
     [SerializeField] public CharacterController controller;
-    public GameObject playerSpawn;
     [SerializeField] Camera mainCamera;
 
     [Header("----- Player Movement -----")]
@@ -47,6 +46,7 @@ public class playerController : MonoBehaviour
     int iceAmmoCt;
 
     int newGun;
+    //levelSpawn needs fix
     GameObject levelSpawn;
 
     bool invuln;
@@ -69,8 +69,8 @@ public class playerController : MonoBehaviour
         invuln = false;
         invulnStatus = false;
         isBurning = false;
-        levelSpawn = playerSpawn;
-        //respawnPlayer();
+        levelSpawn = gameManager.instance.playerSpawn;
+        respawnPlayer();
 
     }
 
@@ -381,14 +381,12 @@ public class playerController : MonoBehaviour
         yield return new WaitForSeconds(.2f);
         gameManager.instance.playerHealFlasher.SetActive(false);
     }
-    //public void respawnPlayer()
-    //{
-    //    controller.transform.position.Set(playerSpawn.transform.position.x, playerSpawn.transform.position.y, playerSpawn.transform.position.z);
-    //    //Debug.Log($"Respawned at:  + {player.transform.position.x}, {player.transform.position.y}, {player.transform.position.z}");
-    //}
-    //public void updateSpawn(Transform newSpawn)
-    //{
-    //    playerSpawn.transform.position = newSpawn.transform.position;
-    //    //Debug.Log($"New Spawn:  + {playerSpawn.transform.position.x}, {playerSpawn.transform.position.y}, {playerSpawn.transform.position.z}");
-    //}
+    public void respawnPlayer()
+    {
+        controller.enabled = false;
+        transform.position = gameManager.instance.playerSpawn.transform.position;
+        //HP = HPOrig;
+        //updatePlayerHPBar();
+        controller.enabled = true;
+    }
 }

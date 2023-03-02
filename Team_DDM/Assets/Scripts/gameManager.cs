@@ -213,14 +213,4 @@ public class gameManager : MonoBehaviour
         activeMenu = loseMenu;
         activeMenu.SetActive(true);
     }
-    public void respawnPlayer()
-    {
-        player.transform.position = new Vector3(playerSpawn.transform.position.x, playerSpawn.transform.position.y, playerSpawn.transform.position.z);
-        Debug.Log($"Respawned at:  + {player.transform.position.x}, {player.transform.position.y}, {player.transform.position.z}");
-    }
-    public void updateSpawn(Transform newSpawn)
-    {
-        playerSpawn.transform.position = new Vector3(newSpawn.transform.position.x, newSpawn.transform.position.y, newSpawn.transform.position.z);
-        Debug.Log($"New Spawn:  + {playerSpawn.transform.position.x}, {playerSpawn.transform.position.y}, {playerSpawn.transform.position.z}");
-    }
 }

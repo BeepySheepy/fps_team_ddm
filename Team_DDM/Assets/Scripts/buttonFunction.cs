@@ -54,7 +54,6 @@ public class buttonFunction : MonoBehaviour
     {
         gameManager.instance.unPaused();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        gameManager.instance.respawnPlayer();
     }
 
     public void quit()
