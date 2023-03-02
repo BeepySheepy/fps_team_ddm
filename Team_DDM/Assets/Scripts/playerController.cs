@@ -9,6 +9,7 @@ public class playerController : MonoBehaviour
     [Header("----- Components -----")]
     [SerializeField] public CharacterController controller;
     public GameObject playerSpawn;
+    [SerializeField] Camera mainCamera;
 
     [Header("----- Player Movement -----")]
     [Range(1, 50)] [SerializeField] int playerSpeed;
@@ -60,6 +61,7 @@ public class playerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mainCamera = Camera.main;
         HPOrig = HP;
         gravOrig = gravity;
         speedOrig = playerSpeed;
