@@ -12,6 +12,7 @@ public class faceCamera : MonoBehaviour
     void Start()
     {
         localT = GetComponent<Transform>();
+        mLookat = Camera.main.GetComponent<Transform>();
     }
 
     // Update is called once per frame
