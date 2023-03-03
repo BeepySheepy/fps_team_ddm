@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class buttonFunction : MonoBehaviour
 {
     bool isGod;
+    public Animator transition;
+    public float transitionTime = 1f;
     private void Start()
     {
         isGod = false;
@@ -66,4 +68,5 @@ public class buttonFunction : MonoBehaviour
     {
         Application.Quit();
     }
+    
 }

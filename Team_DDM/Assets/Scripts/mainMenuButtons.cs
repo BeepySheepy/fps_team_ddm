@@ -5,10 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class mainMenuButtons : MonoBehaviour
 {
-    public void play() //Starts the first Level
+    GameObject noSavedGameImage;
+    public void continueGame() //Starts the first Level
     {
-        Time.timeScale = 1;
-        SceneManager.LoadScene(1); //Load the spacific scene
+        //if (there is a save file)
+        //{
+        //    Load save game
+        //}
+        //else
+        //{
+        //    StartCoroutine(noSavedGame)
+        //}
     }
     public void level1() //Starts the first Level
     {
@@ -29,5 +36,12 @@ public class mainMenuButtons : MonoBehaviour
     public void quit() //Quits the Game
     {
         Application.Quit();
+    }
+
+    IEnumerator noSavedGame()
+    {
+        noSavedGameImage.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        noSavedGameImage.SetActive(false);
     }
 }

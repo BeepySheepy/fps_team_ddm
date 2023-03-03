@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 enum weapons
 {
@@ -25,7 +26,8 @@ public class gameManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject activeMenu;
     public bool isPaused;
-    public GameObject winMenu;
+    public GameObject winLevelMenu;
+    public GameObject winGameMenu;
     public GameObject loseMenu;
 
     [Header("---- Health ----")]
@@ -156,8 +158,16 @@ public class gameManager : MonoBehaviour
         if (BossesRemaining <= 0)
         {
             paused();
-            activeMenu = winMenu;
-            activeMenu.SetActive(true);
+            if (SceneManager.GetActiveScene().buildIndex + 1 == 0)
+            {
+                activeMenu = winGameMenu;
+                activeMenu.SetActive(true);
+            }
+            else
+            {
+                activeMenu = winLevelMenu;
+                activeMenu.SetActive(true);
+            }
         }
     }
 

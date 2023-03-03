@@ -187,6 +187,66 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 488077301055892335, guid: a12ccc7a16e23e445a5d8b198634163b, type: 3}
+      propertyPath: m_Name
+      value: Start Transition
+      objectReference: {fileID: 0}
+    - target: {fileID: 488077301055892335, guid: a12ccc7a16e23e445a5d8b198634163b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 586168739299719419, guid: a12ccc7a16e23e445a5d8b198634163b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 586168739299719419, guid: a12ccc7a16e23e445a5d8b198634163b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 586168739299719419, guid: a12ccc7a16e23e445a5d8b198634163b, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 586168739299719419, guid: a12ccc7a16e23e445a5d8b198634163b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 586168739299719419, guid: a12ccc7a16e23e445a5d8b198634163b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 586168739299719419, guid: a12ccc7a16e23e445a5d8b198634163b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 586168739299719419, guid: a12ccc7a16e23e445a5d8b198634163b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 586168739299719419, guid: a12ccc7a16e23e445a5d8b198634163b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 586168739299719419, guid: a12ccc7a16e23e445a5d8b198634163b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034095201250863122, guid: a12ccc7a16e23e445a5d8b198634163b, type: 3}
+      propertyPath: m_Color.a
+      value: 0.79607844
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034095201250863122, guid: a12ccc7a16e23e445a5d8b198634163b, type: 3}
+      propertyPath: m_Color.b
+      value: 0.31132078
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034095201250863122, guid: a12ccc7a16e23e445a5d8b198634163b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.31132078
+      objectReference: {fileID: 0}
+    - target: {fileID: 4034095201250863122, guid: a12ccc7a16e23e445a5d8b198634163b, type: 3}
+      propertyPath: m_Color.r
+      value: 0.31132078
+      objectReference: {fileID: 0}
     - target: {fileID: 5980249562025057828, guid: a12ccc7a16e23e445a5d8b198634163b, type: 3}
       propertyPath: m_Name
       value: UI (New)
@@ -279,14 +339,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8409559472272139177, guid: a12ccc7a16e23e445a5d8b198634163b, type: 3}
-      propertyPath: m_Name
-      value: GodMode Toggle
-      objectReference: {fileID: 0}
-    - target: {fileID: 8409559472272139177, guid: a12ccc7a16e23e445a5d8b198634163b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a12ccc7a16e23e445a5d8b198634163b, type: 3}
 --- !u!1001 &351150756
@@ -360,7 +412,7 @@ GameObject:
   - component: {fileID: 453357794}
   - component: {fileID: 453357793}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Checkpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -992,7 +1044,7 @@ GameObject:
   - component: {fileID: 1991488216}
   - component: {fileID: 1991488215}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
