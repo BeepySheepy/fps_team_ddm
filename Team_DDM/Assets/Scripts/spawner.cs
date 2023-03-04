@@ -7,8 +7,11 @@ public class spawner : MonoBehaviour
     [SerializeField] GameObject objectToSpawn;
     [SerializeField] int spawnMax;
     [SerializeField] float timer;
+    [SerializeField] float spawnEffectTimer;
     [SerializeField] bool countEnemies;
     [SerializeField] Transform[] spawnPos;
+    [SerializeField] bool useSpawnEffect;
+    [SerializeField] ParticleSystem spawnEffect;
     //[SerializeField] Transform[] spawnDoor;
     [SerializeField] Transform[] doorPos;
     [SerializeField] GameObject doorObj;
@@ -18,6 +21,7 @@ public class spawner : MonoBehaviour
     [SerializeField] GameObject[] doors = new GameObject[10];
     GameObject obj;
     int spawnCount;
+    bool isPlayingSpawnEffect;
     bool isSpawning;
     bool playerInRange;
     List<GameObject> spawnList = new List<GameObject>();
@@ -34,8 +38,8 @@ public class spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if((spawnCount < spawnMax || spawnMax == 0) && !isSpawning && playerInRange)// spawn max = 0 equals infinite spawn
+
+        if ((spawnCount < spawnMax || spawnMax == 0) && !isSpawning && playerInRange)// spawn max = 0 equals infinite spawn
         {
             StartCoroutine(spawn());
         }
@@ -66,16 +70,33 @@ public class spawner : MonoBehaviour
 
     IEnumerator spawn()
     {
+
         isSpawning = true;
-        Instantiate(objectToSpawn, spawnPos[spawnCount].position, objectToSpawn.transform.rotation);
+        yield return new WaitForSeconds(timer);
+
+        if (useSpawnEffect)
+        {
+            StartCoroutine(spawnWithFX());// separate IEnumerator
+        }
+        else
+        {
+            Instantiate(objectToSpawn, spawnPos[spawnCount].position, objectToSpawn.transform.rotation);
+        }
         spawnCount++;
-        
-        if(spawnCount == spawnPos.Length && spawnMax == 0)
+
+        if (spawnCount == spawnPos.Length && spawnMax == 0)
         {
             spawnCount = 0;
         }
-        yield return new WaitForSeconds(timer);
         isSpawning = false;
+    }
+    IEnumerator spawnWithFX()// doesn't check for true or false because protected by spawn IEnumerator
+    {
+        ParticleSystem particleEffectInstance = Instantiate(spawnEffect, spawnPos[spawnCount].position, spawnEffect.transform.rotation);
+        int spawnLocationInternalTimerStorage = spawnCount;// spawnCount changes outside of code
+        yield return new WaitForSeconds(spawnEffectTimer);
+        GameObject enemyInstance = Instantiate(objectToSpawn, spawnPos[spawnLocationInternalTimerStorage].position, objectToSpawn.transform.rotation);
+        particleEffectInstance.GetComponent<spawnScript>().SetEnemyChild(enemyInstance);
     }
 
     //public void turnOff()

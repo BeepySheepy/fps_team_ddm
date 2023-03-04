@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5739028856967349283}
   - component: {fileID: 5739028856967349280}
+  - component: {fileID: 6833850297912443771}
   - component: {fileID: 5739028856967349281}
   - component: {fileID: 6810383672875982542}
   - component: {fileID: 6540013272006777147}
@@ -48,7 +49,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 2
+  homingBullet: 0
   bulletDamage: 1
+--- !u!114 &6833850297912443771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5739028856967349286}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81daae9cca777ff45b6515dbdbf61a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushBackAmount: 1
+  push: 1
+  timer: 0
+  negateX: 0
+  negateY: 0
+  negateZ: 0
+  isConstant: 0
+  isHazard: 0
+  isFire: 0
+  dmgVal: 0
 --- !u!135 &5739028856967349281
 SphereCollider:
   m_ObjectHideFlags: 0
