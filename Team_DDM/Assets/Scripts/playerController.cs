@@ -51,7 +51,6 @@ public class playerController : MonoBehaviour
     GameObject levelSpawn;
 
     bool invuln;
-    bool invulnStatus;
     public bool isBurning;
     public bool god;
 
@@ -68,7 +67,6 @@ public class playerController : MonoBehaviour
         iceAmmoCt = 0;
         newGun = -1;
         invuln = false;
-        invulnStatus = false;
         isBurning = false;
         levelSpawn = gameManager.instance.playerSpawn;
         spawnPlayer();
@@ -89,10 +87,6 @@ public class playerController : MonoBehaviour
         if (isBurning)
         {
             StartCoroutine(burnTick());
-        }
-        if (invulnStatus)
-        {
-            StartCoroutine(statusInvuln());
         }
     }
 
@@ -251,8 +245,12 @@ public class playerController : MonoBehaviour
     IEnumerator statusInvuln()
     {
         invuln = true;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         invuln = false;
+    }
+    public void callInvuln()
+    {
+        StartCoroutine(statusInvuln());
     }
 
     IEnumerator statusBurning()
