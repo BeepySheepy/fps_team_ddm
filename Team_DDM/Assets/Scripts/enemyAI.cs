@@ -7,7 +7,7 @@ public class enemyAI : MonoBehaviour
 {
     [Header("-----Navigation-----")]
     [SerializeField] NavMeshAgent navMesh;// allows for movement
-    [SerializeField] Transform headPos;// tracks head pos instead of from (0,0)
+    [SerializeField] Transform[] headPos;// tracks head pos instead of from (0,0)
     [Range(1, 10)][SerializeField] int enemyTurnSpeed;
     [SerializeField] ParticleSystem footStepParticle;
     [SerializeField] Transform leftFoot;
@@ -32,12 +32,13 @@ public class enemyAI : MonoBehaviour
     float angleTowardsPlayer;
     Animator anim;
     bool isInMelee;
+    int shootPosIter;
 
     // Start is called before the first frame update
     void Start()
     {
-
-        gun.SetShootPos(headPos);
+        shootPosIter = 0;
+        gun.SetShootPos(headPos[shootPosIter]);
         anim = GetComponent<Animator>();
         navMesh.enabled = true;
     }
@@ -55,7 +56,7 @@ public class enemyAI : MonoBehaviour
                 }
 
 
-                playerDirection = gameManager.instance.player.transform.position - headPos.position;// creates a vector between the player and the enemy
+                playerDirection = gameManager.instance.player.transform.position - headPos[shootPosIter].position;// creates a vector between the player and the enemy
                 playerDirection.y += plusYAimDir;
                 if (playerInRange || playerInVisualRange() || permaAggro)
                 {
@@ -138,9 +139,9 @@ public class enemyAI : MonoBehaviour
         if (playerDistance < visionDistance)// player is close enough to see
         {
             angleTowardsPlayer = Vector3.Angle(new Vector3(playerDirection.x, 0, playerDirection.z), transform.forward);
-            Debug.DrawRay(headPos.position, playerDirection);
+            Debug.DrawRay(headPos[0].position, playerDirection);// headPos[0] should always be the forward facing position of the enemy
             RaycastHit hit;
-            if (Physics.Raycast(headPos.position, playerDirection, out hit))//Raycast hit's something
+            if (Physics.Raycast(headPos[0].position, playerDirection, out hit))//Raycast hit's something
             {
                 if (hit.collider.CompareTag("Player") && angleTowardsPlayer <= visionAngle)// Raycast hits player while
                 {
@@ -174,7 +175,7 @@ public class enemyAI : MonoBehaviour
 
     public Transform GetHeadPos()
     {
-        return headPos;
+        return headPos[shootPosIter];
     }
 
 
