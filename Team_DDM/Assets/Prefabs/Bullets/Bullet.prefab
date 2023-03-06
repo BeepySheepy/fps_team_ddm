@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ee41933d1f3b441b733e4b4be4a02d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 5
+  timer: 8
   homingBullet: 0
   bulletDamage: 1
 --- !u!114 &6833850297912443771
