@@ -38,15 +38,14 @@ public class playerController : MonoBehaviour
     Vector3 move;
     public Vector3 playerVelocity;
     int HPOrig;
-    int checkpointHP;
     Vector3 pushBack;
     int numShots;
     bool isSpread;
 
-    int fireAmmoCt;
+    public int fireAmmoCt;
     int iceAmmoCt;
 
-    int newGun;
+    public int newGun;
     //levelSpawn needs fix
     GameObject levelSpawn;
 
@@ -54,6 +53,11 @@ public class playerController : MonoBehaviour
     bool invulnStatus;
     public bool isBurning;
     public bool god;
+
+    //CheckPoint Info
+    int checkpointHP;
+    int checkpointAmmoF;
+    int checkpointAmmoI;
 
     // Start is called before the first frame update
     void Start()
@@ -401,11 +405,16 @@ public class playerController : MonoBehaviour
         controller.enabled = false;
         transform.position = gameManager.instance.playerSpawn.transform.position;
         setHP(checkpointHP);
+        setFireAmmo(checkpointAmmoF);
+        setIceAmmo(checkpointAmmoI);
         controller.enabled = true;
     }
 
     public void checkpointHPTracker()
     {
         checkpointHP = HP;
+        checkpointAmmoF = fireAmmoCt;
+        checkpointAmmoI = iceAmmoCt;
     }
+
 }

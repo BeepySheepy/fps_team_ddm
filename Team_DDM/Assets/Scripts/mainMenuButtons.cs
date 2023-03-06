@@ -6,16 +6,35 @@ using UnityEngine.SceneManagement;
 public class mainMenuButtons : MonoBehaviour
 {
     GameObject noSavedGameImage;
+    public Animator transitions;
+    //public void buttonClicked()
+    //{
+    //    StartCoroutine(screenTransitioner());
+    //}
+
+    //public IEnumerator screenTransitioner()
+    //{
+    //    transitions.SetTrigger("Start");
+    //    yield return new WaitForSeconds(6);
+    //    transitions.SetTrigger("End");
+    //}
+
     public void continueGame() //Starts the first Level
     {
-        //if (there is a save file)
-        //{
-        //    Load save game
-        //}
-        //else
-        //{
-        //    StartCoroutine(noSavedGame)
-        //}
+        if (PlayerPrefs.HasKey("PlayerLevel"))
+        {
+
+        }
+        else
+        {
+            StartCoroutine(noSavedGame());
+        }
+    }
+    public void newGame()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(6);
+        PlayerPrefs.DeleteAll();
     }
     public void level1() //Starts the first Level
     {

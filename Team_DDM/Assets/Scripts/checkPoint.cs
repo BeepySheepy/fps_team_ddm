@@ -14,6 +14,7 @@ public class checkPoint : MonoBehaviour
             gameManager.instance.playerScript.checkpointHPTracker();
             gameManager.instance.playerSpawn.transform.position = transform.position;
             //Destroy(gameObject);
+
         }
     }
 
