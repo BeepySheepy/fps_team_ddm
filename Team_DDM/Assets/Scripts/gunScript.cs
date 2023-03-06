@@ -6,6 +6,7 @@ public class gunScript : MonoBehaviour
 {
     [SerializeField] gunStats mGun;
     [SerializeField] bool autoLockOnPlayer;
+    [SerializeField] bool autoLockOnPlayerY;
 
     bool isReloading;
     bool isShooting;
@@ -46,6 +47,10 @@ public class gunScript : MonoBehaviour
         if (autoLockOnPlayer)//  locks onto Player
         {
             bulletClone.GetComponent<bullet>().bulletShootInterface(shootDirection, mGun.bulletSpeed);
+        }
+        else if (autoLockOnPlayerY)// locks onto player Y position
+        {
+            bulletClone.GetComponent<bullet>().bulletShootInterface(shootDirection.y, mGun.bulletSpeed);
         }
         else// shoots straight forward
         {

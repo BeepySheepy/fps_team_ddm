@@ -84,7 +84,7 @@ public class enemyAI : MonoBehaviour
                         }
                         shootPosIter = 0;// reset shootPosIter
                     }
-                    else if (gun != null && !gun.IsShooting() && !gun.IsReloading() && gun.GetBulletsInClip() == 0)// reload
+                    else if (gun != null && !gun.IsShooting() && !gun.IsReloading() && gun.GetBulletsInClip() <= 0)// reload
                     {
                         Debug.Log("Enemy Reloading");
                         gun.Reload();

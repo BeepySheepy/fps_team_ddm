@@ -711,6 +711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mGun: {fileID: 11400000, guid: 10a722a0a0b8c5f46b234c9138279e50, type: 2}
   autoLockOnPlayer: 1
+  autoLockOnPlayerY: 0
 --- !u!95 &2785143888127259757
 Animator:
   serializedVersion: 5
@@ -790,8 +791,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4895884925667957289}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.041, y: -0.19, z: 0.002}
+  m_LocalRotation: {x: 0.000000028311675, y: 0.00000005106474, z: -0.000000029802315, w: 1}
+  m_LocalPosition: {x: -0.040999975, y: -0.18999994, z: 0.002000075}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

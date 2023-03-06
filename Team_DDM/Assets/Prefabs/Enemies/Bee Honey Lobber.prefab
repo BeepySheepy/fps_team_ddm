@@ -674,8 +674,7 @@ MonoBehaviour:
   enemyActivated: 0
   visionDistance: 30.4
   visionAngle: 40.5
-  gun:
-  - {fileID: 8514673147778497885}
+  gun: {fileID: 8514673147778497885}
   dropHP: 0
   plusYAimDir: 5
   meleeTimer: 0
@@ -712,6 +711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mGun: {fileID: 11400000, guid: 2964995c5a144da42b0d7e1c52dd4266, type: 2}
   autoLockOnPlayer: 1
+  autoLockOnPlayerY: 0
 --- !u!95 &2785143888127259757
 Animator:
   serializedVersion: 5
