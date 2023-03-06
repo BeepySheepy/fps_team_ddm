@@ -38,8 +38,12 @@ public class enemyAI : MonoBehaviour
     void Start()
     {
         shootPosIter = 0;
-        gun.SetShootPos(headPos[shootPosIter]);
+        gun.SetShootPos(headPos[shootPosIter]);// could potentially remove this code
         anim = GetComponent<Animator>();
+        if(anim != null && enemyTypeID != (int)enemies.bulletHell)
+        {
+            gun.SetAnimator(anim);
+        }
         navMesh.enabled = true;
     }
 
@@ -56,8 +60,7 @@ public class enemyAI : MonoBehaviour
                 }
 
 
-                playerDirection = gameManager.instance.player.transform.position - headPos[shootPosIter].position;// creates a vector between the player and the enemy
-                playerDirection.y += plusYAimDir;
+                FindPlayerDirection();
                 if (playerInRange || playerInVisualRange() || permaAggro)
                 {
                     navMesh.SetDestination(gameManager.instance.player.transform.position);// sets enemy destination as the player
@@ -68,17 +71,25 @@ public class enemyAI : MonoBehaviour
 
                     if (gun != null)
                     {
-                        // gun stuff
-                        if (!gun.IsShooting() && gun.GetBulletsInClip() != 0)
+                        for (shootPosIter = 0; shootPosIter < headPos.Length; shootPosIter++)
                         {
-                            Debug.Log("Enemy Shooting");
-                            gun.shootInterface(playerDirection);
+                            // gun stuff
+                            gun.SetShootPos(headPos[shootPosIter]);
+                            FindPlayerDirection();
+                            if (!gun.IsShooting() && gun.GetBulletsInClip() != 0)
+                            {
+                                Debug.Log("Enemy Shooting");
+                                gun.shootInterface(playerDirection);// figure out a way to change playerDirection between shootPos changes
+                            }
+                            else if (!gun.IsShooting() && !gun.IsReloading() && gun.GetBulletsInClip() == 0)// reload
+                            {
+                                Debug.Log("Enemy Reloading");
+                                gun.Reload();
+                            }
+                            gun.ToggleIsShooting();
                         }
-                        else if (!gun.IsShooting() && !gun.IsReloading() && gun.GetBulletsInClip() == 0)// reload
-                        {
-                            Debug.Log("Enemy Reloading");
-                            gun.Reload();
-                        }
+                        gun.ToggleIsShooting();// turn on IsShooting
+                        shootPosIter = 0;// reset shootPosIter
                     }
                     else// melee system
                     {
@@ -205,6 +216,12 @@ public class enemyAI : MonoBehaviour
     {
         Debug.Log("Left Foot Step");
         Instantiate(footStepParticle, leftFoot);
+    }
+
+    void FindPlayerDirection()
+    {
+        playerDirection = gameManager.instance.player.transform.position - headPos[shootPosIter].position;// creates a vector between the player and the enemy
+        playerDirection.y += plusYAimDir;
     }
 
     public void Activate()

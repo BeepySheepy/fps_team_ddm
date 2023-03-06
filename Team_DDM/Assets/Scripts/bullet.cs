@@ -15,7 +15,7 @@ public class bullet : MonoBehaviour
     void Start()
     {
         Destroy(gameObject, timer);
-        mShootDirection = Vector3.zero;
+        mShootDirection = Vector3.zero;// base set to forward movement
     }
 
     void Update()// will be use for homing bullet
@@ -69,6 +69,6 @@ public class bullet : MonoBehaviour
     /// </summary>
     void bulletShootVector()
     {
-        GetComponent<Rigidbody>().velocity = mShootDirection * mBulletSpeed;
+        GetComponent<Rigidbody>().velocity = Vector3.forward * mBulletSpeed;
     }
 }

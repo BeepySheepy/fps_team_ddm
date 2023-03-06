@@ -5,7 +5,7 @@ using UnityEngine;
 enum enemies
 {
     basicRange = 0, basicMelee, bulletHell, spider
-}
+}// remove spider code eventually
 
 public class enemyStats : MonoBehaviour, IDamage
 {
