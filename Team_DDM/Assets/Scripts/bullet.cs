@@ -20,7 +20,7 @@ public class bullet : MonoBehaviour
 
     void Update()// will be use for homing bullet
     {
-        if (homingBullet)// bullet follows you
+        if (homingBullet)// bullet follows 
         {
             bulletShootInterface(gameManager.instance.player.transform.position - transform.position, mBulletSpeed);
         }

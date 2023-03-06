@@ -9,6 +9,10 @@ public class enemyAI : MonoBehaviour
     [SerializeField] NavMeshAgent navMesh;// allows for movement
     [SerializeField] Transform headPos;// tracks head pos instead of from (0,0)
     [Range(1, 10)][SerializeField] int enemyTurnSpeed;
+    [SerializeField] ParticleSystem footStepParticle;
+    [SerializeField] Transform leftFoot;
+    [SerializeField] Transform rightFoot;
+    [SerializeField] bool enemyActivated;// allows enemies to start deactivated so particle effect can finish
     [Header("-----Vision-----")]
     [Range(1, 50)][SerializeField] float visionDistance;
     [Range(1, 50)][SerializeField] float visionAngle;
@@ -17,7 +21,6 @@ public class enemyAI : MonoBehaviour
     [SerializeField] int dropHP;
     [SerializeField] float plusYAimDir;
     [Header("-----Melee-----")]
-    
     [SerializeField] float meleeTimer;
 
     [SerializeField] bool permaAggro;
@@ -33,7 +36,7 @@ public class enemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
         gun.SetShootPos(headPos);
         anim = GetComponent<Animator>();
         navMesh.enabled = true;
@@ -42,46 +45,49 @@ public class enemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (navMesh.isActiveAndEnabled)
+        if (enemyActivated)
         {
-            if (anim != null)
+            if (navMesh.isActiveAndEnabled)
             {
-                anim.SetFloat("Speed", navMesh.velocity.normalized.magnitude);
-            }
-            
-
-            playerDirection = gameManager.instance.player.transform.position - headPos.position;// creates a vector between the player and the enemy
-            playerDirection.y += plusYAimDir;
-            if (playerInRange || playerInVisualRange() || permaAggro)
-            {
-                navMesh.SetDestination(gameManager.instance.player.transform.position);// sets enemy destination as the player
-                if (navMesh.remainingDistance < navMesh.stoppingDistance)// enemy is closer than nav mesh stopping distance
+                if (anim != null)
                 {
-                    facePlayer();
+                    anim.SetFloat("Speed", navMesh.velocity.normalized.magnitude);
                 }
 
-                if(gun != null)
+
+                playerDirection = gameManager.instance.player.transform.position - headPos.position;// creates a vector between the player and the enemy
+                playerDirection.y += plusYAimDir;
+                if (playerInRange || playerInVisualRange() || permaAggro)
                 {
-                    // gun stuff
-                    if (!gun.IsShooting() && gun.GetBulletsInClip() != 0)
+                    navMesh.SetDestination(gameManager.instance.player.transform.position);// sets enemy destination as the player
+                    if (navMesh.remainingDistance < navMesh.stoppingDistance)// enemy is closer than nav mesh stopping distance
                     {
-                        Debug.Log("Enemy Shooting");
-                        gun.shootInterface(playerDirection);
+                        facePlayer();
                     }
-                    else if (!gun.IsShooting() && !gun.IsReloading() && gun.GetBulletsInClip() == 0)// reload
+
+                    if (gun != null)
                     {
-                        Debug.Log("Enemy Reloading");
-                        gun.Reload();
+                        // gun stuff
+                        if (!gun.IsShooting() && gun.GetBulletsInClip() != 0)
+                        {
+                            Debug.Log("Enemy Shooting");
+                            gun.shootInterface(playerDirection);
+                        }
+                        else if (!gun.IsShooting() && !gun.IsReloading() && gun.GetBulletsInClip() == 0)// reload
+                        {
+                            Debug.Log("Enemy Reloading");
+                            gun.Reload();
+                        }
                     }
+                    else// melee system
+                    {
+                        if (!isInMelee)
+                        {
+                            StartCoroutine(melee());
+                        }
+                    }
+
                 }
-                else// melee system
-                {
-                    if (!isInMelee)
-                    {
-                        StartCoroutine(melee());
-                    }
-                }
-                
             }
         }
     }
@@ -156,7 +162,7 @@ public class enemyAI : MonoBehaviour
         navMesh.enabled = false;
     }
 
-    
+
 
     IEnumerator melee()
     {
@@ -171,7 +177,7 @@ public class enemyAI : MonoBehaviour
         return headPos;
     }
 
-    
+
     public void flipAgent()
     {
         navMesh.enabled = !navMesh.enabled;
@@ -186,5 +192,22 @@ public class enemyAI : MonoBehaviour
         {
             return false;
         }
+    }
+
+    void rightFootStepParticleEffect()
+    {
+        Debug.Log("Right Foot Step");
+        Instantiate(footStepParticle, rightFoot);
+    }
+
+    void leftFootStepParticleEffect()
+    {
+        Debug.Log("Left Foot Step");
+        Instantiate(footStepParticle, leftFoot);
+    }
+
+    public void Activate()
+    {
+        enemyActivated = true;
     }
 }

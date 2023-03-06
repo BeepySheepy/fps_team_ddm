@@ -31,6 +31,7 @@ public class force : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.name + "Dealt Force");
         if (other.CompareTag("Player"))
         {
             xT = gameManager.instance.player.transform.position.x;

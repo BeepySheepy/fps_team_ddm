@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 2
   homingBullet: 1
+  turnSpeed: 200
   bulletDamage: 1
 --- !u!135 &5739028856967349281
 SphereCollider:
