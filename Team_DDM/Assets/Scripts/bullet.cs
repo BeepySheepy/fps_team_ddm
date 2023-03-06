@@ -69,6 +69,6 @@ public class bullet : MonoBehaviour
     /// </summary>
     void bulletShootVector()
     {
-        GetComponent<Rigidbody>().velocity = Vector3.forward * mBulletSpeed;
+        GetComponent<Rigidbody>().velocity = transform.forward * mBulletSpeed;
     }
 }

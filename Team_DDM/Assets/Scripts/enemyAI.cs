@@ -69,29 +69,27 @@ public class enemyAI : MonoBehaviour
                         facePlayer();
                     }
 
-                    if (gun != null)
+                    if (gun != null && !gun.IsShooting() && gun.GetBulletsInClip() != 0)// shoot
                     {
                         for (shootPosIter = 0; shootPosIter < headPos.Length; shootPosIter++)
                         {
+                            Debug.Log(shootPosIter);
                             // gun stuff
                             gun.SetShootPos(headPos[shootPosIter]);
                             FindPlayerDirection();
-                            if (!gun.IsShooting() && gun.GetBulletsInClip() != 0)
-                            {
+                            
                                 Debug.Log("Enemy Shooting");
                                 gun.shootInterface(playerDirection);// figure out a way to change playerDirection between shootPos changes
-                            }
-                            else if (!gun.IsShooting() && !gun.IsReloading() && gun.GetBulletsInClip() == 0)// reload
-                            {
-                                Debug.Log("Enemy Reloading");
-                                gun.Reload();
-                            }
-                            gun.ToggleIsShooting();
+
                         }
-                        gun.ToggleIsShooting();// turn on IsShooting
                         shootPosIter = 0;// reset shootPosIter
                     }
-                    else// melee system
+                    else if (gun != null && !gun.IsShooting() && !gun.IsReloading() && gun.GetBulletsInClip() == 0)// reload
+                    {
+                        Debug.Log("Enemy Reloading");
+                        gun.Reload();
+                    }
+                    else if(gun == null)// melee system(possibly set up in different way
                     {
                         if (!isInMelee)
                         {
