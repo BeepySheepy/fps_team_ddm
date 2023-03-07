@@ -38,9 +38,9 @@ public class enemyAI : MonoBehaviour
     void Start()
     {
         shootPosIter = 0;
-        gun.SetShootPos(headPos[shootPosIter]);// could potentially remove this code
+        
         anim = GetComponent<Animator>();
-        if(anim != null && enemyTypeID != (int)enemies.bulletHell)
+        if(anim != null && enemyTypeID != (int)enemies.bulletHell && gun != null)
         {
             gun.SetAnimator(anim);
         }
@@ -71,6 +71,7 @@ public class enemyAI : MonoBehaviour
 
                     if (gun != null && !gun.IsShooting() && gun.GetBulletsInClip() != 0)// shoot
                     {
+                        Debug.Log("Enters Gun Attack");
                         for (shootPosIter = 0; shootPosIter < headPos.Length; shootPosIter++)
                         {
                             Debug.Log(shootPosIter);

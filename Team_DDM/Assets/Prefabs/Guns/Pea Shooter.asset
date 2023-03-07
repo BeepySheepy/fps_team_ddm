@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ca5de4274bf4894390b599a6ec2f556, type: 3}
   m_Name: Pea Shooter
   m_EditorClassIdentifier: 
-  clipSize: 3
   bullet: {fileID: 5739028856967349286, guid: 123119d9e4a9c384682d2c17ca67dcc6, type: 3}
+  gunModel: {fileID: 0}
+  clipSize: 12
   bulletSpeed: 3
   fireRate: 0.5
   reloadSpeed: 2
-  shootPos: {fileID: 0}
+  spreadShot: 0

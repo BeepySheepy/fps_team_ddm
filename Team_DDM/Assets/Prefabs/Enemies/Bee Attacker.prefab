@@ -624,6 +624,7 @@ GameObject:
   - component: {fileID: 2785143888136510383}
   - component: {fileID: 3973748725887737475}
   - component: {fileID: 542213546057887246}
+  - component: {fileID: 2957459712945588864}
   - component: {fileID: 8514673147778497885}
   - component: {fileID: 2785143888127259757}
   - component: {fileID: 5401296367714568739}
@@ -634,7 +635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2785143888136510383
 Transform:
   m_ObjectHideFlags: 0
@@ -665,12 +666,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navMesh: {fileID: 5401296367714568739}
-  headPos: {fileID: 1115369710427265002}
+  headPos:
+  - {fileID: 1115369710427265002}
   enemyTurnSpeed: 3
+  footStepParticle: {fileID: 0}
+  leftFoot: {fileID: 0}
+  rightFoot: {fileID: 0}
+  enemyActivated: 0
   visionDistance: 30.4
   visionAngle: 40.5
   gun: {fileID: 0}
   dropHP: 0
+  plusYAimDir: 0
   meleeTimer: 2
   permaAggro: 1
   enemyTypeID: 1
@@ -691,6 +698,20 @@ MonoBehaviour:
   gunToDrop: {fileID: 0}
   ammoToDrop: {fileID: 6521278121679382960, guid: 90e9c77c45601f743a097380c1b0bc6a, type: 3}
   healthToDrop: {fileID: 8299478468419812798, guid: 1dcbeda09fd3e6d46b6b1aee614d07a3, type: 3}
+--- !u!114 &2957459712945588864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2785143888136734671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51cfaaeaf6fb9ee45a1566989bb55034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meleeObject: {fileID: 4895884925667957289}
+  meleeDamage: 0
 --- !u!114 &8514673147778497885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -705,6 +726,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mGun: {fileID: 11400000, guid: 10a722a0a0b8c5f46b234c9138279e50, type: 2}
   autoLockOnPlayer: 1
+  autoLockOnPlayerY: 0
 --- !u!95 &2785143888127259757
 Animator:
   serializedVersion: 5
@@ -771,7 +793,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1115369710427265002}
   - component: {fileID: 492798969}
-  - component: {fileID: 492798970}
+  - component: {fileID: 572254248}
   m_Layer: 6
   m_Name: shootPos (1)
   m_TagString: Untagged
@@ -808,7 +830,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &492798970
+--- !u!114 &572254248
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -817,8 +839,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 4895884925667957289}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51cfaaeaf6fb9ee45a1566989bb55034, type: 3}
+  m_Script: {fileID: 11500000, guid: 81daae9cca777ff45b6515dbdbf61a9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeDamageHitbox: {fileID: 492798969}
-  meleeDamage: 1
+  pushBackAmount: 1
+  push: 1
+  timer: 0
+  negateX: 0
+  negateY: 0
+  negateZ: 0
+  isConstant: 0
+  isHazard: 0
+  isFire: 0
+  dmgVal: 0
