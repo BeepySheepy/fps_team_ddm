@@ -9,7 +9,6 @@ TagManager:
   - Boss
   - Spawner
   - Door
-  - Switch
   layers:
   - Default
   - TransparentFX
