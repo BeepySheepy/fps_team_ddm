@@ -9,6 +9,7 @@ TagManager:
   - Boss
   - Spawner
   - Door
+  - Switch
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Ground
   - Bullet (Player)
   - Weapon
-  - 
+  - Switch
   - 
   - 
   - 

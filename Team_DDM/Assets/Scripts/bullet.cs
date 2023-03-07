@@ -37,6 +37,10 @@ public class bullet : MonoBehaviour
         {
             other.GetComponent<IDamage>().takeDamage(bulletDamage);
         }
+        else if (other.CompareTag("Switch"))
+        {
+            other.GetComponent<IDamage>().takeDamage(bulletDamage);
+        }
         else if (other.CompareTag("Wall"))
         {
             Destroy(gameObject);
