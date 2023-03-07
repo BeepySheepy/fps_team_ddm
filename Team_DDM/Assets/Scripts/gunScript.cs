@@ -6,18 +6,16 @@ public class gunScript : MonoBehaviour
 {
     [SerializeField] gunStats mGun;
     [SerializeField] bool autoLockOnPlayer;
+    [SerializeField] bool autoLockOnPlayerY;
 
     bool isReloading;
     bool isShooting;
     Vector3 shootDirection;
     int bulletsInClip;
-    Animator anim;
+    Animator mAnim;
     Transform mShootPos;
 
-    private void Start()
-    {
-        anim = GetComponent<Animator>();
-    }
+    
 
     /// <summary>
     /// basic gun setter
@@ -31,9 +29,9 @@ public class gunScript : MonoBehaviour
     IEnumerator shoot()
     {
         isShooting = true;
-        if (anim != null)
+        if (mAnim != null)
         {
-            anim.SetTrigger("Shoot");
+            mAnim.SetTrigger("Shoot");
         }
         else
         {
@@ -45,10 +43,14 @@ public class gunScript : MonoBehaviour
 
     void createBullet()
     {
-        GameObject bulletClone = Instantiate(mGun.bullet, mShootPos.position, mGun.bullet.transform.rotation);// create bullet
+        GameObject bulletClone = Instantiate(mGun.bullet, mShootPos.position, mShootPos.transform.rotation);// create bullet
         if (autoLockOnPlayer)//  locks onto Player
         {
             bulletClone.GetComponent<bullet>().bulletShootInterface(shootDirection, mGun.bulletSpeed);
+        }
+        else if (autoLockOnPlayerY)// locks onto player Y position
+        {
+            bulletClone.GetComponent<bullet>().bulletShootInterface(shootDirection.y, mGun.bulletSpeed);
         }
         else// shoots straight forward
         {
@@ -90,6 +92,13 @@ public class gunScript : MonoBehaviour
         return isShooting;
     }
     /// <summary>
+    /// toggles whether gun is shooting
+    /// </summary>
+    public void ToggleIsShooting()
+    {
+        isShooting = !isShooting;
+    }
+    /// <summary>
     /// tracks if reloading internally
     /// </summary>
     /// <returns>if the gun is reloading</returns>
@@ -112,6 +121,10 @@ public class gunScript : MonoBehaviour
     public void SetShootPos(Transform shootPos)
     {
         mShootPos = shootPos;
+    }
+    public void SetAnimator(Animator anim)
+    {
+        mAnim = anim;
     }
 
 }
