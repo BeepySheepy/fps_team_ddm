@@ -679,6 +679,7 @@ MonoBehaviour:
   dropHP: 0
   plusYAimDir: 0
   meleeTimer: 2
+  meleeRange: 1
   permaAggro: 1
   enemyTypeID: 1
 --- !u!114 &542213546057887246
@@ -761,7 +762,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 2
+  m_StoppingDistance: 1.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -795,7 +796,7 @@ GameObject:
   - component: {fileID: 492798969}
   - component: {fileID: 572254248}
   m_Layer: 6
-  m_Name: shootPos (1)
+  m_Name: meleePos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -842,13 +843,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81daae9cca777ff45b6515dbdbf61a9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushBackAmount: 1
+  pushBackAmount: 2
   push: 1
   timer: 0
   negateX: 0
   negateY: 0
   negateZ: 0
-  isConstant: 0
-  isHazard: 0
+  isConstant: 1
+  isHazard: 1
   isFire: 0
-  dmgVal: 0
+  dmgVal: 1

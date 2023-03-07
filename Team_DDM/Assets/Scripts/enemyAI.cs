@@ -22,6 +22,7 @@ public class enemyAI : MonoBehaviour
     [SerializeField] float plusYAimDir;
     [Header("-----Melee-----")]
     [SerializeField] float meleeTimer;
+    [SerializeField] float meleeRange;
 
     [SerializeField] bool permaAggro;
     [SerializeField] int enemyTypeID;
@@ -38,9 +39,9 @@ public class enemyAI : MonoBehaviour
     void Start()
     {
         shootPosIter = 0;
-        
+
         anim = GetComponent<Animator>();
-        if(anim != null && enemyTypeID != (int)enemies.bulletHell && gun != null)
+        if (anim != null && enemyTypeID != (int)enemies.bulletHell && gun != null)
         {
             gun.SetAnimator(anim);
         }
@@ -56,7 +57,7 @@ public class enemyAI : MonoBehaviour
             {
                 if (anim != null)
                 {
-                    anim.SetFloat("Speed", navMesh.velocity.normalized.magnitude);
+                    anim.SetFloat("Speed", navMesh.velocity.normalized.magnitude);// movement animation
                 }
 
 
@@ -71,16 +72,16 @@ public class enemyAI : MonoBehaviour
 
                     if (gun != null && !gun.IsShooting() && gun.GetBulletsInClip() != 0)// shoot
                     {
-                        Debug.Log("Enters Gun Attack");
+
                         for (shootPosIter = 0; shootPosIter < headPos.Length; shootPosIter++)
                         {
                             Debug.Log(shootPosIter);
                             // gun stuff
                             gun.SetShootPos(headPos[shootPosIter]);
                             FindPlayerDirection();
-                            
-                                Debug.Log("Enemy Shooting");
-                                gun.shootInterface(playerDirection);// figure out a way to change playerDirection between shootPos changes
+
+                            Debug.Log("Enemy Shooting");
+                            gun.shootInterface(playerDirection);// figure out a way to change playerDirection between shootPos changes
 
                         }
                         shootPosIter = 0;// reset shootPosIter
@@ -90,14 +91,11 @@ public class enemyAI : MonoBehaviour
                         Debug.Log("Enemy Reloading");
                         gun.Reload();
                     }
-                    else if(gun == null)// melee system(possibly set up in different way
+                    else if (gun == null && navMesh.remainingDistance < (navMesh.stoppingDistance + meleeRange) && !isInMelee)// melee system
                     {
-                        if (!isInMelee)
-                        {
-                            StartCoroutine(melee());
-                        }
-                    }
+                        StartCoroutine(melee());
 
+                    }
                 }
             }
         }
