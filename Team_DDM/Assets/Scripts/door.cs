@@ -4,30 +4,15 @@ using UnityEngine;
 
 public class door : MonoBehaviour
 {
-    [SerializeField] GameObject doorBod;
-    bool byebye;
-    // Start is called before the first frame update
-    void Start()
-    {
-        byebye = false;
-    }
+    [SerializeField] GameObject entrance;
+    [SerializeField] GameObject exit;
 
-    // Update is called once per frame
-    void Update()
+    public GameObject getEntrance()
     {
-        if (byebye)
-        {
-            Destroy(gameObject);
-        }
-
+        return entrance;
     }
-
-    public void turnOff()
+    public GameObject getExit()
     {
-        byebye = true;
-    }
-    public GameObject getDoor()
-    {
-        return doorBod;
+        return exit;
     }
 }
