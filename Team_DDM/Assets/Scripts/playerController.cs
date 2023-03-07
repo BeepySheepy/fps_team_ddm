@@ -68,6 +68,7 @@ public class playerController : MonoBehaviour
         newGun = -1;
         invuln = false;
         isBurning = false;
+        checkpointHP = HPOrig;
         levelSpawn = gameManager.instance.playerSpawn;
         spawnPlayer();
 
