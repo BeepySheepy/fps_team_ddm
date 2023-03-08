@@ -5,12 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class mainMenuButtons : MonoBehaviour
 {
-    GameObject noSavedGameImage;
-    public Animator transitions;
-    private void Start()
-    {
-        transitions.SetTrigger("End");
-    }
+    
     public void continueGame() //Starts the first Level
     {
         if (PlayerPrefs.HasKey("PlayerLevel"))
