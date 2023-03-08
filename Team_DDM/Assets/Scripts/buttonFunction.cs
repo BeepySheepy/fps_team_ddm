@@ -70,8 +70,8 @@ public class buttonFunction : MonoBehaviour
 
     public void mainMenu() //Starts the first Level
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0); //Load the spacific scene
-
     }
 
     public void restart()
