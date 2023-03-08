@@ -59,6 +59,7 @@ public class gameManager : MonoBehaviour
     [Header("---- Level ----")]
     [SerializeField] public GameObject doorObj;
     public bool doorState;
+    public int roomCount;
 
     // Start is called before the first frame update
     void Awake()
@@ -75,6 +76,7 @@ public class gameManager : MonoBehaviour
         doorState = false;
         doorObj = GameObject.FindGameObjectWithTag("Door");
         activeMenu = null;
+        roomCount = 0;
     }
 
     // Update is called once per frame
@@ -226,5 +228,20 @@ public class gameManager : MonoBehaviour
     public void doorSwitch()
     {
         doorState = !doorState;
+    }
+    public void roomCounter()
+    {
+        roomCount++;
+    }
+    public bool bossSpawn()
+    {
+        if (roomCount >= 2)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
