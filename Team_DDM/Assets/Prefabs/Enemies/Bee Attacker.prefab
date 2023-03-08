@@ -672,7 +672,7 @@ MonoBehaviour:
   footStepParticle: {fileID: 0}
   leftFoot: {fileID: 0}
   rightFoot: {fileID: 0}
-  enemyActivated: 1
+  enemyActivated: 0
   visionDistance: 30.4
   visionAngle: 40.5
   gun: {fileID: 0}
@@ -713,6 +713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meleeObject: {fileID: 4895884925667957289}
   meleeDamage: 0
+  meleeAttackFX: {fileID: 298404609303114899, guid: 77511b648fcfd394791ec11e75614233, type: 3}
 --- !u!114 &8514673147778497885
 MonoBehaviour:
   m_ObjectHideFlags: 0
