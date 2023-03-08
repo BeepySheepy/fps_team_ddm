@@ -135,7 +135,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 457896819062534327}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -0.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -190,8 +190,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 953b7ae0105d2454b862485492f86dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rooms: []
+  rooms:
+  - {fileID: 3996079187930181294, guid: 628bb2ad9cf66414e82cffadcfb4424c, type: 3}
+  - {fileID: 5510908327943171528, guid: 101a8405abb51f349a1eba519fe35ba8, type: 3}
+  - {fileID: 2667218630944356873, guid: 2d549981741d7194ebf816c309c991ab, type: 3}
+  - {fileID: 6779598693656969358, guid: 9cf02c8f224a9834c8f350432d96f3da, type: 3}
+  - {fileID: 8950932376119272212, guid: 6725eb4745b6e5644a9cca30e599afff, type: 3}
   roomPos: {fileID: 457896819062534327}
+  boss: {fileID: 0}
+  spawnedRooms: []
 --- !u!33 &457896819561887291
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -1305,34 +1305,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 457896819062534326, guid: 0891cd161fbf6ac4c8d6a4e1f07bb5e5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 457896819561887285, guid: 0891cd161fbf6ac4c8d6a4e1f07bb5e5, type: 3}
-      propertyPath: rooms.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 457896819561887285, guid: 0891cd161fbf6ac4c8d6a4e1f07bb5e5, type: 3}
-      propertyPath: rooms.Array.data[0]
-      value: 
-      objectReference: {fileID: 3996079187930181294, guid: 628bb2ad9cf66414e82cffadcfb4424c, type: 3}
-    - target: {fileID: 457896819561887285, guid: 0891cd161fbf6ac4c8d6a4e1f07bb5e5, type: 3}
-      propertyPath: rooms.Array.data[1]
-      value: 
-      objectReference: {fileID: 5510908327943171528, guid: 101a8405abb51f349a1eba519fe35ba8, type: 3}
-    - target: {fileID: 457896819561887285, guid: 0891cd161fbf6ac4c8d6a4e1f07bb5e5, type: 3}
-      propertyPath: rooms.Array.data[2]
-      value: 
-      objectReference: {fileID: 2667218630944356873, guid: 2d549981741d7194ebf816c309c991ab, type: 3}
-    - target: {fileID: 457896819561887285, guid: 0891cd161fbf6ac4c8d6a4e1f07bb5e5, type: 3}
-      propertyPath: rooms.Array.data[3]
-      value: 
-      objectReference: {fileID: 6779598693656969358, guid: 9cf02c8f224a9834c8f350432d96f3da, type: 3}
-    - target: {fileID: 457896819561887285, guid: 0891cd161fbf6ac4c8d6a4e1f07bb5e5, type: 3}
-      propertyPath: rooms.Array.data[4]
-      value: 
-      objectReference: {fileID: 8950932376119272212, guid: 6725eb4745b6e5644a9cca30e599afff, type: 3}
     - target: {fileID: 457896819561887289, guid: 0891cd161fbf6ac4c8d6a4e1f07bb5e5, type: 3}
       propertyPath: m_Name
       value: Room_Trigger
@@ -1678,10 +1650,6 @@ PrefabInstance:
     - target: {fileID: 4931005988505977474, guid: 4552ac843a4e73a4a9eebe571e962b04, type: 3}
       propertyPath: m_Name
       value: Player Spawn Point
-      objectReference: {fileID: 0}
-    - target: {fileID: 4931005988505977474, guid: 4552ac843a4e73a4a9eebe571e962b04, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4931005988505977477, guid: 4552ac843a4e73a4a9eebe571e962b04, type: 3}
       propertyPath: m_RootOrder

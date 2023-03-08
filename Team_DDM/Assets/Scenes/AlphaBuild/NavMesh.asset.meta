@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Team_DDM/Assets/Scenes/AlphaBuild/NavMesh.asset.meta
+guid: c676c54869933c24bb59524bf4f0704c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 23800000
+========
+guid: 08ba8b915cca0b64c8c75a9129b63926
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 9100000
+>>>>>>>> e6fdaa7643b7b0977a5e52fc6b83ef9dda512ac6:Team_DDM/Assets/Animations/End Transition.controller.meta
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

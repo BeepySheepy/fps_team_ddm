@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Team_DDM/Assets/Scenes/AlphaBuild.meta
+guid: beaf392218b24ac41b2b2ae1d6f51bf8
+folderAsset: yes
+DefaultImporter:
+========
 guid: 405159d1b2d05df459a6e4b6a3f031ce
 NativeFormatImporter:
+>>>>>>>> e6fdaa7643b7b0977a5e52fc6b83ef9dda512ac6:Team_DDM/Assets/Animations/CrossFader_End.anim.meta
   externalObjects: {}
   mainObjectFileID: 7400000
   userData: 

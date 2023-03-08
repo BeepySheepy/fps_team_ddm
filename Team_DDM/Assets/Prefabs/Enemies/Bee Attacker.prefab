@@ -672,7 +672,7 @@ MonoBehaviour:
   footStepParticle: {fileID: 0}
   leftFoot: {fileID: 0}
   rightFoot: {fileID: 0}
-  enemyActivated: 0
+  enemyActivated: 1
   visionDistance: 30.4
   visionAngle: 40.5
   gun: {fileID: 0}
@@ -780,10 +780,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 0.8
+  m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!1 &4895884925667957289
 GameObject:
   m_ObjectHideFlags: 0
