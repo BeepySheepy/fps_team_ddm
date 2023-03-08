@@ -43,20 +43,17 @@ public class gunScript : MonoBehaviour
 
     void createBullet()
     {
-        
+        GameObject bulletClone = Instantiate(mGun.bullet, mShootPos.position, mShootPos.transform.rotation);// create bullet
         if (autoLockOnPlayer)//  locks onto Player
         {
-            GameObject bulletClone = Instantiate(mGun.bullet, mShootPos.position, Quaternion.LookRotation(shootDirection));// create bullet
             bulletClone.GetComponent<bullet>().bulletShootInterface(shootDirection, mGun.bulletSpeed);
         }
         else if (autoLockOnPlayerY)// locks onto player Y position
         {
-            GameObject bulletClone = Instantiate(mGun.bullet, mShootPos.position, mShootPos.transform.rotation);// create bullet
             bulletClone.GetComponent<bullet>().bulletShootInterface(shootDirection.y, mGun.bulletSpeed);
         }
         else// shoots straight forward
         {
-            GameObject bulletClone = Instantiate(mGun.bullet, mShootPos.position, mShootPos.transform.rotation);// create bullet
             bulletClone.GetComponent<bullet>().bulletShootInterface(mGun.bulletSpeed);
         }
     }

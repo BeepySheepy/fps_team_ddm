@@ -678,7 +678,6 @@ MonoBehaviour:
   dropHP: 0
   plusYAimDir: 0
   meleeTimer: 0
-  meleeRange: 0
   permaAggro: 1
   enemyTypeID: 0
 --- !u!114 &542213546057887246
@@ -712,7 +711,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mGun: {fileID: 11400000, guid: 10a722a0a0b8c5f46b234c9138279e50, type: 2}
   autoLockOnPlayer: 1
-  autoLockOnPlayerY: 0
 --- !u!95 &2785143888127259757
 Animator:
   serializedVersion: 5
@@ -765,10 +763,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.8
-  m_Height: 2
+  m_Radius: 0.5
+  m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0.25, z: 0}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &4895884925667957289
 GameObject:
   m_ObjectHideFlags: 0

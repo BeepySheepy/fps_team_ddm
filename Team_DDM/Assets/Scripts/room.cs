@@ -7,12 +7,12 @@ public class room : MonoBehaviour
 {
     [SerializeField] public List<GameObject> rooms = new List<GameObject>();
     [SerializeField] public GameObject roomPos;
-    [SerializeField] public GameObject boss;
     public List<GameObject> spawnedRooms = new List<GameObject>();
-    Vector3 bossPos;
-    public void Start()
+    public int roomCount;
+
+    private void Awake()
     {
-        bossPos = new Vector3(roomPos.transform.position.x, (roomPos.transform.position.y + 5.5f), roomPos.transform.position.z);
+        roomCount = 0;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -23,11 +23,7 @@ public class room : MonoBehaviour
             int pick = rand.Next(rooms.Count);
             GameObject roomPick = rooms[pick];
             spawnedRooms.Add(Instantiate(roomPick, roomPos.transform.position, roomPos.transform.rotation));
-            gameManager.instance.roomCounter();
-            if (gameManager.instance.bossSpawn())
-            {
-                //Instantiate(boss, bossPos, roomPos.transform.rotation);
-            }
+            roomCount++;
             GetComponent<BoxCollider>().enabled = false;
         }
     }

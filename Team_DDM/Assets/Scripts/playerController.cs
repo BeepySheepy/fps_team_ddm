@@ -75,7 +75,7 @@ public class playerController : MonoBehaviour
         checkpointHP = HPOrig;
         levelSpawn = gameManager.instance.playerSpawn;
         spawnPlayer();
-        controller.enabled = true;
+
     }
 
     // Update is called once per frame
