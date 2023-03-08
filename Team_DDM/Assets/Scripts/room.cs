@@ -26,7 +26,7 @@ public class room : MonoBehaviour
             gameManager.instance.roomCounter();
             if (gameManager.instance.bossSpawn())
             {
-                Instantiate(boss, bossPos, roomPos.transform.rotation);
+                //Instantiate(boss, bossPos, roomPos.transform.rotation);
             }
             GetComponent<BoxCollider>().enabled = false;
         }

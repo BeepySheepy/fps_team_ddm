@@ -197,8 +197,8 @@ MonoBehaviour:
   - {fileID: 6779598693656969358, guid: 9cf02c8f224a9834c8f350432d96f3da, type: 3}
   - {fileID: 8950932376119272212, guid: 6725eb4745b6e5644a9cca30e599afff, type: 3}
   roomPos: {fileID: 457896819062534327}
+  boss: {fileID: 0}
   spawnedRooms: []
-  roomCount: 0
 --- !u!33 &457896819561887291
 MeshFilter:
   m_ObjectHideFlags: 0

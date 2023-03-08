@@ -671,13 +671,14 @@ MonoBehaviour:
   footStepParticle: {fileID: 0}
   leftFoot: {fileID: 0}
   rightFoot: {fileID: 0}
-  enemyActivated: 0
+  enemyActivated: 1
   visionDistance: 30.4
   visionAngle: 40.5
   gun: {fileID: 8514673147778497885}
   dropHP: 1
   plusYAimDir: 0
   meleeTimer: 0
+  meleeRange: 0
   permaAggro: 1
   enemyTypeID: 0
 --- !u!114 &542213546057887246
