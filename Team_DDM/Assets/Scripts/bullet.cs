@@ -15,7 +15,7 @@ public class bullet : MonoBehaviour
     void Start()
     {
         Destroy(gameObject, timer);
-        mShootDirection = Vector3.zero;
+        mShootDirection = transform.forward;// base set to forward movement
     }
 
     void Update()// will be use for homing bullet
@@ -37,6 +37,10 @@ public class bullet : MonoBehaviour
         {
             other.GetComponent<IDamage>().takeDamage(bulletDamage);
         }
+        else if (other.CompareTag("Switch"))
+        {
+            other.GetComponent<IDamage>().takeDamage(bulletDamage);
+        }
         else if (other.CompareTag("Wall"))
         {
             Destroy(gameObject);
@@ -50,15 +54,28 @@ public class bullet : MonoBehaviour
     /// interface for the moved bullet whose velocity is defined within itself
     /// </summary>
     /// <param name="shootDirection">direction to multiply the vector by</param>
+    /// <param name="bulletSpeed">speed of the bullet</param>
     public void bulletShootInterface(Vector3 shootDirection, int bulletSpeed)
     {
         mShootDirection = shootDirection;// set mShootDirection
+        mBulletSpeed = bulletSpeed;
+        bulletShootVector();
+    }/// <summary>
+     /// interface for the moved bullet whose velocity is defined within itself
+     /// </summary>
+     /// <param name="shootDirectionY">the Y float value of the shootDirection vector</param>
+     /// <param name="bulletSpeed">speed of the bullet</param>
+    public void bulletShootInterface(float shootDirectionY, int bulletSpeed)
+    {
+        mShootDirection = transform.forward;// set mShootDirection
+        mShootDirection.y = shootDirectionY;
         mBulletSpeed = bulletSpeed;
         bulletShootVector();
     }
     /// <summary>
     /// interface for the moved bullet whose velocity is defined within itself
     /// </summary>
+    /// <param name="bulletSpeed">speed of the bullet</param>
     public void bulletShootInterface(int bulletSpeed)// overload
     {
         mBulletSpeed = bulletSpeed;

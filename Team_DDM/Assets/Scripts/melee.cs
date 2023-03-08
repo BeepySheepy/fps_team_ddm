@@ -4,28 +4,33 @@ using UnityEngine;
 
 public class melee : MonoBehaviour
 {
-    [SerializeField] Collider meleeDamageHitbox;
+    [SerializeField] GameObject meleeObject;
     [SerializeField] int meleeDamage;
+
+    CapsuleCollider meleeHitbox;
 
     private void Start()
     {
+        meleeHitbox = meleeObject.GetComponent<CapsuleCollider>();
         TurnOffMeleeCollider();
     }
 
     public void TurnOffMeleeCollider()
     {
-        meleeDamageHitbox.enabled = false;
+        Debug.Log("Hitbox turned off");
+        meleeHitbox.enabled = false;
     }
 
     public void TurnOnMeleeCollider()
     {
-        meleeDamageHitbox.enabled = true;
+        Debug.Log("Hitbox turned on");
+        meleeHitbox.enabled = true;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player")){
-            gameManager.instance.playerScript.takeDamage(meleeDamage);
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Player")){
+    //        gameManager.instance.playerScript.takeDamage(meleeDamage);
+    //    }
+    //}
 }

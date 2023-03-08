@@ -58,7 +58,9 @@ public class gameManager : MonoBehaviour
     public GameObject shotgunIcon;
     public GameObject sniperIcon;
 
-    spawner spawn;
+    [Header("---- Level ----")]
+    [SerializeField] public GameObject doorObj;
+    public bool doorState;
 
     // Start is called before the first frame update
     void Awake()
@@ -72,9 +74,8 @@ public class gameManager : MonoBehaviour
         sniperPickup = GameObject.Find("Gun - Sniper");
         gunSpawn = 0;
         playerSpawn = GameObject.FindGameObjectWithTag("Respawn");
-        //Debug.Log($"Spawn:  + {playerSpawn.transform.position.x}, {playerSpawn.transform.position.y}, {playerSpawn.transform.position.z}");
-        //levelspawn = playerSpawn;
-        //respawnPlayer();
+        doorState = false;
+        doorObj = GameObject.FindGameObjectWithTag("Door");
         activeMenu = null;
     }
 
@@ -97,6 +98,14 @@ public class gameManager : MonoBehaviour
                 unPaused();
             }
 
+        }
+        if (doorState)
+        {
+
+        }
+        else
+        {
+            
         }
     }
 
@@ -222,5 +231,10 @@ public class gameManager : MonoBehaviour
         paused();
         activeMenu = loseMenu;
         activeMenu.SetActive(true);
+    }
+
+    public void doorSwitch()
+    {
+        doorState = !doorState;
     }
 }
