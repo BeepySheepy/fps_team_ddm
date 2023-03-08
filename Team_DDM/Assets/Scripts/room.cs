@@ -7,6 +7,7 @@ public class room : MonoBehaviour
 {
     [SerializeField] public List<GameObject> rooms = new List<GameObject>();
     [SerializeField] public GameObject roomPos;
+    [SerializeField] public GameObject boss;
     public List<GameObject> spawnedRooms = new List<GameObject>();
     public int roomCount;
 
@@ -25,6 +26,10 @@ public class room : MonoBehaviour
             spawnedRooms.Add(Instantiate(roomPick, roomPos.transform.position, roomPos.transform.rotation));
             roomCount++;
             GetComponent<BoxCollider>().enabled = false;
+        }
+        if (roomCount >= 4)
+        {
+            Instantiate(boss, roomPos.transform.position, roomPos.transform.rotation);
         }
     }
 }
