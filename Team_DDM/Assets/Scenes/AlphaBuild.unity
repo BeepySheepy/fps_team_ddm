@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: c676c54869933c24bb59524bf4f0704c, type: 2}
---- !u!20 &94939409 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 7275675506801484749, guid: da32cd2dd8605f04f8126206bd6ccc7d, type: 3}
-  m_PrefabInstance: {fileID: 2020641025}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &444782320
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6326062604076367795, guid: 3987184e0d2469446a3a46918978f618, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.3
+      value: -50.7
       objectReference: {fileID: 0}
     - target: {fileID: 6326062604076367795, guid: 3987184e0d2469446a3a46918978f618, type: 3}
       propertyPath: m_LocalPosition.y
@@ -300,7 +295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6326062604076367795, guid: 3987184e0d2469446a3a46918978f618, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -50.8
+      value: -4.7
       objectReference: {fileID: 0}
     - target: {fileID: 6326062604076367795, guid: 3987184e0d2469446a3a46918978f618, type: 3}
       propertyPath: m_LocalRotation.w
@@ -858,10 +853,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4393323079048620287, guid: 9b901d6830078c446b8a6390ca28ef0a, type: 3}
-      propertyPath: pushBackAmount
-      value: 50
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b901d6830078c446b8a6390ca28ef0a, type: 3}
 --- !u!1001 &1725727978
@@ -1029,18 +1020,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7275675507620032340, guid: da32cd2dd8605f04f8126206bd6ccc7d, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7275675507620032341, guid: da32cd2dd8605f04f8126206bd6ccc7d, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7275675507620032360, guid: da32cd2dd8605f04f8126206bd6ccc7d, type: 3}
-      propertyPath: mainCamera
-      value: 
-      objectReference: {fileID: 94939409}
     - target: {fileID: 7275675507620032367, guid: da32cd2dd8605f04f8126206bd6ccc7d, type: 3}
       propertyPath: m_RootOrder
       value: 6

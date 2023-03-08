@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81daae9cca777ff45b6515dbdbf61a9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushBackAmount: 20
+  pushBackAmount: 50
   push: 1
   timer: 0
   negateX: 1
