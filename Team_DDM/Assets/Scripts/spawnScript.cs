@@ -13,7 +13,7 @@ public class spawnScript : MonoBehaviour
         enemyScript = mEnemy.GetComponent<enemyAI>();
     }
 
-    private void OnDestroy()
+    private void OnDestroy()// check to see if enemy activated when spawned without particle effects
     {
         enemyScript.Activate();
     }
