@@ -5,10 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class mainMenuButtons : MonoBehaviour
 {
-    public void play() //Starts the first Level
+    
+    public void continueGame() //Starts the first Level
+    {
+        if (PlayerPrefs.HasKey("PlayerLevel"))
+        {
+
+        }
+        else
+        {
+           //No Save
+        }
+    }
+    public void newGame()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(1); //Load the spacific scene
+        SceneManager.LoadScene(1);
+        PlayerPrefs.DeleteAll();
     }
     public void level1() //Starts the first Level
     {
@@ -30,4 +43,6 @@ public class mainMenuButtons : MonoBehaviour
     {
         Application.Quit();
     }
+
+    
 }

@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class buttonFunction : MonoBehaviour
 {
     bool isGod;
+    public Animator transition;
+    public float transitionTime = 1f;
+    int currentLevel = 0;
     private void Start()
     {
         isGod = false;
@@ -47,13 +50,28 @@ public class buttonFunction : MonoBehaviour
         if  (SceneManager.GetActiveScene().buildIndex <= 4)
         {
             gameManager.instance.unPaused();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); ; //Load next level
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //Load next level
+            currentLevel += 1;
+
+            #region Saving Data
+            //Saving Level
+            PlayerPrefs.SetInt("CurrentLevel", currentLevel);
+            PlayerPrefs.SetInt("PlayerHP", gameManager.instance.playerScript.getHP());
+            PlayerPrefs.SetFloat("PLayerPosX", gameManager.instance.playerScript.transform.position.x);
+            PlayerPrefs.SetFloat("PLayerPosY", gameManager.instance.playerScript.transform.position.y);
+            PlayerPrefs.SetFloat("PLayerPosZ", gameManager.instance.playerScript.transform.position.z);
+            PlayerPrefs.SetInt("PlayerWeapons", gameManager.instance.playerScript.newGun);
+            PlayerPrefs.SetInt("Shotgun Ammo", gameManager.instance.playerScript.fireAmmoCt);
+            PlayerPrefs.Save();
+            #endregion
+
         }
     }
 
     public void mainMenu() //Starts the first Level
     {
         SceneManager.LoadScene(0); //Load the spacific scene
+
     }
 
     public void restart()
@@ -66,4 +84,5 @@ public class buttonFunction : MonoBehaviour
     {
         Application.Quit();
     }
+    
 }
