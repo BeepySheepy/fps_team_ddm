@@ -10,6 +10,7 @@ public class playerController : MonoBehaviour
     [Header("----- Components -----")]
     [SerializeField] public CharacterController controller;
     [SerializeField] Camera mainCamera;
+    [SerializeField] GameObject fireEffect;
 
     [Header("----- Player Movement -----")]
     [Range(1, 50)] [SerializeField] int playerSpeed;
@@ -260,9 +261,11 @@ public class playerController : MonoBehaviour
 
     IEnumerator statusBurning()
     {
+        fireEffect.SetActive(true);
         isBurning = true;
         yield return new WaitForSeconds(2);
         isBurning = false;
+        fireEffect.SetActive(false);
     }
     IEnumerator burnTick()
     {
