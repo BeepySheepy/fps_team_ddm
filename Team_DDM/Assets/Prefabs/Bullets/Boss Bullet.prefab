@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ee41933d1f3b441b733e4b4be4a02d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 6
+  timer: 5
   homingBullet: 0
   bulletDamage: 1
 --- !u!114 &7671014005588377581
@@ -58,16 +58,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5739028856967349286}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81daae9cca777ff45b6515dbdbf61a9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushBackAmount: 3
+  pushBackAmount: 10
   push: 0
-  timer: 0
+  timer: 20
   negateX: 0
-  negateY: 0
+  negateY: 1
   negateZ: 0
   isConstant: 0
   isHazard: 0
