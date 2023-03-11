@@ -13,17 +13,19 @@ public class playerController : MonoBehaviour
     [SerializeField] GameObject fireEffect;
 
     [Header("----- Player Movement -----")]
-    [Range(1, 50)] [SerializeField] int playerSpeed;
-    [Range(0, 3)] [SerializeField] int jumpTimes;
-    [Range(5, 50)] [SerializeField] int jumpSpeed;
-    [Range(5, 150)] [SerializeField] public int gravity;
-    [Range(1, 10)] [SerializeField] int HP;
+    [Range(1, 50)][SerializeField] int playerSpeed;
+    [Range(0, 3)][SerializeField] int jumpTimes;
+    [Range(5, 50)][SerializeField] int jumpSpeed;
+    [Range(5, 150)][SerializeField] public int gravity;
+    [Range(1, 10)][SerializeField] int HP;
     [SerializeField] float pushBackTime;
+    [SerializeField] float coyoteTimer;
+
     [Header("----- Gun Attributes -----")]
     [SerializeField] public List<gunStats> gunList = new List<gunStats>();
-    [Range(0.1f, 5)] [SerializeField] float shootRate;
-    [Range(1, 100)] [SerializeField] int shootDist;
-    [Range(1, 20)] [SerializeField] int shootDamage;
+    [Range(0.1f, 5)][SerializeField] float shootRate;
+    [Range(1, 100)][SerializeField] int shootDist;
+    [Range(1, 20)][SerializeField] int shootDamage;
     [SerializeField] GameObject gunModel;
     [SerializeField] float zoomMax;
 
@@ -42,7 +44,8 @@ public class playerController : MonoBehaviour
     Vector3 pushBack;
     int numShots;
     bool isSpread;
-
+    bool canJump;
+    bool coyoteTimeBool;
     public int fireAmmoCt;
     int iceAmmoCt;
 
@@ -98,16 +101,22 @@ public class playerController : MonoBehaviour
 
     void movement()
     {
-        if (controller.isGrounded)
+        if (controller.isGrounded)// character grounded
         {
+            coyoteTimeBool = true;
+            canJump = true;
             playerVelocity.y = 0;
             jumpsCurrent = 0;
+        }
+        else if (coyoteTimeBool)
+        {
+            StartCoroutine(CoyoteTimer());
         }
 
         move = (transform.right * Input.GetAxis("Horizontal") + (transform.forward * Input.GetAxis("Vertical")));
         controller.Move(move * Time.deltaTime * playerSpeed);
 
-        if (Input.GetButtonDown("Jump") && jumpsCurrent < jumpTimes)
+        if (Input.GetButtonDown("Jump") && jumpsCurrent < jumpTimes && canJump)
         {
             jumpsCurrent++;
             playerVelocity.y = jumpSpeed;
@@ -115,7 +124,7 @@ public class playerController : MonoBehaviour
 
         playerVelocity.y -= gravity * Time.deltaTime;
         controller.Move((playerVelocity + pushBack) * Time.deltaTime);
-        
+
 
         if (isWallRun)
         {
@@ -174,8 +183,8 @@ public class playerController : MonoBehaviour
                 Debug.Log("Enters Spread");
                 //Quaternion spreadL = Quaternion.Euler(0f, -90, 0f);
                 //Quaternion spreadR = Quaternion.Euler(0f, 90, 0f);
-                
-                if ( fireAmmoCt > 0)
+
+                if (fireAmmoCt > 0)
                 {
                     Debug.Log("Fire Shot");
                     Vector3 spreadL = new Vector3(gunModel.transform.forward.x, gunModel.transform.forward.y, gunModel.transform.position.z + 1);
@@ -335,7 +344,7 @@ public class playerController : MonoBehaviour
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunList[selectedGun].gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunList[selectedGun].gunModel.GetComponent<MeshRenderer>().sharedMaterial;
     }
-    
+
     public void pushBackDir(Vector3 dir)
     {
         Debug.Log("Push Back Go");
@@ -417,6 +426,13 @@ public class playerController : MonoBehaviour
         checkpointHP = HP;
         checkpointAmmoF = fireAmmoCt;
         checkpointAmmoI = iceAmmoCt;
+    }
+
+    IEnumerator CoyoteTimer()
+    {
+        coyoteTimeBool = false;
+        yield return new WaitForSeconds(coyoteTimer);
+        canJump = false;
     }
 
 }
