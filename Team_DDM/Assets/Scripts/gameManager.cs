@@ -133,33 +133,7 @@ public class gameManager : MonoBehaviour
         enemiesRemainingText.text = enemiesRemaining.ToString("F0");
         if (enemiesRemaining <= 0)
         {
-            gunSpawn++;
-            //Debug.Log("Should end.");
-            //for (int i = 0; i < spawn.getDoors().Length; i++)
-            //{
-            //    //Destroy(spawn.getDoors()[i]);
-            //    //spawn.getDoors()[i].GetComponent<door>().turnOff();
-            //}
-            //Destroy(GameObject.FindWithTag("Door"));
-            //Destroy(GameObject.FindWithTag("Spawner"));
-            shotgunSpot = GameObject.Find("ShotgunSpawn");
-            shotgunPickup = GameObject.Find("Gun - Shotgun");
-            sniperSpot = GameObject.Find("SniperSpawn");
-            sniperPickup = GameObject.Find("Gun - Sniper");
-            if (gunSpawn == 1)
-            {
-                Instantiate(shotgunPickup, shotgunSpot.transform.position, shotgunSpot.transform.rotation);
-
-            }
-            else if (gunSpawn == 2)
-            {
-                Instantiate(sniperPickup, sniperSpot.transform.position, sniperSpot.transform.rotation);
-
-            }
-            else
-            {
-                updateGameGoal(-10);
-            }
+            doorSwitch();
         }
     }
 
