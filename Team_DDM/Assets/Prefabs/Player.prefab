@@ -5137,6 +5137,7 @@ MonoBehaviour:
   gravity: 20
   HP: 8
   pushBackTime: 2
+  coyoteTimer: 0.5
   gunList: []
   shootRate: 0.25
   shootDist: 20
