@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 5
   homingBullet: 0
+  homingBulletTurnSpeed: 0
   bulletDamage: 1
 --- !u!114 &7671014005588377581
 MonoBehaviour:
@@ -64,7 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushBackAmount: 10
-  push: 0
+  push: 1
   timer: 20
   negateX: 0
   negateY: 1

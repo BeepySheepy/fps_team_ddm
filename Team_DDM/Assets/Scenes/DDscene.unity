@@ -1102,7 +1102,7 @@ PrefabInstance:
     - target: {fileID: 1569349585629475893, guid: 8544f6c6cda89294e808cfcd519094e8, type: 3}
       propertyPath: objectToSpawn
       value: 
-      objectReference: {fileID: 2216076257006835776, guid: cee444b992eee224f8f4aa5ca9a5fada, type: 3}
+      objectReference: {fileID: 2785143888136734671, guid: ddd8d34ccb983eb40a855b12ddc73765, type: 3}
     - target: {fileID: 1569349585629475893, guid: 8544f6c6cda89294e808cfcd519094e8, type: 3}
       propertyPath: useSpawnEffect
       value: 1
@@ -1153,7 +1153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1863778208697622175, guid: 8544f6c6cda89294e808cfcd519094e8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7037122689901291137, guid: 8544f6c6cda89294e808cfcd519094e8, type: 3}
       propertyPath: m_IsTrigger

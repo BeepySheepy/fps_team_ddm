@@ -51,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 8
   homingBullet: 0
+  homingBulletTurnSpeed: 0
   bulletDamage: 1
 --- !u!114 &6833850297912443771
 MonoBehaviour:
@@ -59,14 +60,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5739028856967349286}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81daae9cca777ff45b6515dbdbf61a9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pushBackAmount: 1
-  push: 0
-  timer: 0
+  push: 1
+  timer: 20
   negateX: 0
   negateY: 0
   negateZ: 0

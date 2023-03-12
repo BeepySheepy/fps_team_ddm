@@ -6,6 +6,7 @@ public class bullet : MonoBehaviour
 {
     [SerializeField] int timer;
     [SerializeField] bool homingBullet;
+    [SerializeField] float homingBulletTurnSpeed;
     public int bulletDamage;
 
     Vector3 mShootDirection;
@@ -22,7 +23,8 @@ public class bullet : MonoBehaviour
     {
         if (homingBullet)// bullet follows 
         {
-            bulletShootInterface(gameManager.instance.player.transform.position - transform.position, mBulletSpeed);
+            homing();// locks on player
+            bulletShootInterface(transform.forward, mBulletSpeed);
         }
     }
 
@@ -87,5 +89,12 @@ public class bullet : MonoBehaviour
     void bulletShootVector()
     {
         GetComponent<Rigidbody>().velocity = mShootDirection * mBulletSpeed;
+    }
+
+    void homing()
+    {
+        mShootDirection = gameManager.instance.player.transform.position - transform.position;
+        Quaternion rot = Quaternion.LookRotation(mShootDirection);// define quaternion
+        transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * homingBulletTurnSpeed);
     }
 }
