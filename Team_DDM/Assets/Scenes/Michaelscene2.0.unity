@@ -587,7 +587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2785143888136734671, guid: 4be449cafce8c2c4bb7f14d4bbcbc575, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3973748725887737475, guid: 4be449cafce8c2c4bb7f14d4bbcbc575, type: 3}
       propertyPath: enemyActivated
