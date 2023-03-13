@@ -5,6 +5,7 @@ using UnityEngine;
 public class healthPickUp : MonoBehaviour
 {
     [SerializeField] int HP;
+    [SerializeField] AudioClip pickupSound;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,5 +14,10 @@ public class healthPickUp : MonoBehaviour
             gameManager.instance.playerScript.giveHP(HP);
             Destroy(gameObject);
         }
+    }
+
+    private void OnDestroy()
+    {
+        gameManager.instance.player.GetComponent<AudioSource>().PlayOneShot(pickupSound);
     }
 }
