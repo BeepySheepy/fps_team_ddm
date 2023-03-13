@@ -12,12 +12,10 @@ public class healthPickUp : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             gameManager.instance.playerScript.giveHP(HP);
+            gameManager.instance.player.GetComponent<AudioSource>().PlayOneShot(pickupSound);
             Destroy(gameObject);
         }
     }
 
-    private void OnDestroy()
-    {
-        gameManager.instance.player.GetComponent<AudioSource>().PlayOneShot(pickupSound);
-    }
+    
 }

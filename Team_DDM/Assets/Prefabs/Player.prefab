@@ -5144,8 +5144,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 7275675507620032340}
+  audioSource: {fileID: 1212592695}
   mainCamera: {fileID: 7275675506801484749}
   fireEffect: {fileID: 1655332505}
+  fireSoundEffect: {fileID: 8300000, guid: ed496afc254135046a2318c856ffafbf, type: 3}
   playerSpeed: 20
   jumpTimes: 1
   jumpSpeed: 12

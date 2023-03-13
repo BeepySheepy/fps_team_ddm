@@ -9,8 +9,10 @@ public class playerController : MonoBehaviour
 {
     [Header("----- Components -----")]
     [SerializeField] public CharacterController controller;
+    [SerializeField] AudioSource audioSource;
     [SerializeField] Camera mainCamera;
     [SerializeField] GameObject fireEffect;
+    [SerializeField] AudioClip fireSoundEffect;
 
     [Header("----- Player Movement -----")]
     [Range(1, 50)][SerializeField] int playerSpeed;
@@ -286,6 +288,7 @@ public class playerController : MonoBehaviour
     IEnumerator statusBurning()
     {
         fireEffect.SetActive(true);
+        audioSource.PlayOneShot(fireSoundEffect);
         isBurning = true;
         yield return new WaitForSeconds(2);
         isBurning = false;

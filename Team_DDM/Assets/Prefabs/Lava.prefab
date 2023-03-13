@@ -9777,7 +9777,7 @@ MonoBehaviour:
   negateZ: 1
   isConstant: 1
   isHazard: 1
-  isFire: 0
+  isFire: 1
   dmgVal: 1
 --- !u!33 &4393323079048620272
 MeshFilter:
