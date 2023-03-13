@@ -169,10 +169,6 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3973748725887737475, guid: 963792795a6b8a84eacd67db9a496575, type: 3}
-      propertyPath: enemyActivated
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3973748725887737475, guid: 963792795a6b8a84eacd67db9a496575, type: 3}
       propertyPath: gun.Array.size
       value: 4
       objectReference: {fileID: 0}
