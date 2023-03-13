@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 3
+  pickupSound: {fileID: 8300000, guid: 39068ffbbd5422941a6bf46ddfe1e27f, type: 3}
 --- !u!114 &7586982086648885082
 MonoBehaviour:
   m_ObjectHideFlags: 0
