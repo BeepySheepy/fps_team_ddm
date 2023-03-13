@@ -48,6 +48,8 @@ public class playerController : MonoBehaviour
     bool coyoteTimeBool;
     public int fireAmmoCt;
     int iceAmmoCt;
+    int mana;
+    int manaOrig;
 
     public int newGun;
     //levelSpawn needs fix
@@ -67,6 +69,8 @@ public class playerController : MonoBehaviour
     {
         mainCamera = Camera.main;
         HPOrig = HP;
+        mana = 6;
+        manaOrig = mana;
         gravOrig = gravity;
         speedOrig = playerSpeed;
         numShots = 0;
@@ -163,6 +167,8 @@ public class playerController : MonoBehaviour
                     GameObject bulletClone = Instantiate(gunList[selectedGun].bullet, transform.position, transform.rotation);
                     bulletClone.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * gunList[selectedGun].bulletSpeed;
                     numShots++;
+                    mana--;
+                    updatePlayerManaBar();
                     yield return new WaitForSeconds(shootRate);
                     isShooting = false;
                 }
@@ -221,6 +227,12 @@ public class playerController : MonoBehaviour
         numShots = 0;
         gameManager.instance.reloadDisplay(true);
         yield return new WaitForSeconds(gunList[selectedGun].reloadSpeed);
+        while (mana < manaOrig)
+        {
+            mana++;
+            updatePlayerManaBar();
+            yield return new WaitForSeconds(0.25f);
+        }
         isReloading = false;
         gameManager.instance.reloadDisplay(false);
     }
@@ -293,7 +305,13 @@ public class playerController : MonoBehaviour
     {
         gameManager.instance.playerHPBar.fillAmount = (float)HP / (float)HPOrig;
     }
-
+    public void updatePlayerManaBar()
+    {
+        Debug.Log(mana);
+        Debug.Log(manaOrig);
+        gameManager.instance.playerManaBar.fillAmount = (float)mana / (float)manaOrig;
+    }
+    
     public void gunPick(gunStats gunStat)
     {
         Debug.Log("Got" + gunStat);

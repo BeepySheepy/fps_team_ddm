@@ -32,6 +32,7 @@ public class gameManager : MonoBehaviour
 
     [Header("---- Health ----")]
     public Image playerHPBar;
+    public Image playerManaBar;
     public Image BossHPBar;
     public GameObject playerDamageFlasher;
     public GameObject playerHealFlasher;
