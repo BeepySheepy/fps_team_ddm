@@ -16,6 +16,7 @@ public class enemyStats : MonoBehaviour, IDamage
     [SerializeField] GameObject gunToDrop;
     [SerializeField] GameObject ammoToDrop;
     [SerializeField] GameObject healthToDrop;
+    [SerializeField] public bool dropHP;
 
     enemyAI aiScript;
     Animator anim;
@@ -46,7 +47,7 @@ public class enemyStats : MonoBehaviour, IDamage
         HP -= dmg;
         Debug.Log(this.gameObject.name + "took damage");
         //aiScript.GetHeadPos().gameObject.GetComponent<Collider>().enabled = false;
-        if (HP <= 0)
+        if (HP <= 0 || gameManager.instance.enemiesRemaining <= 0)
         {
             gameManager.instance.RoomFinished(-1);
             DropItems();
@@ -58,7 +59,9 @@ public class enemyStats : MonoBehaviour, IDamage
             {
                 anim.SetBool("Dead", true);
                 aiScript.TurnOffNavMesh();
+                aiScript.Deactivate();
                 collider.enabled = false;
+                StartCoroutine(deathWait());
             }
         }
         else
@@ -67,7 +70,11 @@ public class enemyStats : MonoBehaviour, IDamage
             StartCoroutine(flashEnemyDamage());
         }
     }
-
+    IEnumerator deathWait()
+    {
+        yield return new WaitForSeconds(3);
+        Destroy(gameObject);
+    }
     /// <summary>
     /// flashes the enemy red
     /// </summary>
@@ -82,15 +89,7 @@ public class enemyStats : MonoBehaviour, IDamage
 
     void DropItems()
     {
-        if (gunToDrop != null)
-        {
-            Instantiate(gunToDrop, transform.position, transform.rotation);
-        }
-        if (ammoToDrop != null)
-        {
-            Instantiate(ammoToDrop, transform.position + new Vector3(1, 1, 0), transform.rotation);
-        }
-        if (healthToDrop != null)
+        if (healthToDrop != null && dropHP)
         {
             Instantiate(healthToDrop, transform.position + new Vector3(-1, 1, 0), transform.rotation);
         }

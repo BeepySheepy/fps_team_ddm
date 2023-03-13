@@ -9,26 +9,44 @@ public class room : MonoBehaviour
     [SerializeField] public GameObject roomPos;
     [SerializeField] public GameObject boss;
     public List<GameObject> spawnedRooms = new List<GameObject>();
-    Vector3 bossPos;
+    public List<GameObject> doors = new List<GameObject>();
+    bool roomActive;
     public void Start()
     {
-        bossPos = new Vector3(roomPos.transform.position.x, (roomPos.transform.position.y + 5.5f), roomPos.transform.position.z);
+        roomActive = false;
     }
-
+    public void Update()
+    {
+        if (roomActive == true && gameManager.instance.enemiesRemaining <= 0)
+        {
+            RoomDeactivate();
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            Random rand = new Random();
-            int pick = rand.Next(rooms.Count);
-            GameObject roomPick = rooms[pick];
-            spawnedRooms.Add(Instantiate(roomPick, roomPos.transform.position, roomPos.transform.rotation));
-            gameManager.instance.roomCounter();
-            if (gameManager.instance.bossSpawn())
-            {
-                //Instantiate(boss, bossPos, roomPos.transform.rotation);
-            }
+            roomActive = true;
             GetComponent<BoxCollider>().enabled = false;
+            RoomActivate();
         }
+    }
+
+    private void RoomActivate()
+    {
+        Random rand = new Random();
+        int pick = rand.Next(rooms.Count);
+        GameObject roomPick = rooms[pick];
+        spawnedRooms.Add(Instantiate(roomPick, roomPos.transform.position, roomPos.transform.rotation));
+        gameManager.instance.roomCounter();
+        if (gameManager.instance.bossSpawn())
+        {
+            //Instantiate(boss, bossPos, roomPos.transform.rotation);
+        }
+        gameManager.instance.doorSwitch();
+    }
+    private void RoomDeactivate()
+    {
+        gameManager.instance.doorSwitch();
     }
 }
