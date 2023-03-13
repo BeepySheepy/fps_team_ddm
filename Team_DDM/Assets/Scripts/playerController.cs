@@ -29,6 +29,9 @@ public class playerController : MonoBehaviour
     [SerializeField] GameObject gunModel;
     [SerializeField] float zoomMax;
 
+    
+
+
     int jumpsCurrent;
     public int speedOrig;
     public int gravOrig;
