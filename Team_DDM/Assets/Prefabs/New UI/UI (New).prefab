@@ -167,7 +167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8256825786633562180
 Transform:
   m_ObjectHideFlags: 0
@@ -310,6 +310,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1512012688543674388}
         m_TargetAssemblyTypeName: buttonFunction, Assembly-CSharp
         m_MethodName: nextLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: mainMenuButtonNoise, Assembly-CSharp
+        m_MethodName: buttonPlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2152,6 +2164,18 @@ MonoBehaviour:
       - m_Target: {fileID: 5980249561009011677}
         m_TargetAssemblyTypeName: buttonFunction, Assembly-CSharp
         m_MethodName: resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: mainMenuButtonNoise, Assembly-CSharp
+        m_MethodName: buttonPlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5163,6 +5187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5980249563072480642}
   - component: {fileID: 5980249563072480645}
+  - component: {fileID: 1380874741}
   m_Layer: 5
   m_Name: Game Manager
   m_TagString: Untagged
@@ -5230,6 +5255,109 @@ MonoBehaviour:
   sniperIcon: {fileID: 3619168361435092539}
   doorObj: {fileID: 0}
   doorState: 0
+  audio: {fileID: 1380874741}
+  inGameSong:
+  - {fileID: 8300000, guid: 2bae9a033e4368e468cebea5fd3b3f7a, type: 3}
+  pauseSong: {fileID: 8300000, guid: f874cb63dfb1b814091bf34fc036cd40, type: 3}
+  winSong: {fileID: 8300000, guid: 37c9a1dab52ce96488561bac20608b09, type: 3}
+  loseSong: {fileID: 8300000, guid: 6a2c1f3691b31e046b930b5ca42479b1, type: 3}
+  MusicVol: 0.25
+--- !u!82 &1380874741
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5980249563072480643}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6007297960969286030
 GameObject:
   m_ObjectHideFlags: 0
@@ -5725,6 +5853,18 @@ MonoBehaviour:
       - m_Target: {fileID: 159408002336603223}
         m_TargetAssemblyTypeName: buttonFunction, Assembly-CSharp
         m_MethodName: respawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: mainMenuButtonNoise, Assembly-CSharp
+        m_MethodName: buttonPlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6426,6 +6566,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: mainMenuButtonNoise, Assembly-CSharp
+        m_MethodName: buttonPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8014246113504102187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6950,6 +7102,18 @@ MonoBehaviour:
       - m_Target: {fileID: 854156231647663095}
         m_TargetAssemblyTypeName: buttonFunction, Assembly-CSharp
         m_MethodName: mainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: mainMenuButtonNoise, Assembly-CSharp
+        m_MethodName: buttonPlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7986,6 +8150,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1698976617816894929}
         m_TargetAssemblyTypeName: buttonFunction, Assembly-CSharp
         m_MethodName: mainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: mainMenuButtonNoise, Assembly-CSharp
+        m_MethodName: buttonPlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
