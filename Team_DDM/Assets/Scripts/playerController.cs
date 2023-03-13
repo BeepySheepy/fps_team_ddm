@@ -11,6 +11,7 @@ public class playerController : MonoBehaviour
     [SerializeField] public CharacterController controller;
     [SerializeField] Camera mainCamera;
     [SerializeField] GameObject fireEffect;
+    [SerializeField] AudioSource playerAudioSource;
 
     [Header("----- Player Movement -----")]
     [Range(1, 50)][SerializeField] int playerSpeed;
@@ -79,7 +80,7 @@ public class playerController : MonoBehaviour
         checkpointHP = HPOrig;
         levelSpawn = gameManager.instance.playerSpawn;
         spawnPlayer();
-        controller.enabled = true;
+
     }
 
     // Update is called once per frame
@@ -434,5 +435,7 @@ public class playerController : MonoBehaviour
         yield return new WaitForSeconds(coyoteTimer);
         canJump = false;
     }
+
+    
 
 }

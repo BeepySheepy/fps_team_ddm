@@ -11,10 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Prototype1.unity
     guid: deeb90dabaf1516429d2e77452a223f8
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Week4Build.unity
     guid: 9396405f8b9a95c41a83881e321ee5b5
-  - enabled: 1
-    path: Assets/Scenes/AlphaBuild.unity
-    guid: 71bc4c7e3e6b6b149bc357c0ff279200
   m_configObjects: {}

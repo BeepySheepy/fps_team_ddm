@@ -9747,7 +9747,7 @@ Transform:
   m_GameObject: {fileID: 4393323079048620275}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -20, y: 1, z: 5}
-  m_LocalScale: {x: 12.5, y: 1.5, z: 12.5}
+  m_LocalScale: {x: 5, y: 1.5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 140202485}
@@ -9769,7 +9769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81daae9cca777ff45b6515dbdbf61a9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushBackAmount: 50
+  pushBackAmount: 20
   push: 1
   timer: 0
   negateX: 1
@@ -9777,7 +9777,7 @@ MonoBehaviour:
   negateZ: 1
   isConstant: 1
   isHazard: 1
-  isFire: 1
+  isFire: 0
   dmgVal: 1
 --- !u!33 &4393323079048620272
 MeshFilter:

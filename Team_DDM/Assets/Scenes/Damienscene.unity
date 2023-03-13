@@ -62072,6 +62072,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: floorFlat_Platforms
       objectReference: {fileID: 0}
+    - target: {fileID: 4346786060675073578, guid: 3907d84fa0689bd4da6fb6bbc885a302, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3907d84fa0689bd4da6fb6bbc885a302, type: 3}
 --- !u!1001 &409101166004024853
