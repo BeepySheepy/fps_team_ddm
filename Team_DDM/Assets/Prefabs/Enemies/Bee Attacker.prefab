@@ -713,6 +713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meleeObject: {fileID: 4895884925667957289}
   meleeDamage: 0
+  meleeAttackFX: {fileID: 298404609303114899, guid: 77511b648fcfd394791ec11e75614233, type: 3}
 --- !u!114 &8514673147778497885
 MonoBehaviour:
   m_ObjectHideFlags: 0
