@@ -2069,14 +2069,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 372301238085248947, guid: 5c7d239a7accf344b8bedc0b24d01205, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 372301238085248947, guid: 5c7d239a7accf344b8bedc0b24d01205, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 6.470001
-      objectReference: {fileID: 0}
     - target: {fileID: 5875342347473606449, guid: 5c7d239a7accf344b8bedc0b24d01205, type: 3}
       propertyPath: m_Name
       value: floorFlat_2
@@ -2128,14 +2120,6 @@ PrefabInstance:
     - target: {fileID: 6309140735033934651, guid: 5c7d239a7accf344b8bedc0b24d01205, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6729414607717133663, guid: 5c7d239a7accf344b8bedc0b24d01205, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 6.47
-      objectReference: {fileID: 0}
-    - target: {fileID: 8656932078876332202, guid: 5c7d239a7accf344b8bedc0b24d01205, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6.28
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c7d239a7accf344b8bedc0b24d01205, type: 3}
