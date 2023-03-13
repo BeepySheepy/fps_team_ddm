@@ -9,7 +9,8 @@ public class mainMenuButtonNoise : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        menuMusicVol = gameManager.instance.MusicVol;
+        //menuMusicVol = 0;
+        //menuMusicVol = gameManager.instance.MusicVol;
     }
 
     // Update is called once per frame
