@@ -100,7 +100,7 @@ public class gameManager : MonoBehaviour
             if (isPaused)
             {
                 paused();
-                audio.PlayOneShot(pauseSong, MusicVol);
+                //audio.PlayOneShot(pauseSong, MusicVol);
             }
             else
             {
@@ -123,7 +123,7 @@ public class gameManager : MonoBehaviour
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
-        audio.Stop();
+        audio.Pause();
     }
 
     public void unPaused()
@@ -133,7 +133,7 @@ public class gameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         activeMenu.SetActive(false);
         activeMenu = null;
-        audio.Stop();
+        audio.Pause();
         audio.PlayOneShot(inGameSong[Random.Range(0, inGameSong.Length)], MusicVol);
     }
 
