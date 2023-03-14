@@ -49,9 +49,10 @@ public class gunScript : MonoBehaviour
             GameObject bulletClone = Instantiate(mGun.bullet, mShootPos.position, Quaternion.LookRotation(shootDirection));// create bullet
             bulletClone.GetComponent<bullet>().bulletShootInterface(shootDirection, mGun.bulletSpeed);
         }
-        else if (autoLockOnPlayerY)// locks onto player Y position
+        else if (autoLockOnPlayerY)// locks onto player Y position(double check when boss is finished)
         {
-            GameObject bulletClone = Instantiate(mGun.bullet, mShootPos.position, mShootPos.transform.rotation);// create bullet
+            GameObject bulletClone = Instantiate(mGun.bullet, mShootPos.position, 
+                Quaternion.LookRotation(new Vector3(mShootPos.transform.forward.x,shootDirection.y, mShootPos.transform.forward.z)));// create bullet
             bulletClone.GetComponent<bullet>().bulletShootInterface(shootDirection.y, mGun.bulletSpeed);
         }
         else// shoots straight forward

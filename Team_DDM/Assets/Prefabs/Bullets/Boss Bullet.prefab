@@ -51,6 +51,7 @@ MonoBehaviour:
   timer: 5
   homingBullet: 0
   homingBulletTurnSpeed: 0
+  bulletHitEffect: {fileID: 0}
   bulletDamage: 1
 --- !u!114 &7671014005588377581
 MonoBehaviour:
