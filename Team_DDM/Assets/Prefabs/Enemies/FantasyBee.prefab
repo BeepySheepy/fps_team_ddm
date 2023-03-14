@@ -678,6 +678,7 @@ MonoBehaviour:
   dropHP: 1
   plusYAimDir: 0
   meleeTimer: 0
+  meleeRange: 0
   permaAggro: 1
   enemyTypeID: 0
 --- !u!114 &542213546057887246
