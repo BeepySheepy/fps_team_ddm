@@ -7,7 +7,7 @@ public class melee : MonoBehaviour
     [SerializeField] GameObject meleeObject;
     [SerializeField] int meleeDamage;
     [SerializeField] ParticleSystem meleeAttackFX;
-
+    
     CapsuleCollider meleeHitbox;
 
     private void Start()
@@ -24,6 +24,7 @@ public class melee : MonoBehaviour
 
     public void TurnOnMeleeCollider()
     {
+        
         Debug.Log("Hitbox turned on");
         meleeHitbox.enabled = true;
         Instantiate(meleeAttackFX, meleeHitbox.transform.position,

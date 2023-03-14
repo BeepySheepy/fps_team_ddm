@@ -7,6 +7,7 @@ public class bullet : MonoBehaviour
     [SerializeField] int timer;
     [SerializeField] bool homingBullet;
     [SerializeField] float homingBulletTurnSpeed;
+    [SerializeField] ParticleSystem bulletHitEffect;
     public int bulletDamage;
 
     Vector3 mShootDirection;
@@ -46,6 +47,11 @@ public class bullet : MonoBehaviour
         else if (other.CompareTag("Wall"))
         {
             Destroy(gameObject);
+        }
+
+        if(bulletHitEffect != null)
+        {
+            Instantiate(bulletHitEffect, transform.position, transform.rotation);
         }
 
         Destroy(gameObject);
