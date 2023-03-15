@@ -35,7 +35,10 @@ public class enemyStats : MonoBehaviour, IDamage
         aiScript = GetComponent<enemyAI>();
         enemyTypeID = aiScript.GetEnemyTypeID();
         collider = GetComponent<CapsuleCollider>();
-
+        if (enemyTypeID == (int)enemies.boss)// start boss phase at beginning of fight
+        {
+            EnemyBossPhaseEnter();
+        }
     }
 
 

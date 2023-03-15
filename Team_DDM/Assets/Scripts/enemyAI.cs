@@ -7,7 +7,7 @@ public class enemyAI : MonoBehaviour
 {
     [Header("-----Navigation-----")]
     [SerializeField] NavMeshAgent navMesh;// allows for movement
-    [SerializeField] Transform[] headPos;// tracks head pos instead of from (0,0)
+    [SerializeField] List<Transform> headPos;// tracks head pos instead of from (0,0)
     [Range(1, 10)][SerializeField] int enemyTurnSpeed;
     [SerializeField] ParticleSystem footStepParticle;
     [SerializeField] AudioClip[] footstepSounds;
@@ -26,9 +26,10 @@ public class enemyAI : MonoBehaviour
     [SerializeField] float meleeRange;
     [SerializeField] AudioSource source;
     [SerializeField] AudioClip meleeAttackSound;
-
+    [Header("-----Miscellaneous-----")]
     [SerializeField] bool permaAggro;
     [SerializeField] int enemyTypeID;
+    [SerializeField] bossScript bossInfo;
 
 
     bool playerInRange;// bool if the player is within the range of detection of the enemy
@@ -76,7 +77,7 @@ public class enemyAI : MonoBehaviour
                     if (gun != null && !gun.IsShooting() && gun.GetBulletsInClip() != 0)// shoot
                     {
 
-                        for (shootPosIter = 0; shootPosIter < headPos.Length; shootPosIter++)
+                        for (shootPosIter = 0; shootPosIter < headPos.Count; shootPosIter++)
                         {
                             Debug.Log(shootPosIter);
                             // gun stuff
@@ -248,17 +249,42 @@ public class enemyAI : MonoBehaviour
 
     void Phase1()
     {
-
+        gun = bossInfo.GetCurrentGun();
+        bossInfo.NextGun();
+        Transform[] tempTransformArray;
+        tempTransformArray = bossInfo.GetCurrentShootPositions();
+        headPos.Clear();
+        foreach(Transform t in tempTransformArray)
+        {
+            headPos.Add(t);
+        }
+        bossInfo.NextShootPos();
     }
 
     void Phase2()
     {
-
+        gun = bossInfo.GetCurrentGun();
+        bossInfo.NextGun();
+        Transform[] tempTransformArray;
+        tempTransformArray = bossInfo.GetCurrentShootPositions();
+        headPos.Clear();
+        foreach (Transform t in tempTransformArray)
+        {
+            headPos.Add(t);
+        }
+        bossInfo.NextShootPos();
     }
 
     void Phase3()
     {
-
+        gun = bossInfo.GetCurrentGun();
+        Transform[] tempTransformArray;
+        tempTransformArray = bossInfo.GetCurrentShootPositions();
+        headPos.Clear();
+        foreach (Transform t in tempTransformArray)
+        {
+            headPos.Add(t);
+        }
     }
     #endregion
 }
