@@ -29,6 +29,8 @@ public class playerController : MonoBehaviour
     [Range(1, 100)][SerializeField] int shootDist;
     [Range(1, 20)][SerializeField] int shootDamage;
     [SerializeField] GameObject gunModel;
+    [SerializeField] GameObject shootPosition;
+    [SerializeField] GameObject light;
     [SerializeField] float zoomMax;
 
     int jumpsCurrent;
@@ -158,58 +160,63 @@ public class playerController : MonoBehaviour
             //    }
             //}
 
-            if (!isSpread)
-            {
-                if (selectedGun == 0)
-                {
-                    GameObject bulletClone = Instantiate(gunList[selectedGun].bullet, transform.position, transform.rotation);
-                    bulletClone.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * gunList[selectedGun].bulletSpeed;
-                    numShots++;
-                    yield return new WaitForSeconds(shootRate);
-                    isShooting = false;
-                }
-                else if (selectedGun == 2 && iceAmmoCt > 0)
-                {
-                    Debug.Log("Fire Shot");
-                    GameObject bulletClone = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
-                    bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * gunList[selectedGun].bulletSpeed;
-                    numShots++;
-                    setIceAmmo(-1);
-                    yield return new WaitForSeconds(shootRate);
-                    isShooting = false;
-                }
-
-            }
-            else
-            {
-                Debug.Log("Enters Spread");
-                //Quaternion spreadL = Quaternion.Euler(0f, -90, 0f);
-                //Quaternion spreadR = Quaternion.Euler(0f, 90, 0f);
-
-                if (fireAmmoCt > 0)
-                {
-                    Debug.Log("Fire Shot");
-                    Vector3 spreadL = new Vector3(gunModel.transform.forward.x, gunModel.transform.forward.y, gunModel.transform.position.z + 1);
-                    Vector3 spreadR = new Vector3(gunModel.transform.forward.x, gunModel.transform.forward.y, gunModel.transform.position.z - 1);
-                    Debug.Log("Fired 1");
-                    GameObject bulletClone1 = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
-                    bulletClone1.GetComponent<Rigidbody>().velocity = spreadL * gunList[selectedGun].bulletSpeed;
-                    Debug.Log("Fired 2");
-                    GameObject bulletClone2 = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
-                    bulletClone2.GetComponent<Rigidbody>().velocity = gunModel.transform.forward * gunList[selectedGun].bulletSpeed;
-                    Debug.Log("Fired 3");
-                    GameObject bulletClone3 = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
-                    bulletClone3.GetComponent<Rigidbody>().velocity = spreadR * gunList[selectedGun].bulletSpeed;
-
-                    setFireAmmo(-1);
-                }
-
-
-
-                numShots++;
-                yield return new WaitForSeconds(shootRate);
-                isShooting = false;
-            }
+            GameObject bulletClone = Instantiate(gunList[selectedGun].bullet, shootPosition.transform.position, shootPosition.transform.rotation);
+            bulletClone.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * gunList[selectedGun].bulletSpeed;
+            numShots++;
+            yield return new WaitForSeconds(shootRate);
+            isShooting = false;
+            //if (!isSpread)
+            //{
+            //    if (selectedGun == 0)
+            //    {
+            //        GameObject bulletClone = Instantiate(gunList[selectedGun].bullet, transform.position, transform.rotation);
+            //        bulletClone.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * gunList[selectedGun].bulletSpeed;
+            //        numShots++;
+            //        yield return new WaitForSeconds(shootRate);
+            //        isShooting = false;
+            //    }
+            //    else if (selectedGun == 2 && iceAmmoCt > 0)
+            //    {
+            //        Debug.Log("Fire Shot");
+            //        GameObject bulletClone = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
+            //        bulletClone.GetComponent<Rigidbody>().velocity = transform.forward * gunList[selectedGun].bulletSpeed;
+            //        numShots++;
+            //        setIceAmmo(-1);
+            //        yield return new WaitForSeconds(shootRate);
+            //        isShooting = false;
+            //    }
+            //
+            //}
+            //else
+            //{
+            //    Debug.Log("Enters Spread");
+            //    //Quaternion spreadL = Quaternion.Euler(0f, -90, 0f);
+            //    //Quaternion spreadR = Quaternion.Euler(0f, 90, 0f);
+            //
+            //    if (fireAmmoCt > 0)
+            //    {
+            //        Debug.Log("Fire Shot");
+            //        Vector3 spreadL = new Vector3(gunModel.transform.forward.x, gunModel.transform.forward.y, gunModel.transform.position.z + 1);
+            //        Vector3 spreadR = new Vector3(gunModel.transform.forward.x, gunModel.transform.forward.y, gunModel.transform.position.z - 1);
+            //        Debug.Log("Fired 1");
+            //        GameObject bulletClone1 = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
+            //        bulletClone1.GetComponent<Rigidbody>().velocity = spreadL * gunList[selectedGun].bulletSpeed;
+            //        Debug.Log("Fired 2");
+            //        GameObject bulletClone2 = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
+            //        bulletClone2.GetComponent<Rigidbody>().velocity = gunModel.transform.forward * gunList[selectedGun].bulletSpeed;
+            //        Debug.Log("Fired 3");
+            //        GameObject bulletClone3 = Instantiate(gunList[selectedGun].bullet, transform.position, gunList[selectedGun].bullet.transform.rotation);
+            //        bulletClone3.GetComponent<Rigidbody>().velocity = spreadR * gunList[selectedGun].bulletSpeed;
+            //
+            //        setFireAmmo(-1);
+            //    }
+            //
+            //
+            //
+            //    numShots++;
+            //    yield return new WaitForSeconds(shootRate);
+            //    isShooting = false;
+            //}
         }
         else
         {
@@ -303,21 +310,12 @@ public class playerController : MonoBehaviour
         gunList.Add(gunStat);
 
         shootRate = gunStat.fireRate;
-        isSpread = gunStat.spreadShot;
 
         Debug.Log("Gun Model Set");
         gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat.gunModel.GetComponent<MeshFilter>().sharedMesh;
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
+        light.SetActive(true);
         newGun++;
-
-        if (newGun == 1)
-        {
-            setFireAmmo(4);
-        }
-        else if (newGun == 2)
-        {
-            setIceAmmo(2);
-        }
         gameManager.instance.gunIconIndicator(newGun);
 
     }
