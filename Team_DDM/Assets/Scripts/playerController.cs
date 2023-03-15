@@ -89,6 +89,7 @@ public class playerController : MonoBehaviour
         levelSpawn = gameManager.instance.playerSpawn;
         spawnPlayer();
         controller.enabled = true;
+
     }
 
     // Update is called once per frame

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.Timeline.Actions;
@@ -21,20 +22,7 @@ public class audioOptions : MonoBehaviour
 
     void Start()
     {
-        
-        #region Problem B
-        //if (PlayerPrefs.HasKey("prefMusicVolume") || PlayerPrefs.HasKey("prefSoundEffectVolume"))
-        //{
-        //    Debug.Log("Player prefs saved1");
-        //    revertMixer();
-        //    audioManager.instance.updateMixer();
-        //}
-        //else
-        //{
-        //    Debug.Log("Player Pref saved2");
-        //    Default();
-        //}
-        #endregion
+        revertMixer();
     }
     public void musicSlider(float _volume)
     {
@@ -76,39 +64,29 @@ public class audioOptions : MonoBehaviour
 
     public void revertMixer()
     {
-        #region Problem A
-        //if (!PlayerPrefs.HasKey("prefMusicVolume") && !PlayerPrefs.HasKey("prefSoundEffectVolume"))
-        //{
-        //    musicVolume = 1;
-        //    soundEffectVolume = 1;
-        //}
-        //else
-        //{
-        //    musicVolume = PlayerPrefs.GetFloat("prefMusicVolume");
-        //    soundEffectVolume = PlayerPrefs.GetFloat("prefSoundEffectVolume");
-        //}
-        #endregion
+        if (!PlayerPrefs.HasKey("prefMusicVolume"))
+        {
+            musicVolume = 1;
+            soundEffectVolume = 1;
+        }
+        else
+        {
+            musicVolume = PlayerPrefs.GetFloat("prefMusicVolume");
+            soundEffectVolume = PlayerPrefs.GetFloat("prefSoundEffectVolume");
+        }
 
-        musicVolume = PlayerPrefs.GetFloat("prefMusicVolume");
-        soundEffectVolume = PlayerPrefs.GetFloat("prefSoundEffectVolume");
         mSlider.value = musicVolume;
         seSlider.value = soundEffectVolume;
 
         musicVolumeText.text = ((int)(musicVolume * 100)).ToString();
         soundEffectVolumeText.text = ((int)(soundEffectVolume * 100)).ToString();
+        audioManager.instance.updateMixer();
     }
     public void saveMixer()
     {
-        audioManager.instance.updateMixer();
-
         PlayerPrefs.SetFloat("prefMusicVolume", musicVolume);
         PlayerPrefs.SetFloat("prefSoundEffectVolume", soundEffectVolume);
-        mSlider.value = musicVolume;
-        seSlider.value = soundEffectVolume;
-
-        musicVolumeText.text = ((int)(musicVolume * 100)).ToString();
-        soundEffectVolumeText.text = ((int)(soundEffectVolume * 100)).ToString();
-
+        audioManager.instance.updateMixer();
         StartCoroutine(audioSaved());
     }
 
@@ -121,7 +99,8 @@ public class audioOptions : MonoBehaviour
 
     public void deleteData()
     {
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteKey("prefMusicVolume");
+        PlayerPrefs.DeleteKey("prefSoundEffectVolume");
         Default();
         StartCoroutine(audioCleared());
     }
