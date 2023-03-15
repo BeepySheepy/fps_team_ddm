@@ -22,6 +22,8 @@ public class enemyAI : MonoBehaviour
     [Header("-----Melee-----")]
     [SerializeField] float meleeTimer;
     [SerializeField] float meleeRange;
+    [SerializeField] AudioSource source;
+    [SerializeField] AudioClip meleeAttackSound;
 
     [SerializeField] bool permaAggro;
     [SerializeField] int enemyTypeID;
@@ -176,6 +178,10 @@ public class enemyAI : MonoBehaviour
     {
         isInMelee = true;
         anim.SetTrigger("Melee");
+        if(source != null)
+        {
+            source.PlayOneShot(meleeAttackSound);
+        }
         yield return new WaitForSeconds(meleeTimer);
         isInMelee = false;
     }
