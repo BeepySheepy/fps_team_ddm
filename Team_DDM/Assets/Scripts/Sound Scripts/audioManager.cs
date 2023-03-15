@@ -15,7 +15,11 @@ public class audioManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+        refreshAudio();
+    }
 
+    public void refreshAudio()
+    {
         if (PlayerPrefs.HasKey(prefAudioMute))
         {
             AudioListener.volume = PlayerPrefs.GetFloat(prefAudioMute);
@@ -27,15 +31,16 @@ public class audioManager : MonoBehaviour
             i.soundSource.clip = i.soundClip;
             i.soundSource.loop = i.isLooping;
             i.soundSource.playOnAwake = i.onWake;
-            i.soundSource.volume = i.volume;
 
             switch (i.audioType)
             {
                 case sounds.AudioCat.Music:
                     i.soundSource.outputAudioMixerGroup = musicGroup;
+                    i.soundSource.volume = PlayerPrefs.GetFloat("prefMusicVolume");
                     break;
                 case sounds.AudioCat.SoundeEffects:
                     i.soundSource.outputAudioMixerGroup = soundEffectGroup;
+                    i.soundSource.volume = PlayerPrefs.GetFloat("prefSoundEffectVolume");
                     break;
             }
 

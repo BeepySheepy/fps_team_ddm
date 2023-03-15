@@ -65,7 +65,7 @@ public class gameManager : MonoBehaviour
 
     [Header("---- Audio ----")]
     [SerializeField] AudioSource audio;
-    [SerializeField] AudioClip[] inGameSong;
+    //[SerializeField] AudioClip[] inGameSong;
     [SerializeField] AudioClip pauseSong;
     [SerializeField] AudioClip winSong;
     [SerializeField] AudioClip loseSong;
@@ -86,7 +86,7 @@ public class gameManager : MonoBehaviour
         doorState = false;
         doorObj = GameObject.FindGameObjectWithTag("Door");
         activeMenu = null;
-        audio.PlayOneShot(inGameSong[Random.Range(0, inGameSong.Length)], MusicVol);
+        //audio.PlayOneShot(inGameSong[Random.Range(0, inGameSong.Length)], MusicVol);
     }
 
     // Update is called once per frame
@@ -101,7 +101,6 @@ public class gameManager : MonoBehaviour
             if (isPaused)
             {
                 paused();
-                //audio.PlayOneShot(pauseSong, MusicVol);
             }
             else
             {
@@ -124,7 +123,6 @@ public class gameManager : MonoBehaviour
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
-        audio.Pause();
     }
 
     public void unPaused()
@@ -134,8 +132,6 @@ public class gameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         activeMenu.SetActive(false);
         activeMenu = null;
-        audio.Pause();
-        audio.PlayOneShot(inGameSong[Random.Range(0, inGameSong.Length)], MusicVol);
     }
 
     public void RoomFinished(int amount)
@@ -154,7 +150,6 @@ public class gameManager : MonoBehaviour
         if (BossesRemaining <= 0)
         {
             paused();
-            audio.PlayOneShot(winSong, MusicVol);
 
             if (SceneManager.GetActiveScene().buildIndex + 1 == 0)
             {
@@ -220,7 +215,6 @@ public class gameManager : MonoBehaviour
         paused();
         activeMenu = loseMenu;
         activeMenu.SetActive(true);
-        audio.PlayOneShot(loseSong, MusicVol);
     }
 
     public void doorSwitch()

@@ -23,6 +23,7 @@ public class audioOptions : MonoBehaviour
     void Start()
     {
         revertMixer();
+        audioManager.instance.refreshAudio();
     }
     public void musicSlider(float _volume)
     {
@@ -87,6 +88,7 @@ public class audioOptions : MonoBehaviour
         PlayerPrefs.SetFloat("prefMusicVolume", musicVolume);
         PlayerPrefs.SetFloat("prefSoundEffectVolume", soundEffectVolume);
         audioManager.instance.updateMixer();
+        audioManager.instance.refreshAudio();
         StartCoroutine(audioSaved());
     }
 
