@@ -10,6 +10,7 @@ public class enemyAI : MonoBehaviour
     [SerializeField] Transform[] headPos;// tracks head pos instead of from (0,0)
     [Range(1, 10)][SerializeField] int enemyTurnSpeed;
     [SerializeField] ParticleSystem footStepParticle;
+    [SerializeField] AudioClip[] footstepSounds;
     [SerializeField] Transform leftFoot;
     [SerializeField] Transform rightFoot;
     [SerializeField] bool enemyActivated;// allows enemies to start deactivated so particle effect can finish
@@ -211,12 +212,14 @@ public class enemyAI : MonoBehaviour
 
     void rightFootStepParticleEffect()
     {
+        PlayFootstepNoise();
         Debug.Log("Right Foot Step");
         Instantiate(footStepParticle, rightFoot);
     }
 
     void leftFootStepParticleEffect()
     {
+        PlayFootstepNoise();
         Debug.Log("Left Foot Step");
         Instantiate(footStepParticle, leftFoot);
     }
@@ -230,5 +233,12 @@ public class enemyAI : MonoBehaviour
     public void Activate()
     {
         enemyActivated = true;
+    }
+    void PlayFootstepNoise()
+    {
+        if(footstepSounds.Length > 0)
+        {
+            source.PlayOneShot(footstepSounds[Random.Range(0,footstepSounds.Length-1)]);// random footstep noise
+        }
     }
 }
