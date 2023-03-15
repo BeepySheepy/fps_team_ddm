@@ -85,6 +85,26 @@ public class audioManager : MonoBehaviour
         }
     }
 
+    public void pauseSoundEffect()
+    {
+        foreach (sounds i in soundArray)
+        {
+            if (i.audioType == sounds.AudioCat.SoundeEffects)
+            {
+                i.soundSource.Stop();
+            }
+        }
+    } 
+    public void resumeSoundEffect() 
+    {
+        foreach (sounds i in soundArray)
+        {
+            if (i.audioType == sounds.AudioCat.SoundeEffects)
+            {
+                i.soundSource.Play();
+            }
+        }
+    }
     public void mute()
     {
         if (AudioListener.volume == 1)

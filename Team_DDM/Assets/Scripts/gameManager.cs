@@ -63,13 +63,6 @@ public class gameManager : MonoBehaviour
     [SerializeField] public GameObject doorObj;
     public bool doorState;
 
-    [Header("---- Audio ----")]
-    [SerializeField] AudioSource audio;
-    //[SerializeField] AudioClip[] inGameSong;
-    [SerializeField] AudioClip pauseSong;
-    [SerializeField] AudioClip winSong;
-    [SerializeField] AudioClip loseSong;
-    [Range(0, 1)][SerializeField] public float MusicVol;
 
     // Start is called before the first frame update
     void Awake()
@@ -86,7 +79,6 @@ public class gameManager : MonoBehaviour
         doorState = false;
         doorObj = GameObject.FindGameObjectWithTag("Door");
         activeMenu = null;
-        //audio.PlayOneShot(inGameSong[Random.Range(0, inGameSong.Length)], MusicVol);
     }
 
     // Update is called once per frame
@@ -97,6 +89,8 @@ public class gameManager : MonoBehaviour
             isPaused = !isPaused;
             activeMenu = pauseMenu;
             pauseMenu.SetActive(isPaused);
+            audioManager.instance.stopByName("Ingame Song");
+            audioManager.instance.playByName("Pause Song");
 
             if (isPaused)
             {
@@ -105,6 +99,7 @@ public class gameManager : MonoBehaviour
             else
             {
                 unPaused();
+                
             }
 
         }
@@ -115,6 +110,7 @@ public class gameManager : MonoBehaviour
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
+        audioManager.instance.pauseSoundEffect();
     }
 
     public void unPaused()
@@ -124,6 +120,9 @@ public class gameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         activeMenu.SetActive(false);
         activeMenu = null;
+        audioManager.instance.resumeSoundEffect();
+        audioManager.instance.stopByName("Pause Song");
+        audioManager.instance.playByName("Ingame Song");
     }
 
     public void RoomFinished(int amount)
