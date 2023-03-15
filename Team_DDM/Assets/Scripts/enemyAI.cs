@@ -241,4 +241,24 @@ public class enemyAI : MonoBehaviour
             source.PlayOneShot(footstepSounds[Random.Range(0,footstepSounds.Length-1)]);// random footstep noise
         }
     }
+
+
+    // ---------------Boss Functions---------------
+    #region
+
+    void Phase1()
+    {
+
+    }
+
+    void Phase2()
+    {
+
+    }
+
+    void Phase3()
+    {
+
+    }
+    #endregion
 }
