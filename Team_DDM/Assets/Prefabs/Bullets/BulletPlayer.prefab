@@ -49,6 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 2
+  homingBullet: 0
+  homingBulletTurnSpeed: 0
   bulletDamage: 1
 --- !u!135 &5739028856967349281
 SphereCollider:
@@ -164,8 +166,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.8962264, g: 0, b: 0, a: 1}
-      key1: {r: 0.8962264, g: 0, b: 0, a: 1}
+      key0: {r: 0, g: 0.82365555, b: 0.8980392, a: 1}
+      key1: {r: 0, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}

@@ -108,14 +108,6 @@ public class gameManager : MonoBehaviour
             }
 
         }
-        if (doorState)
-        {
-
-        }
-        else
-        {
-            
-        }
     }
 
     public void paused()
@@ -138,10 +130,6 @@ public class gameManager : MonoBehaviour
     {
         enemiesRemaining += amount;
         enemiesRemainingText.text = enemiesRemaining.ToString("F0");
-        if (enemiesRemaining <= 0)
-        {
-            doorSwitch();
-        }
     }
 
     public void updateGameGoal(int amount)

@@ -676,7 +676,7 @@ MonoBehaviour:
   visionDistance: 30.4
   visionAngle: 40.5
   gun: {fileID: 8514673147778497885}
-  dropHP: 1
+  dropHP: 0
   plusYAimDir: 0
   meleeTimer: 0
   meleeRange: 0

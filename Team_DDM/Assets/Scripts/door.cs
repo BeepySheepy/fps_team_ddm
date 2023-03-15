@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class door : MonoBehaviour
 {
-    [SerializeField] GameObject entrance;
-    [SerializeField] GameObject exit;
 
-    public GameObject getEntrance()
+    public void Update()
     {
-        return entrance;
-    }
-    public GameObject getExit()
-    {
-        return exit;
+        if (gameManager.instance.doorState)
+        {
+            gameObject.SetActive(true);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

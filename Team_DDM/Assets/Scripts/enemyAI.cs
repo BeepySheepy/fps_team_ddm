@@ -19,7 +19,6 @@ public class enemyAI : MonoBehaviour
     [Range(1, 50)][SerializeField] float visionAngle;
     [Header("-----Gun-----")]
     [SerializeField] gunScript gun;
-    [SerializeField] int dropHP;
     [SerializeField] float plusYAimDir;
     [Header("-----Melee-----")]
     [SerializeField] float meleeTimer;
@@ -233,6 +232,10 @@ public class enemyAI : MonoBehaviour
     public void Activate()
     {
         enemyActivated = true;
+    }
+    public void Deactivate()
+    {
+        enemyActivated = false;
     }
     void PlayFootstepNoise()
     {
