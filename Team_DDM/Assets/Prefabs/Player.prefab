@@ -5145,8 +5145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a410dc27307223428fc1acaf1dd6871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensHor: 500
-  sensVer: 500
+  sensHor: 400
+  sensVer: 400
   lockVerMin: -75
   lockVerMax: 75
   invertX: 0

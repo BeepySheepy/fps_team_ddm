@@ -14,17 +14,26 @@ public class room : MonoBehaviour
     {
         roomCount = 0;
     }
-
-    private void OnTriggerEnter(Collider other)
+    private void Start()
     {
-        if (other.CompareTag("Player"))
-        {
-            Random rand = new Random();
-            int pick = rand.Next(rooms.Count);
-            GameObject roomPick = rooms[pick];
-            spawnedRooms.Add(Instantiate(roomPick, roomPos.transform.position, roomPos.transform.rotation));
-            roomCount++;
-            GetComponent<BoxCollider>().enabled = false;
-        }
+        Random rand = new Random();
+        int pick = rand.Next(rooms.Count);
+        GameObject roomPick = rooms[pick];
+        spawnedRooms.Add(Instantiate(roomPick, roomPos.transform.position, roomPos.transform.rotation));
+        roomCount++;
+        GetComponent<BoxCollider>().enabled = false;
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        Random rand = new Random();
+    //        int pick = rand.Next(rooms.Count);
+    //        GameObject roomPick = rooms[pick];
+    //        spawnedRooms.Add(Instantiate(roomPick, roomPos.transform.position, roomPos.transform.rotation));
+    //        roomCount++;
+    //        GetComponent<BoxCollider>().enabled = false;
+    //    }
+    //}
 }
