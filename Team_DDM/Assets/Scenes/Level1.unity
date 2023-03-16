@@ -800,6 +800,7 @@ MonoBehaviour:
   - {fileID: 1323535331576243473, guid: 2efea9ffb24b7544894998d6f38afb4f, type: 3}
   - {fileID: 5764707134043118738, guid: 9e69a120368997d46907ffed0e929a81, type: 3}
   - {fileID: 5784167788759546244, guid: 391fadbab4096e44682bec91284720b5, type: 3}
+  - {fileID: 4068455061869798012, guid: 9cb6b82d17c95814f875fcc41b9f5d47, type: 3}
   roomPos: {fileID: 133162899}
   spawnedRooms: []
   roomCount: 0
@@ -889,6 +890,7 @@ MonoBehaviour:
   - {fileID: 1323535331576243473, guid: 2efea9ffb24b7544894998d6f38afb4f, type: 3}
   - {fileID: 5764707134043118738, guid: 9e69a120368997d46907ffed0e929a81, type: 3}
   - {fileID: 5784167788759546244, guid: 391fadbab4096e44682bec91284720b5, type: 3}
+  - {fileID: 4068455061869798012, guid: 9cb6b82d17c95814f875fcc41b9f5d47, type: 3}
   roomPos: {fileID: 2081175205}
   spawnedRooms: []
   roomCount: 0
@@ -1371,6 +1373,7 @@ MonoBehaviour:
   - {fileID: 1323535331576243473, guid: 2efea9ffb24b7544894998d6f38afb4f, type: 3}
   - {fileID: 5764707134043118738, guid: 9e69a120368997d46907ffed0e929a81, type: 3}
   - {fileID: 5784167788759546244, guid: 391fadbab4096e44682bec91284720b5, type: 3}
+  - {fileID: 4068455061869798012, guid: 9cb6b82d17c95814f875fcc41b9f5d47, type: 3}
   roomPos: {fileID: 670124116}
   spawnedRooms: []
   roomCount: 0
