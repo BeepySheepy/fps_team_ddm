@@ -63,6 +63,7 @@ public class gameManager : MonoBehaviour
     [SerializeField] public GameObject doorObj;
     public bool doorState;
 
+    public int roomCount;
 
     // Start is called before the first frame update
     void Awake()
