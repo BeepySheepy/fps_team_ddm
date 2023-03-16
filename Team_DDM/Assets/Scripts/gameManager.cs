@@ -6,12 +6,6 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 
-enum weapons
-{
-    pistol = 0,
-    shotgun,
-    sniper
-}
 public class gameManager : MonoBehaviour
 {
 
@@ -81,8 +75,6 @@ public class gameManager : MonoBehaviour
         gunSpawn = 0;
         playerSpawn = GameObject.FindGameObjectWithTag("Respawn");
         doorState = false;
-        audio.PlayOneShot(inGameSong[Random.Range(0, inGameSong.Length)], MusicVol);
-        roomCount = 0;
     }
 
     // Update is called once per frame
@@ -134,8 +126,6 @@ public class gameManager : MonoBehaviour
         if (enemiesRemaining <= 0)
         {
             doorSwitch();
-        }
-            roomCount++;
         }
     }
 
