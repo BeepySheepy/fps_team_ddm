@@ -70,6 +70,8 @@ public class gameManager : MonoBehaviour
     [SerializeField] AudioClip loseSong;
     [Range(0, 1)][SerializeField] public float MusicVol;
 
+    public int roomCount;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -86,6 +88,7 @@ public class gameManager : MonoBehaviour
         doorObj = GameObject.FindGameObjectWithTag("Door");
         activeMenu = null;
         audio.PlayOneShot(inGameSong[Random.Range(0, inGameSong.Length)], MusicVol);
+        roomCount = 0;
     }
 
     // Update is called once per frame
@@ -136,6 +139,7 @@ public class gameManager : MonoBehaviour
         if (enemiesRemaining <= 0)
         {
             doorSwitch();
+            roomCount++;
         }
     }
 
@@ -151,11 +155,13 @@ public class gameManager : MonoBehaviour
             {
                 activeMenu = winGameMenu;
                 activeMenu.SetActive(true);
+                roomCount = 1;
             }
             else
             {
                 activeMenu = winLevelMenu;
                 activeMenu.SetActive(true);
+                roomCount = 1;
             }
         }
     }

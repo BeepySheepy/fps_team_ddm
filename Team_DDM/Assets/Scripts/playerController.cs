@@ -65,6 +65,7 @@ public class playerController : MonoBehaviour
     int checkpointHP;
     int checkpointAmmoF;
     int checkpointAmmoI;
+    int checkpointRoom;
 
     // Start is called before the first frame update
     void Start()
@@ -419,6 +420,7 @@ public class playerController : MonoBehaviour
         setHP(checkpointHP);
         setFireAmmo(checkpointAmmoF);
         setIceAmmo(checkpointAmmoI);
+        gameManager.instance.roomCount = checkpointRoom;
         controller.enabled = true;
     }
 
@@ -427,6 +429,7 @@ public class playerController : MonoBehaviour
         checkpointHP = HP;
         checkpointAmmoF = fireAmmoCt;
         checkpointAmmoI = iceAmmoCt;
+        checkpointRoom = gameManager.instance.roomCount;
     }
 
     IEnumerator CoyoteTimer()
