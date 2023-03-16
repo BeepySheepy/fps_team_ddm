@@ -111,7 +111,7 @@ public class gameManager : MonoBehaviour
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
-        audioManager.instance.pauseSoundEffect();
+        //audioManager.instance.pauseSoundEffect();
     }
 
     public void unPaused()
@@ -130,6 +130,10 @@ public class gameManager : MonoBehaviour
     {
         enemiesRemaining += amount;
         enemiesRemainingText.text = enemiesRemaining.ToString("F0");
+        if (enemiesRemaining >= 0)
+        {
+            doorSwitch();
+        }
     }
 
     public void updateGameGoal(int amount)
