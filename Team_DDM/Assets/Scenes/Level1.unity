@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 117870968}
   - component: {fileID: 117870967}
   m_Layer: 0
-  m_Name: Room_SpawnPoint (4)
+  m_Name: Room_SpawnPoint (Boss)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -796,6 +796,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rooms:
   - {fileID: 6344136833410924719, guid: 75ad8b0b970fb4f49a86b4eb3b17e295, type: 3}
+  - {fileID: 3671035409444872115, guid: e99b2f17f8dd14046afc2c423480b867, type: 3}
+  - {fileID: 1323535331576243473, guid: 2efea9ffb24b7544894998d6f38afb4f, type: 3}
+  - {fileID: 5764707134043118738, guid: 9e69a120368997d46907ffed0e929a81, type: 3}
+  - {fileID: 5784167788759546244, guid: 391fadbab4096e44682bec91284720b5, type: 3}
   roomPos: {fileID: 133162899}
   spawnedRooms: []
   roomCount: 0
@@ -881,6 +885,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rooms:
   - {fileID: 6344136833410924719, guid: 75ad8b0b970fb4f49a86b4eb3b17e295, type: 3}
+  - {fileID: 3671035409444872115, guid: e99b2f17f8dd14046afc2c423480b867, type: 3}
+  - {fileID: 1323535331576243473, guid: 2efea9ffb24b7544894998d6f38afb4f, type: 3}
+  - {fileID: 5764707134043118738, guid: 9e69a120368997d46907ffed0e929a81, type: 3}
+  - {fileID: 5784167788759546244, guid: 391fadbab4096e44682bec91284720b5, type: 3}
   roomPos: {fileID: 2081175205}
   spawnedRooms: []
   roomCount: 0
@@ -1359,6 +1367,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rooms:
   - {fileID: 6344136833410924719, guid: 75ad8b0b970fb4f49a86b4eb3b17e295, type: 3}
+  - {fileID: 3671035409444872115, guid: e99b2f17f8dd14046afc2c423480b867, type: 3}
+  - {fileID: 1323535331576243473, guid: 2efea9ffb24b7544894998d6f38afb4f, type: 3}
+  - {fileID: 5764707134043118738, guid: 9e69a120368997d46907ffed0e929a81, type: 3}
+  - {fileID: 5784167788759546244, guid: 391fadbab4096e44682bec91284720b5, type: 3}
   roomPos: {fileID: 670124116}
   spawnedRooms: []
   roomCount: 0
