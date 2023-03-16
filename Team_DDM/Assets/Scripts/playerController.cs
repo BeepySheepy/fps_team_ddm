@@ -438,7 +438,6 @@ public class playerController : MonoBehaviour
         setHP(checkpointHP);
         setFireAmmo(checkpointAmmoF);
         setIceAmmo(checkpointAmmoI);
-        gameManager.instance.roomCount = checkpointRoom;
         controller.enabled = true;
     }
 
@@ -447,7 +446,6 @@ public class playerController : MonoBehaviour
         checkpointHP = HP;
         checkpointAmmoF = fireAmmoCt;
         checkpointAmmoI = iceAmmoCt;
-        checkpointRoom = gameManager.instance.roomCount;
     }
 
     IEnumerator CoyoteTimer()

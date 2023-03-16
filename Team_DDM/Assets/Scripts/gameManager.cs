@@ -6,12 +6,6 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 
-enum weapons
-{
-    pistol = 0,
-    shotgun,
-    sniper
-}
 public class gameManager : MonoBehaviour
 {
 
@@ -63,7 +57,10 @@ public class gameManager : MonoBehaviour
     [SerializeField] public GameObject doorObj;
     public bool doorState;
 
-    public int roomCount;
+
+
+   
+
 
     // Start is called before the first frame update
     void Awake()
@@ -78,8 +75,6 @@ public class gameManager : MonoBehaviour
         gunSpawn = 0;
         playerSpawn = GameObject.FindGameObjectWithTag("Respawn");
         doorState = false;
-        doorObj = GameObject.FindGameObjectWithTag("Door");
-        activeMenu = null;
     }
 
     // Update is called once per frame
@@ -111,7 +106,7 @@ public class gameManager : MonoBehaviour
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
-        //audioManager.instance.pauseSoundEffect();
+        audioManager.instance.pauseSoundEffect();
     }
 
     public void unPaused()
@@ -130,7 +125,7 @@ public class gameManager : MonoBehaviour
     {
         enemiesRemaining += amount;
         enemiesRemainingText.text = enemiesRemaining.ToString("F0");
-        if (enemiesRemaining >= 0)
+        if (enemiesRemaining <= 0)
         {
             doorSwitch();
         }

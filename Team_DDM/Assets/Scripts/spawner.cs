@@ -51,8 +51,8 @@ public class spawner : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            gameManager.instance.doorSwitch();
             GetComponent<Collider>().enabled = false;
+            gameManager.instance.doorSwitch();
             //for (int i = 0; i < doorPos.Length; i++)
             //{
                 //doors[i] = doorObj;
