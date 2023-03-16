@@ -5,23 +5,45 @@ using UnityEngine.SceneManagement;
 
 public class mainMenuButtons : MonoBehaviour
 {
-    
+    [SerializeField] GameObject noSavedGameImage;
+    [SerializeField] GameObject deletedSavedGameImage;
     public void continueGame() //Starts the first Level
     {
-        if (PlayerPrefs.HasKey("PlayerLevel"))
+        if (PlayerPrefs.HasKey("Saved Level"))
         {
-
+            Time.timeScale = 1;
+            SceneManager.LoadScene(PlayerPrefs.GetInt("Saved Level")); //Load the spacific scene
         }
         else
         {
-           //No Save
+            //No Save
+            StartCoroutine(noSave());
         }
+    }
+
+    IEnumerator noSave()
+    {
+        noSavedGameImage.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        noSavedGameImage.SetActive(false);
     }
     public void newGame()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(1);
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt("Saved Level", SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void deleteSave()
+    {
+        PlayerPrefs.DeleteKey("Saved Level");
+        StartCoroutine(saveDeleted());
+    }
+    IEnumerator saveDeleted()
+    {
+        deletedSavedGameImage.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        deletedSavedGameImage.SetActive(false);
     }
     public void level1() //Starts the first Level
     {
