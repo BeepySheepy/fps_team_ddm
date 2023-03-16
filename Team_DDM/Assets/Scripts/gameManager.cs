@@ -133,6 +133,10 @@ public class gameManager : MonoBehaviour
     {
         enemiesRemaining += amount;
         enemiesRemainingText.text = enemiesRemaining.ToString("F0");
+        if (enemiesRemaining <= 0)
+        {
+            doorSwitch();
+        }
     }
 
     public void updateGameGoal(int amount)
@@ -212,6 +216,15 @@ public class gameManager : MonoBehaviour
 
     public void doorSwitch()
     {
-        doorState = !doorState;
+        if (doorState == false)
+        {
+            Debug.Log("Doors On");
+            doorState = true;
+        }
+        else
+        {
+            Debug.Log("Doors Off");
+            doorState = false;
+        }
     }
 }

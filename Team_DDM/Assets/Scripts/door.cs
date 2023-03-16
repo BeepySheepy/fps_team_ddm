@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class door : MonoBehaviour
 {
-
+    [SerializeField] GameObject door1;
+    [SerializeField] GameObject door2;
     public void Update()
     {
-        if (gameManager.instance.doorState)
+        if (gameManager.instance.doorState == true)
         {
-            gameObject.SetActive(true);
+            Debug.Log("Doors Activated");
+            door1.SetActive(true);
+            door2.SetActive(true);
         }
         else
         {
-            gameObject.SetActive(false);
+            //Debug.Log("Doors Deactivated");
+            door1.SetActive(false);
+            door2.SetActive(false);
         }
     }
 }
