@@ -66,6 +66,10 @@ public class playerController : MonoBehaviour
     int checkpointAmmoF;
     int checkpointAmmoI;
 
+    //Mana Bar
+    int mana;
+    int manaOrig = 6;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -84,6 +88,7 @@ public class playerController : MonoBehaviour
         levelSpawn = gameManager.instance.playerSpawn;
         spawnPlayer();
         controller.enabled = true;
+        mana = manaOrig;
     }
 
     // Update is called once per frame
@@ -163,6 +168,8 @@ public class playerController : MonoBehaviour
             GameObject bulletClone = Instantiate(gunList[selectedGun].bullet, shootPosition.transform.position, shootPosition.transform.rotation);
             bulletClone.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * gunList[selectedGun].bulletSpeed;
             numShots++;
+            mana--;
+            updatePlayerManaBar();
             yield return new WaitForSeconds(shootRate);
             isShooting = false;
             //if (!isSpread)
@@ -229,6 +236,12 @@ public class playerController : MonoBehaviour
         isReloading = true;
         numShots = 0;
         gameManager.instance.reloadDisplay(true);
+        while(mana < manaOrig )
+        {
+            mana++;
+            updatePlayerManaBar();
+            yield return new WaitForSeconds(.25f);
+        }
         yield return new WaitForSeconds(gunList[selectedGun].reloadSpeed);
         isReloading = false;
         gameManager.instance.reloadDisplay(false);
@@ -302,6 +315,11 @@ public class playerController : MonoBehaviour
     public void updatePlayerHPBar()
     {
         gameManager.instance.playerHPBar.fillAmount = (float)HP / (float)HPOrig;
+    }
+
+    public void updatePlayerManaBar()
+    {
+        gameManager.instance.playerManaBar.fillAmount = (float)mana / (float)manaOrig;
     }
 
     public void gunPick(gunStats gunStat)
