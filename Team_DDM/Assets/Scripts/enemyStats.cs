@@ -128,7 +128,7 @@ public class enemyStats : MonoBehaviour, IDamage
             StartCoroutine(InvincibilityFrames());
             anim.SetTrigger("Phase 2");
         }
-        else if (!phase3)// phase 3(bullet hell boss)
+        else if (HP < (HPOrig * .5f) && !phase3)// phase 3(bullet hell boss)
         {
             phase3 = true;
             StartCoroutine(InvincibilityFrames());

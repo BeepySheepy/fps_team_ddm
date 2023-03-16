@@ -45,7 +45,7 @@ public class bossScript : MonoBehaviour
     {
         Transform[] shootPositions = new Transform[currentNumOfShootPos[shootPosIter]];
         int currentNumOfShootPosSum = 0;
-        for (int i = 0; i < shootPosIter; i++)
+        for (int i = 0; i <= shootPosIter; i++)
         {
            currentNumOfShootPosSum += currentNumOfShootPos[i];// double check
         }

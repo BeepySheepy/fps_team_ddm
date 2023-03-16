@@ -249,6 +249,7 @@ public class enemyAI : MonoBehaviour
 
     void Phase1()
     {
+        Debug.Log("Enters Phase 1");
         gun = bossInfo.GetCurrentGun();
         bossInfo.NextGun();
         Transform[] tempTransformArray;
@@ -259,10 +260,13 @@ public class enemyAI : MonoBehaviour
             headPos.Add(t);
         }
         bossInfo.NextShootPos();
+        Debug.Log(name + " is now using " + gun.name);
+        Debug.Log("HeadPos set" + headPos.Count);
     }
 
     void Phase2()
     {
+        Debug.Log("Enters Phase 2");
         gun = bossInfo.GetCurrentGun();
         bossInfo.NextGun();
         Transform[] tempTransformArray;
@@ -277,6 +281,7 @@ public class enemyAI : MonoBehaviour
 
     void Phase3()
     {
+        Debug.Log("Enters Phase 3");
         gun = bossInfo.GetCurrentGun();
         Transform[] tempTransformArray;
         tempTransformArray = bossInfo.GetCurrentShootPositions();
