@@ -144,11 +144,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4931005988505977477, guid: 4552ac843a4e73a4a9eebe571e962b04, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.53
+      value: 2.91
       objectReference: {fileID: 0}
     - target: {fileID: 4931005988505977477, guid: 4552ac843a4e73a4a9eebe571e962b04, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.056304
+      value: -4.18
       objectReference: {fileID: 0}
     - target: {fileID: 4931005988505977477, guid: 4552ac843a4e73a4a9eebe571e962b04, type: 3}
       propertyPath: m_LocalRotation.w
@@ -815,6 +815,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3255208826116094409, guid: 9b901d6830078c446b8a6390ca28ef0a, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -915806595319899197, guid: fbc03f0e76bba094791355a9edbb3d9e, type: 2}
     - target: {fileID: 4393323079048620275, guid: 9b901d6830078c446b8a6390ca28ef0a, type: 3}
       propertyPath: m_Name
       value: Lava
@@ -969,7 +973,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &1190072124
 PrefabInstance:
@@ -1191,7 +1195,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 439658086412275279, guid: 6384ac4421fe241478cfba46e58ae1d1, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 439658086412275279, guid: 6384ac4421fe241478cfba46e58ae1d1, type: 3}
       propertyPath: m_LocalPosition.x
