@@ -91,7 +91,7 @@ public class audioManager : MonoBehaviour
         {
             if (i.audioType == sounds.AudioCat.SoundeEffects)
             {
-                i.soundSource.Stop();
+                //i.soundSource.Stop();
             }
         }
     } 

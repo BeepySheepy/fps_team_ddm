@@ -123,6 +123,8 @@ public class gameManager : MonoBehaviour
 
     public void RoomFinished(int amount)
     {
+        enemiesRemaining += amount;
+        enemiesRemainingText.text = enemiesRemaining.ToString("F0");
         if (enemiesRemaining <= 0)
         {
             doorSwitch();

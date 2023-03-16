@@ -10,13 +10,11 @@ public class door : MonoBehaviour
     {
         if (gameManager.instance.doorState == true)
         {
-            Debug.Log("Doors Activated");
             door1.SetActive(true);
             door2.SetActive(true);
         }
         else
         {
-            //Debug.Log("Doors Deactivated");
             door1.SetActive(false);
             door2.SetActive(false);
         }
