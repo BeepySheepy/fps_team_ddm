@@ -671,6 +671,7 @@ MonoBehaviour:
   - {fileID: 1115369710427265002}
   enemyTurnSpeed: 3
   footStepParticle: {fileID: 0}
+  footstepSounds: []
   leftFoot: {fileID: 0}
   rightFoot: {fileID: 0}
   enemyActivated: 0
@@ -685,6 +686,7 @@ MonoBehaviour:
   meleeAttackSound: {fileID: 8300000, guid: 654c072a268d5854680d411ba53b2485, type: 3}
   permaAggro: 1
   enemyTypeID: 1
+  bossInfo: {fileID: 0}
 --- !u!114 &542213546057887246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -702,6 +704,8 @@ MonoBehaviour:
   gunToDrop: {fileID: 0}
   ammoToDrop: {fileID: 6521278121679382960, guid: 90e9c77c45601f743a097380c1b0bc6a, type: 3}
   healthToDrop: {fileID: 8299478468419812798, guid: 1dcbeda09fd3e6d46b6b1aee614d07a3, type: 3}
+  enemyInvTimer: 0
+  phaseChange: {fileID: 0}
 --- !u!114 &2957459712945588864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -797,7 +801,7 @@ AudioSource:
   m_GameObject: {fileID: 2785143888136734671}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -915806595319899197, guid: fbc03f0e76bba094791355a9edbb3d9e, type: 2}
   m_audioClip: {fileID: 8300000, guid: 0dc243fd1f76fdb448605c6c1ac3acfc, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
