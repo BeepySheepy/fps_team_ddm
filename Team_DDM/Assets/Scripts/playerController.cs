@@ -254,6 +254,7 @@ public class playerController : MonoBehaviour
             StartCoroutine(flashDamage());
             HP -= dmg;
             updatePlayerHPBar();
+            StartCoroutine(gameManager.instance.shielded());
 
             if (HP <= 0)
             {
@@ -282,8 +283,10 @@ public class playerController : MonoBehaviour
     IEnumerator statusInvuln()
     {
         invuln = true;
+        gameManager.instance.shieldedIcon(invuln);
         yield return new WaitForSeconds(3);
         invuln = false;
+        gameManager.instance.shieldedIcon(invuln);
     }
     public void callInvuln()
     {

@@ -204,6 +204,10 @@ PrefabInstance:
       propertyPath: headPos.Array.data[3]
       value: 
       objectReference: {fileID: 1854257580003868283}
+    - target: {fileID: 5193848015107385223, guid: 963792795a6b8a84eacd67db9a496575, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -915806595319899197, guid: fbc03f0e76bba094791355a9edbb3d9e, type: 2}
     - target: {fileID: 8514673147778497885, guid: 963792795a6b8a84eacd67db9a496575, type: 3}
       propertyPath: autoLockOnPlayer
       value: 0

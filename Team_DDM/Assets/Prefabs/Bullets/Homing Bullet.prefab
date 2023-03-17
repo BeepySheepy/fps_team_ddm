@@ -54,6 +54,7 @@ MonoBehaviour:
   timer: 2
   homingBullet: 1
   homingBulletTurnSpeed: 5
+  bulletHitEffect: {fileID: 0}
   bulletDamage: 1
 --- !u!135 &5739028856967349281
 SphereCollider:
@@ -223,7 +224,7 @@ AudioSource:
   m_GameObject: {fileID: 5739028856967349286}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -915806595319899197, guid: fbc03f0e76bba094791355a9edbb3d9e, type: 2}
   m_audioClip: {fileID: 8300000, guid: 21be40842098a494d9caf2f03c13c25a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -391,7 +392,7 @@ AudioSource:
   m_GameObject: {fileID: 5739028856967349286}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -915806595319899197, guid: fbc03f0e76bba094791355a9edbb3d9e, type: 2}
   m_audioClip: {fileID: 8300000, guid: 71ee07fc6ab959b42820262818cbde1b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1

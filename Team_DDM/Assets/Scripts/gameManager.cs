@@ -30,6 +30,8 @@ public class gameManager : MonoBehaviour
     public Image BossHPBar;
     public GameObject playerDamageFlasher;
     public GameObject playerHealFlasher;
+    public GameObject playerShieldFlasher;
+    public GameObject playerShieldIcon;
 
     [Header("--- Enemies ----")]
     public int enemiesRemaining;
@@ -53,11 +55,12 @@ public class gameManager : MonoBehaviour
     public GameObject shotgunIcon;
     public GameObject sniperIcon;
 
+
     [Header("---- Level ----")]
     [SerializeField] public GameObject doorObj;
     public bool doorState;
 
-
+    int songPlay;
 
    
 
@@ -85,8 +88,7 @@ public class gameManager : MonoBehaviour
             isPaused = !isPaused;
             activeMenu = pauseMenu;
             pauseMenu.SetActive(isPaused);
-            audioManager.instance.stopByName("Ingame Song");
-            audioManager.instance.playByName("Pause Song");
+            songPlay = 1;
 
             if (isPaused)
             {
@@ -95,7 +97,7 @@ public class gameManager : MonoBehaviour
             else
             {
                 unPaused();
-                
+
             }
 
         }
@@ -107,6 +109,20 @@ public class gameManager : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
         audioManager.instance.pauseSoundEffect();
+        audioManager.instance.stopByName("Ingame Song");
+        switch (songPlay)
+        {
+            case 1:
+                audioManager.instance.playByName("Pause Song");
+                break;
+            case 2:
+                audioManager.instance.playByName("Win Song");
+                break;
+            case 3:
+                audioManager.instance.playByName("Lose Song");
+                break;
+
+        }
     }
 
     public void unPaused()
@@ -116,9 +132,21 @@ public class gameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         activeMenu.SetActive(false);
         activeMenu = null;
-        audioManager.instance.resumeSoundEffect();
-        audioManager.instance.stopByName("Pause Song");
+        audioManager.instance.pauseSoundEffect();
         audioManager.instance.playByName("Ingame Song");
+        switch (songPlay)
+        {
+            case 1:
+                audioManager.instance.stopByName("Pause Song");
+                break;                
+            case 2:                   
+                audioManager.instance.stopByName("Win Song");
+                break;                
+            case 3:                   
+                audioManager.instance.stopByName("Lose Song");
+                break;
+
+        }
     }
 
     public void RoomFinished(int amount)
@@ -136,6 +164,7 @@ public class gameManager : MonoBehaviour
         BossesRemaining += amount;
         if (BossesRemaining <= 0)
         {
+            songPlay = 2;
             paused();
 
             if (SceneManager.GetActiveScene().buildIndex + 1 == 0)
@@ -196,9 +225,28 @@ public class gameManager : MonoBehaviour
             Realoading.SetActive(false);
         }
     }
+    public IEnumerator shielded()
+    {
+        int i = 0;
+        playerShieldFlasher.SetActive(true);
+        yield return new WaitForSeconds(1);
+        playerShieldFlasher.SetActive(false);
+    }
+    public void shieldedIcon(bool God)
+    {
+        if (God == true)
+        {
+            playerShieldIcon.SetActive(true);
+        }
+        else
+        {
+            playerShieldIcon.SetActive(false);
+        }
+    }
 
     public void playerDead()
     {
+        songPlay = 3;
         paused();
         activeMenu = loseMenu;
         activeMenu.SetActive(true);
