@@ -16,7 +16,8 @@ public class spawner : MonoBehaviour
     [SerializeField] Transform[] doorPos;
     [SerializeField] GameObject doorObj;
     [SerializeField] bool stopSpawnWhenExitSpawner;
-    [SerializeField] bool isBoss;
+    [SerializeField] public bool isBoss;
+    [SerializeField] public bool isFinalBoss;
 
     [SerializeField] GameObject[] doors = new GameObject[10];
     GameObject obj;
@@ -42,6 +43,7 @@ public class spawner : MonoBehaviour
         if ((spawnCount < spawnMax || spawnMax == 0) && !isSpawning && playerInRange)// spawn max = 0 equals infinite spawn
         {
             StartCoroutine(spawn());
+            bossKill();
         }
 
     }
@@ -99,6 +101,21 @@ public class spawner : MonoBehaviour
         yield return new WaitForSeconds(spawnEffectTimer);
         GameObject enemyInstance = Instantiate(objectToSpawn, spawnPos[spawnLocationInternalTimerStorage].position, objectToSpawn.transform.rotation);
         particleEffectInstance.GetComponent<spawnScript>().SetEnemyChild(enemyInstance);
+    }
+
+    public void bossKill()
+    {
+        if (isBoss == true && gameManager.instance.enemiesRemaining <= 0)
+        {
+            if (isFinalBoss)
+            {
+                gameManager.instance.winGame();
+            }
+            else
+            {
+                gameManager.instance.winLevel();
+            }
+        }
     }
 
     //public void turnOff()

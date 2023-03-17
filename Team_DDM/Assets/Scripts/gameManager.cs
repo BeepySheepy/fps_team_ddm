@@ -180,6 +180,22 @@ public class gameManager : MonoBehaviour
         }
     }
 
+    public void winLevel()
+    {
+        songPlay = 2;
+        paused();
+        activeMenu = winLevelMenu;
+        activeMenu.SetActive(true);
+    }
+
+    public void winGame()
+    {
+        songPlay = 2;
+        paused();
+        activeMenu = winGameMenu;
+        activeMenu.SetActive(true);
+    }
+
     public void gunIconIndicator(int selected)
     {
         

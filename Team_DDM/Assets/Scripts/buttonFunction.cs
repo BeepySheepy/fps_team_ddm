@@ -46,12 +46,17 @@ public class buttonFunction : MonoBehaviour
     }
     public void nextLevel() //Starts the first Level
     {
-        if  (SceneManager.GetActiveScene().buildIndex <= 4)
+        if  (SceneManager.GetActiveScene().buildIndex < 4)
         {
             gameManager.instance.unPaused();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); //Load next level
             PlayerPrefs.SetInt("Saved Level", SceneManager.GetActiveScene().buildIndex + 1);
 
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            gameManager.instance.unPaused();
+            SceneManager.LoadScene(0);
         }
     }
 

@@ -26835,7 +26835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a107c785b116a7c4c8725cd0dc8dffa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 2216076257006835776, guid: cb6457c796c10184d8a9d9c8e5022354, type: 3}
+  objectToSpawn: {fileID: 2785143888136734671, guid: 963792795a6b8a84eacd67db9a496575, type: 3}
   spawnMax: 1
   timer: 0
   spawnEffectTimer: 0
@@ -26848,6 +26848,7 @@ MonoBehaviour:
   doorObj: {fileID: 0}
   stopSpawnWhenExitSpawner: 0
   isBoss: 1
+  isFinalBoss: 0
   doors:
   - {fileID: 0}
   - {fileID: 0}
