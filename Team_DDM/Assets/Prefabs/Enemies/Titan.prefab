@@ -691,7 +691,7 @@ MonoBehaviour:
   enemyActivated: 0
   visionDistance: 0
   visionAngle: 0
-  gun: {fileID: 2216076257014098895}
+  gun: {fileID: 0}
   dropHP: 0
   plusYAimDir: 0.25
   meleeTimer: 2
@@ -719,6 +719,7 @@ MonoBehaviour:
   ammoToDrop: {fileID: 0}
   healthToDrop: {fileID: 0}
   enemyInvTimer: 2
+  phaseChange: {fileID: 1310351144418457194, guid: 222d4936a4956cf468469272597ac6af, type: 3}
 --- !u!114 &3609024595191348904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -761,7 +762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 072501e7c9eab70488898ccce25d4682, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mGun: {fileID: 11400000, guid: 8a9d786af110f534cb9dcecfd802258b, type: 2}
+  mGun: {fileID: 11400000, guid: 51b0f0eed402d024abd7c7dab3a6b740, type: 2}
   autoLockOnPlayer: 1
   autoLockOnPlayerY: 0
 --- !u!114 &-8477529974839566660

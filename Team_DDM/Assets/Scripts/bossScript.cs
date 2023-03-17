@@ -7,6 +7,7 @@ public class bossScript : MonoBehaviour
     [SerializeField] gunScript[] gunArray;
     [SerializeField] Transform[] shootPos;// not most optimal way to do this, but rushed way
     [SerializeField] int[] currentNumOfShootPos;
+    
 
     int shootPosIter;
     int gunArrayIter = 0;
