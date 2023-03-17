@@ -932,7 +932,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1272239779722144896, guid: 64dc27a10892d4841a7aa69d0e353386, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1272239779722144896, guid: 64dc27a10892d4841a7aa69d0e353386, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1164,10 +1164,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 805657373}
-    - target: {fileID: 1981166587738190982, guid: bed21d189f6fe024b9913ff577f9c744, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: playByName
-      objectReference: {fileID: 0}
     - target: {fileID: 1981166588351549814, guid: bed21d189f6fe024b9913ff577f9c744, type: 3}
       propertyPath: m_Pivot.x
       value: 0
