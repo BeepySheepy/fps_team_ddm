@@ -2643,8 +2643,8 @@ MonoBehaviour:
   pauseMenu: {fileID: 1981166586624470691}
   activeMenu: {fileID: 0}
   isPaused: 0
-  winLevelMenu: {fileID: 0}
-  winGameMenu: {fileID: 0}
+  winLevelMenu: {fileID: 1981166587517692813}
+  winGameMenu: {fileID: 7347782275961687875}
   loseMenu: {fileID: 1981166587473089388}
   playerHPBar: {fileID: 3586227591254043822}
   playerManaBar: {fileID: 1644813056828276435}
