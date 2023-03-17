@@ -97,7 +97,7 @@ public class enemyStats : MonoBehaviour, IDamage
 
     void DropItems()
     {
-        if (healthToDrop != null && dropHP)
+        if (healthToDrop != null)
         {
             Instantiate(healthToDrop, transform.position + new Vector3(-1, 1, 0), transform.rotation);
         }
