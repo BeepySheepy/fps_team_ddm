@@ -83,7 +83,6 @@ public class enemyStats : MonoBehaviour, IDamage
         }
 
     }
-
     /// <summary>
     /// flashes the enemy red
     /// </summary>
@@ -98,15 +97,7 @@ public class enemyStats : MonoBehaviour, IDamage
 
     void DropItems()
     {
-        if (gunToDrop != null)
-        {
-            Instantiate(gunToDrop, transform.position, transform.rotation);
-        }
-        if (ammoToDrop != null)
-        {
-            Instantiate(ammoToDrop, transform.position + new Vector3(1, 1, 0), transform.rotation);
-        }
-        if (healthToDrop != null)
+        if (healthToDrop != null && dropHP)
         {
             Instantiate(healthToDrop, transform.position + new Vector3(-1, 1, 0), transform.rotation);
         }

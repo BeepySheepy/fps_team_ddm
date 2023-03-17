@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8303399875671461133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6192673558108697666}
+  - component: {fileID: 6444399769072388961}
+  m_Layer: 0
+  m_Name: Audio Manager Ingame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6192673558108697666
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8303399875671461133}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 260.82373, y: 307.67337, z: 147.5378}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6444399769072388961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8303399875671461133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cfedeefe6cd6c740bbeddc21fc5f545, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicGroup: {fileID: -3052893750547071658, guid: fbc03f0e76bba094791355a9edbb3d9e, type: 2}
+  soundEffectGroup: {fileID: -915806595319899197, guid: fbc03f0e76bba094791355a9edbb3d9e, type: 2}
+  soundArray:
+  - audioType: 1
+    soundSource: {fileID: 0}
+    soundClip: {fileID: 8300000, guid: 2bae9a033e4368e468cebea5fd3b3f7a, type: 3}
+    soundName: Ingame Song
+    isLooping: 1
+    onWake: 1
+    volume: 1
+  - audioType: 2
+    soundSource: {fileID: 0}
+    soundClip: {fileID: 8300000, guid: 909459c5e8fd74e4ba7f28e67448b30f, type: 3}
+    soundName: Button Click Sound
+    isLooping: 0
+    onWake: 0
+    volume: 1
+  - audioType: 1
+    soundSource: {fileID: 0}
+    soundClip: {fileID: 8300000, guid: f874cb63dfb1b814091bf34fc036cd40, type: 3}
+    soundName: Pause Song
+    isLooping: 1
+    onWake: 0
+    volume: 1
+  - audioType: 1
+    soundSource: {fileID: 0}
+    soundClip: {fileID: 8300000, guid: 37c9a1dab52ce96488561bac20608b09, type: 3}
+    soundName: Win Song
+    isLooping: 1
+    onWake: 0
+    volume: 1
+  - audioType: 1
+    soundSource: {fileID: 0}
+    soundClip: {fileID: 8300000, guid: 6a2c1f3691b31e046b930b5ca42479b1, type: 3}
+    soundName: Lose Song
+    isLooping: 1
+    onWake: 0
+    volume: 1

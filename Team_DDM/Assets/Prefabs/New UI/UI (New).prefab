@@ -5261,7 +5261,7 @@ MonoBehaviour:
   pauseSong: {fileID: 8300000, guid: f874cb63dfb1b814091bf34fc036cd40, type: 3}
   winSong: {fileID: 8300000, guid: 37c9a1dab52ce96488561bac20608b09, type: 3}
   loseSong: {fileID: 8300000, guid: 6a2c1f3691b31e046b930b5ca42479b1, type: 3}
-  MusicVol: 0.25
+  MusicVol: 0.05
 --- !u!82 &1380874741
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7955,7 +7955,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Reloading...
+  m_text: Charging Mana...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
