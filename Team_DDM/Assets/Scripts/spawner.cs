@@ -25,7 +25,9 @@ public class spawner : MonoBehaviour
     bool isPlayingSpawnEffect;
     bool isSpawning;
     bool playerInRange;
-    List<GameObject> spawnList = new List<GameObject>();
+    public List<GameObject> spawnList = new List<GameObject>();
+
+    List<GameObject> enemies = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +45,7 @@ public class spawner : MonoBehaviour
         if ((spawnCount < spawnMax || spawnMax == 0) && !isSpawning && playerInRange)// spawn max = 0 equals infinite spawn
         {
             StartCoroutine(spawn());
-            bossKill();
+            StartCoroutine(waitSpawn());
         }
 
     }
@@ -84,7 +86,7 @@ public class spawner : MonoBehaviour
         }
         else
         {
-            Instantiate(objectToSpawn, spawnPos[spawnCount].position, objectToSpawn.transform.rotation);
+            enemies.Add(Instantiate(objectToSpawn, spawnPos[spawnCount].position, objectToSpawn.transform.rotation));
         }
         spawnCount++;
 
@@ -116,6 +118,11 @@ public class spawner : MonoBehaviour
                 gameManager.instance.winLevel();
             }
         }
+    }
+    IEnumerator waitSpawn()
+    {
+        yield return new WaitForSeconds(10);
+        bossKill();
     }
 
     //public void turnOff()

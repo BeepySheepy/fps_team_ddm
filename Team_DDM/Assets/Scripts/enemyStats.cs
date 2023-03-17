@@ -138,4 +138,9 @@ public class enemyStats : MonoBehaviour, IDamage
         Destroy(iFrameParticle);// need debugging but not critical
     }
 
+    public int getHP()
+    {
+        return HP;
+    }
+
 }
