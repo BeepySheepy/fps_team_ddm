@@ -21628,7 +21628,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2923877986212031456}
   m_Layer: 0
-  m_Name: roomBoss
+  m_Name: roomFinalBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26835,7 +26835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a107c785b116a7c4c8725cd0dc8dffa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 2216076257006835776, guid: cb6457c796c10184d8a9d9c8e5022354, type: 3}
+  objectToSpawn: {fileID: 2216076257006835776, guid: cee444b992eee224f8f4aa5ca9a5fada, type: 3}
   spawnMax: 1
   timer: 0
   spawnEffectTimer: 0
@@ -26847,7 +26847,7 @@ MonoBehaviour:
   doorPos: []
   doorObj: {fileID: 0}
   stopSpawnWhenExitSpawner: 0
-  isBoss: 1
+  isBoss: 0
   doors:
   - {fileID: 0}
   - {fileID: 0}

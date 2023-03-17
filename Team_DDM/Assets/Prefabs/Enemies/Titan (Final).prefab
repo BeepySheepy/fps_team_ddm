@@ -627,7 +627,7 @@ GameObject:
   - component: {fileID: 2216076257014098893}
   - component: {fileID: -4595599286289393909}
   m_Layer: 6
-  m_Name: Titan
+  m_Name: Titan (Final)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -673,15 +673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navMesh: {fileID: 2216076257014098892}
-  headPos:
-  - {fileID: 8892606573614736690}
-  - {fileID: 3038386390635483537}
-  - {fileID: 92351916568062261}
-  - {fileID: 8421441372288644064}
-  - {fileID: 1253397243723990491}
-  - {fileID: 175427939106951884}
-  - {fileID: 468378039030042934}
-  - {fileID: 4156532458315574621}
+  headPos: []
   enemyTurnSpeed: 3
   footStepParticle: {fileID: 5673223778716989242, guid: 2d822a0b4a4ee6144a6ada8189a1e58a, type: 3}
   footstepSounds:
@@ -699,7 +691,7 @@ MonoBehaviour:
   enemyActivated: 0
   visionDistance: 0
   visionAngle: 0
-  gun: {fileID: 2216076257014098895}
+  gun: {fileID: 0}
   dropHP: 0
   plusYAimDir: 0.25
   meleeTimer: 2
@@ -708,7 +700,7 @@ MonoBehaviour:
   meleeAttackSound: {fileID: 8300000, guid: b0e515b00655cfb4d8de9c69f2e85dba, type: 3}
   permaAggro: 1
   enemyTypeID: 3
-  bossInfo: {fileID: 0}
+  bossInfo: {fileID: -8477529974839566660}
 --- !u!114 &2216076257014098894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -780,7 +772,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2216076257006835776}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbf4cad675878c540abb59d71d6aa920, type: 3}
   m_Name: 
