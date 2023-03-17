@@ -45,11 +45,12 @@ public class spawner : MonoBehaviour
         if ((spawnCount < spawnMax || spawnMax == 0) && !isSpawning && playerInRange)// spawn max = 0 equals infinite spawn
         {
             StartCoroutine(spawn());
-            StartCoroutine(waitSpawn());
+            
         }
 
     }
 
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -57,6 +58,7 @@ public class spawner : MonoBehaviour
             playerInRange = true;
             GetComponent<Collider>().enabled = false;
             gameManager.instance.doorSwitch();
+            gameManager.instance.currentRoom = this;
             //for (int i = 0; i < doorPos.Length; i++)
             //{
                 //doors[i] = doorObj;
@@ -119,11 +121,7 @@ public class spawner : MonoBehaviour
             }
         }
     }
-    IEnumerator waitSpawn()
-    {
-        yield return new WaitForSeconds(10);
-        bossKill();
-    }
+    
 
     //public void turnOff()
     //{

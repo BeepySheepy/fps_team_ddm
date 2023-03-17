@@ -59,6 +59,7 @@ public class enemyStats : MonoBehaviour, IDamage
             {
                 gameManager.instance.RoomFinished(-1);
                 DropItems();
+                gameManager.instance.currentRoom.bossKill();
                 if ((enemies)enemyTypeID == enemies.spider)
                 {
                     Destroy(gameObject);// kill enemy
