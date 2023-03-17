@@ -30,6 +30,8 @@ public class gameManager : MonoBehaviour
     public Image BossHPBar;
     public GameObject playerDamageFlasher;
     public GameObject playerHealFlasher;
+    public GameObject playerShieldFlasher;
+    public GameObject playerShieldIcon;
 
     [Header("--- Enemies ----")]
     public int enemiesRemaining;
@@ -52,6 +54,7 @@ public class gameManager : MonoBehaviour
     public GameObject pistolIcon;
     public GameObject shotgunIcon;
     public GameObject sniperIcon;
+
 
     [Header("---- Level ----")]
     [SerializeField] public GameObject doorObj;
@@ -220,6 +223,24 @@ public class gameManager : MonoBehaviour
         else
         {
             Realoading.SetActive(false);
+        }
+    }
+    public IEnumerator shielded()
+    {
+        int i = 0;
+        playerShieldFlasher.SetActive(true);
+        yield return new WaitForSeconds(1);
+        playerShieldFlasher.SetActive(false);
+    }
+    public void shieldedIcon(bool God)
+    {
+        if (God == true)
+        {
+            playerShieldIcon.SetActive(true);
+        }
+        else
+        {
+            playerShieldIcon.SetActive(false);
         }
     }
 
