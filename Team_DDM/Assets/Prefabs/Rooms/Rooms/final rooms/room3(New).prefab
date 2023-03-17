@@ -101550,7 +101550,7 @@ MonoBehaviour:
   objectToSpawn: {fileID: 2785143888136734671, guid: 8ca665af8b3a6e14f9a1562ddd332c58, type: 3}
   spawnMax: 4
   timer: 0
-  spawnEffectTimer: 0
+  spawnEffectTimer: 1
   countEnemies: 0
   spawnPos:
   - {fileID: 1390822963059425772}
@@ -101568,6 +101568,7 @@ MonoBehaviour:
   doorObj: {fileID: 0}
   stopSpawnWhenExitSpawner: 0
   isBoss: 0
+  isFinalBoss: 0
   doors:
   - {fileID: 0}
   - {fileID: 0}
@@ -101579,6 +101580,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  spawnList: []
 --- !u!1 &6984895136414532620
 GameObject:
   m_ObjectHideFlags: 0

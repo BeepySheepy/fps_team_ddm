@@ -15,6 +15,7 @@ public class gameManager : MonoBehaviour
     public GameObject player;// player object accesible thorugh other classes
     public playerController playerScript;
     public GameObject playerSpawn;
+    public spawner currentRoom;
 
     [Header("---- Menus ----")]
     public GameObject pauseMenu;
