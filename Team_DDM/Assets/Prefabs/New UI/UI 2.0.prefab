@@ -2651,7 +2651,7 @@ MonoBehaviour:
   BossHPBar: {fileID: 3586227590177128536}
   playerDamageFlasher: {fileID: 1981166587499540637}
   playerHealFlasher: {fileID: 5296402250809526687}
-  playerShieldFlasher: {fileID: 5296402250809526687}
+  playerShieldFlasher: {fileID: 1096982656933378536}
   playerShieldIcon: {fileID: 2205912640776156393}
   enemiesRemaining: 0
   enemiesRemainingText: {fileID: 1981166586832062815}
