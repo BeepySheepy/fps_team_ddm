@@ -65,7 +65,6 @@ public class playerController : MonoBehaviour
     int checkpointHP;
     int checkpointAmmoF;
     int checkpointAmmoI;
-    int checkpointRoom;
 
     //Mana Bar
     int mana;

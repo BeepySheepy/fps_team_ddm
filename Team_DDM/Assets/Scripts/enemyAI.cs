@@ -7,7 +7,7 @@ public class enemyAI : MonoBehaviour
 {
     [Header("-----Navigation-----")]
     [SerializeField] NavMeshAgent navMesh;// allows for movement
-    [SerializeField] Transform[] headPos;// tracks head pos instead of from (0,0)
+    [SerializeField] List<Transform> headPos;// tracks head pos instead of from (0,0)
     [Range(1, 10)][SerializeField] int enemyTurnSpeed;
     [SerializeField] ParticleSystem footStepParticle;
     [SerializeField] AudioClip[] footstepSounds;
@@ -19,15 +19,17 @@ public class enemyAI : MonoBehaviour
     [Range(1, 50)][SerializeField] float visionAngle;
     [Header("-----Gun-----")]
     [SerializeField] gunScript gun;
+    [SerializeField] int dropHP;
     [SerializeField] float plusYAimDir;
     [Header("-----Melee-----")]
     [SerializeField] float meleeTimer;
     [SerializeField] float meleeRange;
     [SerializeField] AudioSource source;
     [SerializeField] AudioClip meleeAttackSound;
-
+    [Header("-----Miscellaneous-----")]
     [SerializeField] bool permaAggro;
     [SerializeField] int enemyTypeID;
+    [SerializeField] bossScript bossInfo;
 
 
     bool playerInRange;// bool if the player is within the range of detection of the enemy
@@ -75,7 +77,7 @@ public class enemyAI : MonoBehaviour
                     if (gun != null && !gun.IsShooting() && gun.GetBulletsInClip() != 0)// shoot
                     {
 
-                        for (shootPosIter = 0; shootPosIter < headPos.Length; shootPosIter++)
+                        for (shootPosIter = 0; shootPosIter < headPos.Count; shootPosIter++)
                         {
                             Debug.Log(shootPosIter);
                             // gun stuff
@@ -233,10 +235,6 @@ public class enemyAI : MonoBehaviour
     {
         enemyActivated = true;
     }
-    public void Deactivate()
-    {
-        enemyActivated = false;
-    }
     void PlayFootstepNoise()
     {
         if(footstepSounds.Length > 0)
@@ -244,4 +242,54 @@ public class enemyAI : MonoBehaviour
             source.PlayOneShot(footstepSounds[Random.Range(0,footstepSounds.Length-1)]);// random footstep noise
         }
     }
+
+
+    // ---------------Boss Functions---------------
+    #region
+
+    void Phase1()
+    {
+        Debug.Log("Enters Phase 1");
+        gun = bossInfo.GetCurrentGun();
+        bossInfo.NextGun();
+        Transform[] tempTransformArray;
+        tempTransformArray = bossInfo.GetCurrentShootPositions();
+        headPos.Clear();
+        foreach(Transform t in tempTransformArray)
+        {
+            headPos.Add(t);
+        }
+        bossInfo.NextShootPos();
+        Debug.Log(name + " is now using " + gun.name);
+        Debug.Log("HeadPos set" + headPos.Count);
+    }
+
+    void Phase2()
+    {
+        Debug.Log("Enters Phase 2");
+        gun = bossInfo.GetCurrentGun();
+        bossInfo.NextGun();
+        Transform[] tempTransformArray;
+        tempTransformArray = bossInfo.GetCurrentShootPositions();
+        headPos.Clear();
+        foreach (Transform t in tempTransformArray)
+        {
+            headPos.Add(t);
+        }
+        bossInfo.NextShootPos();
+    }
+
+    void Phase3()
+    {
+        Debug.Log("Enters Phase 3");
+        gun = bossInfo.GetCurrentGun();
+        Transform[] tempTransformArray;
+        tempTransformArray = bossInfo.GetCurrentShootPositions();
+        headPos.Clear();
+        foreach (Transform t in tempTransformArray)
+        {
+            headPos.Add(t);
+        }
+    }
+    #endregion
 }

@@ -54,6 +54,7 @@ MonoBehaviour:
   timer: 2
   homingBullet: 1
   homingBulletTurnSpeed: 5
+  bulletHitEffect: {fileID: 0}
   bulletDamage: 1
 --- !u!135 &5739028856967349281
 SphereCollider:

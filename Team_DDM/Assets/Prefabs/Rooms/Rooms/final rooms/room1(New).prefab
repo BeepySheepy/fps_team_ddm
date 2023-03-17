@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2978475230966870151}
   - component: {fileID: 65465448339089645}
   - component: {fileID: 6469805892000867426}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7431299007167065524}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wallLine (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,9 +355,9 @@ GameObject:
   - component: {fileID: 5219823568623317507}
   - component: {fileID: 4328210099017645616}
   - component: {fileID: 5860471524202011508}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (6)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -452,7 +452,7 @@ GameObject:
   - component: {fileID: 7296846248231729091}
   - component: {fileID: 7159829083088427105}
   - component: {fileID: 4037400574267881}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dfk_floor_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10234,7 +10234,7 @@ GameObject:
   - component: {fileID: 3315848134063396696}
   - component: {fileID: 4990773988370110962}
   - component: {fileID: 2559769024137944472}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dfk_floor_01 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10331,7 +10331,7 @@ GameObject:
   - component: {fileID: 5446091927051141255}
   - component: {fileID: 1896642275469249945}
   - component: {fileID: 830013009528297882}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a_door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10430,9 +10430,9 @@ GameObject:
   - component: {fileID: 4231774428603458585}
   - component: {fileID: 5967305446353170142}
   - component: {fileID: 4080531352116177534}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (7)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -10613,7 +10613,7 @@ GameObject:
   - component: {fileID: 8131246442904023799}
   - component: {fileID: 1415109005025688629}
   - component: {fileID: 1217337374505508095}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dfk_floor_01 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10707,7 +10707,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3494991209546540883}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wallLine (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10745,9 +10745,9 @@ GameObject:
   - component: {fileID: 2450190040420545149}
   - component: {fileID: 1883260849873888057}
   - component: {fileID: 6342133052270691381}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (9)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -15703,7 +15703,7 @@ GameObject:
   - component: {fileID: 9137160208145634093}
   - component: {fileID: 2333752194613390342}
   - component: {fileID: 3369755269726786148}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dfk_floor_01 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15800,7 +15800,7 @@ GameObject:
   - component: {fileID: 7797055660854559882}
   - component: {fileID: 874765420599206448}
   - component: {fileID: 95857608146222066}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15897,7 +15897,7 @@ GameObject:
   - component: {fileID: 8828042616800208044}
   - component: {fileID: 354748595763118983}
   - component: {fileID: 2449437859395569772}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16088,7 +16088,7 @@ GameObject:
   - component: {fileID: 2766655350985083343}
   - component: {fileID: 1904196301555220439}
   - component: {fileID: 2532639432875760133}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dfk_floor_01 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26033,7 +26033,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6031129122037839718}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DoorFrame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26159,7 +26159,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 782775930891039805}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DoorFrame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26378,7 +26378,7 @@ GameObject:
   - component: {fileID: 4057009488001721324}
   - component: {fileID: 3233895143847785713}
   - component: {fileID: 3368736095552531500}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dfk_floor_01 (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26475,7 +26475,7 @@ GameObject:
   - component: {fileID: 3394476557945790627}
   - component: {fileID: 371430822511813191}
   - component: {fileID: 3267963864300195227}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26572,7 +26572,7 @@ GameObject:
   - component: {fileID: 5664336753170272583}
   - component: {fileID: 8514652941663641257}
   - component: {fileID: 5846388105002740913}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dfk_floor_01 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26669,7 +26669,7 @@ GameObject:
   - component: {fileID: 8510189781267538801}
   - component: {fileID: 3548409449211393054}
   - component: {fileID: 138338877957238628}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31627,7 +31627,7 @@ GameObject:
   - component: {fileID: 1164745602695742122}
   - component: {fileID: 4866316517627965156}
   - component: {fileID: 6999296068616190998}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36834,7 +36834,7 @@ GameObject:
   - component: {fileID: 1816189465597658140}
   - component: {fileID: 7669220570881260743}
   - component: {fileID: 5320516801532031215}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dfk_floor_01 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36962,7 +36962,7 @@ GameObject:
   - component: {fileID: 640716103778432143}
   - component: {fileID: 5201258468368557127}
   - component: {fileID: 1043529368474388760}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a_door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37061,7 +37061,7 @@ GameObject:
   - component: {fileID: 552738536089570126}
   - component: {fileID: 2643465117980821382}
   - component: {fileID: 1965454844601987299}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37158,7 +37158,7 @@ GameObject:
   - component: {fileID: 6742966224248938980}
   - component: {fileID: 3359609300022263991}
   - component: {fileID: 6345242414531016837}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37255,7 +37255,7 @@ GameObject:
   - component: {fileID: 6711882021625438398}
   - component: {fileID: 579755267319157985}
   - component: {fileID: 6904423549613643533}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dfk_floor_01 (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37438,7 +37438,7 @@ GameObject:
   - component: {fileID: 7072094602722543221}
   - component: {fileID: 9187710025957655904}
   - component: {fileID: 7203931369761363319}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37535,7 +37535,7 @@ GameObject:
   - component: {fileID: 6253129290748040318}
   - component: {fileID: 6134128548782583700}
   - component: {fileID: 749163764226957205}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37632,7 +37632,7 @@ GameObject:
   - component: {fileID: 3060916049279622192}
   - component: {fileID: 3028805585206762981}
   - component: {fileID: 4438155234920658831}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dfk_floor_01 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37726,7 +37726,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6648160967537153926}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wallLine_Door (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37952,7 +37952,7 @@ GameObject:
   - component: {fileID: 3856727930616997685}
   - component: {fileID: 131114644649260957}
   - component: {fileID: 2624051518999317433}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Doorframe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38036,7 +38036,7 @@ GameObject:
   - component: {fileID: 7796107649371632154}
   - component: {fileID: 2091774006768417954}
   - component: {fileID: 2135824306975219794}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38227,7 +38227,7 @@ GameObject:
   - component: {fileID: 9061722845343151765}
   - component: {fileID: 8865629149135164389}
   - component: {fileID: 7208296260197921841}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38324,7 +38324,7 @@ GameObject:
   - component: {fileID: 3577727100038170258}
   - component: {fileID: 4568647978519873394}
   - component: {fileID: 6292723757020590078}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dfk_floor_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38421,7 +38421,7 @@ GameObject:
   - component: {fileID: 1948767802942777094}
   - component: {fileID: 6579106548540579727}
   - component: {fileID: 4153029067264924465}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dfk_floor_01 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38612,7 +38612,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5845321414883303591}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wallLine (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53485,7 +53485,7 @@ GameObject:
   - component: {fileID: 8532164850059638476}
   - component: {fileID: 3259594735477481353}
   - component: {fileID: 6855677027149804522}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53579,7 +53579,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2247216670368403427}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: floorFlat (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53715,7 +53715,7 @@ GameObject:
   - component: {fileID: 6977941493504338343}
   - component: {fileID: 5279550699058497555}
   - component: {fileID: 475880385423574959}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dfk_floor_01 (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53812,7 +53812,7 @@ GameObject:
   - component: {fileID: 7096615631582615364}
   - component: {fileID: 7321346447312266518}
   - component: {fileID: 1910615830607928864}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dfk_floor_01 (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53909,7 +53909,7 @@ GameObject:
   - component: {fileID: 9080102932315104852}
   - component: {fileID: 1173574366935110539}
   - component: {fileID: 8705914337657029444}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dfk_floor_01 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58867,7 +58867,7 @@ GameObject:
   - component: {fileID: 2510857535394709634}
   - component: {fileID: 8175128027370856273}
   - component: {fileID: 6066778648870891559}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58964,7 +58964,7 @@ GameObject:
   - component: {fileID: 5848851342890998078}
   - component: {fileID: 9131994456225364460}
   - component: {fileID: 4165589852913073714}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63922,7 +63922,7 @@ GameObject:
   - component: {fileID: 3408117620820196686}
   - component: {fileID: 67526094820111643}
   - component: {fileID: 8486367026826403160}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64222,7 +64222,7 @@ GameObject:
   - component: {fileID: 1032459956965079032}
   - component: {fileID: 697478695748793352}
   - component: {fileID: 2318737908483329447}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64405,7 +64405,7 @@ GameObject:
   - component: {fileID: 6155143394146932545}
   - component: {fileID: 7233822524134197021}
   - component: {fileID: 8500974248467934482}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69357,7 +69357,7 @@ GameObject:
   - component: {fileID: 7286395050629856596}
   - component: {fileID: 3432519886810308422}
   - component: {fileID: 3142591718226953540}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dfk_floor_01 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69649,7 +69649,7 @@ GameObject:
   - component: {fileID: 9000148630997342450}
   - component: {fileID: 8281473581301035209}
   - component: {fileID: 4116238143984251307}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69746,7 +69746,7 @@ GameObject:
   - component: {fileID: 5624909200090357410}
   - component: {fileID: 4514390386181524252}
   - component: {fileID: 5111106029064202065}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75392,7 +75392,7 @@ GameObject:
   - component: {fileID: 1138501457417045289}
   - component: {fileID: 4990425034638686546}
   - component: {fileID: 2793578690664188802}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Doorframe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75570,9 +75570,9 @@ GameObject:
   - component: {fileID: 6845925764908266696}
   - component: {fileID: 1363825184182572984}
   - component: {fileID: 128221497699155707}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (8)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -75667,7 +75667,7 @@ GameObject:
   - component: {fileID: 7843664269394773151}
   - component: {fileID: 5800429416574780924}
   - component: {fileID: 2091297646207617368}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dfk_floor_01 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80625,7 +80625,7 @@ GameObject:
   - component: {fileID: 1620322799842544407}
   - component: {fileID: 788893189033949451}
   - component: {fileID: 3193647491798683181}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dfk_floor_01 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80778,7 +80778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 2785143888136734671, guid: 963792795a6b8a84eacd67db9a496575, type: 3}
-  spawnMax: 1
+  spawnMax: 5
   timer: 0
   spawnEffectTimer: 0
   countEnemies: 0
@@ -80907,7 +80907,7 @@ GameObject:
   - component: {fileID: 4262451405168530414}
   - component: {fileID: 332088229912429251}
   - component: {fileID: 8581072821512420561}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85914,7 +85914,7 @@ GameObject:
   - component: {fileID: 3543755166255562194}
   - component: {fileID: 2082359518238872475}
   - component: {fileID: 701561361189750693}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dfk_floor_01 (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90835,7 +90835,7 @@ GameObject:
   - component: {fileID: 1779074786751199298}
   - component: {fileID: 5116494856523620600}
   - component: {fileID: 780170711923790635}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90929,7 +90929,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3652095022481179933}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wallLine (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90963,7 +90963,7 @@ GameObject:
   - component: {fileID: 8799176627801225846}
   - component: {fileID: 5422673651876364046}
   - component: {fileID: 667616803199724124}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dfk_floor_01 (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95884,7 +95884,7 @@ GameObject:
   - component: {fileID: 8364885874745719341}
   - component: {fileID: 2978004834300892788}
   - component: {fileID: 4574706464808506592}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dfk_floor_01 (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95978,7 +95978,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7562366964596752712}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wallLine (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96141,9 +96141,9 @@ GameObject:
   - component: {fileID: 1904904720705100552}
   - component: {fileID: 5531892390862166939}
   - component: {fileID: 4556109918022231898}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (5)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -101062,7 +101062,7 @@ GameObject:
   - component: {fileID: 5354934133842724622}
   - component: {fileID: 705865361024657749}
   - component: {fileID: 4417048782742666333}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101159,7 +101159,7 @@ GameObject:
   - component: {fileID: 3079952312608601104}
   - component: {fileID: 1317138717015844853}
   - component: {fileID: 4382159931496089657}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106077,7 +106077,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6644961207101165969}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wallLine (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106115,9 +106115,9 @@ GameObject:
   - component: {fileID: 7074158765033755392}
   - component: {fileID: 3854338699192817261}
   - component: {fileID: 1476092384944050066}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -106212,7 +106212,7 @@ GameObject:
   - component: {fileID: 3577586615993939959}
   - component: {fileID: 7958911452986382414}
   - component: {fileID: 5089052265937416579}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106754,7 +106754,7 @@ GameObject:
   - component: {fileID: 1850281132121319140}
   - component: {fileID: 8109087693179380485}
   - component: {fileID: 6746014311971985773}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: dfk_floor_01 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106848,7 +106848,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 789540497630413858}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wallLine_Door (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111743,7 +111743,7 @@ GameObject:
   - component: {fileID: 5006600686665753070}
   - component: {fileID: 7242018959702932450}
   - component: {fileID: 355715402470213278}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116701,7 +116701,7 @@ GameObject:
   - component: {fileID: 6005121333440434397}
   - component: {fileID: 8154388350632867827}
   - component: {fileID: 899557131940355618}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121659,7 +121659,7 @@ GameObject:
   - component: {fileID: 7904977967138891362}
   - component: {fileID: 4555036293886372931}
   - component: {fileID: 4975714874009576543}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121756,7 +121756,7 @@ GameObject:
   - component: {fileID: 5499314791666653376}
   - component: {fileID: 2486236683519691998}
   - component: {fileID: 3446450490207380845}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121950,7 +121950,7 @@ GameObject:
   - component: {fileID: 6051350785059574642}
   - component: {fileID: 7561098183586241956}
   - component: {fileID: 8238830920835554259}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127003,7 +127003,7 @@ GameObject:
   - component: {fileID: 8460705756986019771}
   - component: {fileID: 4983175147407607413}
   - component: {fileID: 49134528343051604}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127100,7 +127100,7 @@ GameObject:
   - component: {fileID: 6498928746402276862}
   - component: {fileID: 1659940885688724910}
   - component: {fileID: 3407734430238114768}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: dfk_wall_01a (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
