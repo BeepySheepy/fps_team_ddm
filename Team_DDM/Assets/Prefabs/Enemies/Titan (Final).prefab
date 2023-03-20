@@ -713,7 +713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a2d881143181b4488c673818e6f9340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 1
+  HP: 3
   charModel: {fileID: 2216076257018336530}
   gunToDrop: {fileID: 0}
   ammoToDrop: {fileID: 0}
