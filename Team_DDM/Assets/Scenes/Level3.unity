@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rooms:
-  - {fileID: 2292768614846670895, guid: 8143d2f658dc98e46831314d37f70bff, type: 3}
+  - {fileID: 2292768614846670895, guid: 9467d054735f83445a7271ece78a5f5b, type: 3}
   roomPos: {fileID: 1281066929}
   spawnedRooms: []
   roomCount: 0
