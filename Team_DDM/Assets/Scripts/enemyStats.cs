@@ -17,7 +17,7 @@ public class enemyStats : MonoBehaviour, IDamage
     [SerializeField] GameObject ammoToDrop;
     [SerializeField] GameObject healthToDrop;
     [SerializeField] float enemyInvTimer;
-    [SerializeField] ParticleSystem phaseChange;
+    [SerializeField] GameObject phaseChangeParticle;
 
     enemyAI aiScript;
     Animator anim;
@@ -132,11 +132,11 @@ public class enemyStats : MonoBehaviour, IDamage
     IEnumerator InvincibilityFrames()
     {
         Vector3 spawnPos = transform.position + Vector3.up;
-        ParticleSystem iFrameParticle =  Instantiate(phaseChange, spawnPos, transform.rotation);
+        phaseChangeParticle.SetActive(true);
         isInv = true;
         yield return new WaitForSeconds(enemyInvTimer);
         isInv = false;
-        Destroy(iFrameParticle);// need debugging but not critical
+        phaseChangeParticle.SetActive(false);
     }
 
     public int getHP()
