@@ -7,6 +7,7 @@ public class mainMenuButtons : MonoBehaviour
 {
     [SerializeField] GameObject noSavedGameImage;
     [SerializeField] GameObject deletedSavedGameImage;
+
     public void continueGame() //Starts the first Level
     {
         if (PlayerPrefs.HasKey("Saved Level"))
@@ -49,16 +50,19 @@ public class mainMenuButtons : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(2); //Load the spacific scene
+        PlayerPrefs.SetInt("Saved Level", 2);
     }
     public void level2() //Starts the first Level
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(3); //Load the spacific scene
+        PlayerPrefs.SetInt("Saved Level", 3);
     }
     public void level3() //Starts the first Level
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(4); //Load the spacific scene
+        PlayerPrefs.SetInt("Saved Level", 4);
     }
 
     public void quit() //Quits the Game
@@ -66,5 +70,4 @@ public class mainMenuButtons : MonoBehaviour
         Application.Quit();
     }
 
-    
 }
