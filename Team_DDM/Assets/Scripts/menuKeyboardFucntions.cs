@@ -6,9 +6,9 @@ using UnityEngine.EventSystems;
 public class menuKeyboardFucntions : MonoBehaviour
 {
     #region Keyboard Functions
-    public GameObject menuButtonStart, playButtonStart, levelButtonStart, optionsButtonStart, creditsButtonStart;
+    public GameObject menuButtonStart, playButtonStart, levelButtonStart, optionsButtonStart, creditsButtonStart, creditsPage2ButtonStart;
 
-    public GameObject playButtonReturn, levelButtonReturn, optionsButtonReturn, creditsButtonReturn;
+    public GameObject playButtonReturn, levelButtonReturn, optionsButtonReturn, creditsButtonReturn, creditsPage2ButtonReturn;
     private void Start()
     {
         closePlay();
@@ -60,6 +60,18 @@ public class menuKeyboardFucntions : MonoBehaviour
     {
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(creditsButtonReturn);
+    }
+
+    //Credits Page 2
+    public void openCreditsPage2()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(creditsPage2ButtonStart);
+    }
+    public void closeCreditsPage2()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(creditsPage2ButtonReturn);
     }
     #endregion
 }
