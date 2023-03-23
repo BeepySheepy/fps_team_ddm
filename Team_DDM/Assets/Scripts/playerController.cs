@@ -107,7 +107,7 @@ public class playerController : MonoBehaviour
         {
             StartCoroutine(reload());
         }
-        if (!isShooting && !isReloading && Input.GetButton("Reload") && (numShots < 6 && numShots > 0))
+        if (!isShooting && !isReloading && Input.GetButton("Reload") && numShots < 6 && numShots >= 1)
         {
             StartCoroutine(reload());
         }
