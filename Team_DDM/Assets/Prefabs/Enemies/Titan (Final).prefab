@@ -736,6 +736,7 @@ MonoBehaviour:
   meleeObject: {fileID: 8400445683939073750}
   meleeDamage: 0
   meleeAttackFX: {fileID: 4596544553357837919, guid: 8eb503696b886e04faff8fc0f480d473, type: 3}
+  thisEnemyAIScript: {fileID: 2216076257014098889}
 --- !u!114 &2216076257014098895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -750,7 +751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mGun: {fileID: 11400000, guid: 8a9d786af110f534cb9dcecfd802258b, type: 2}
   autoLockOnPlayer: 0
-  autoLockOnPlayerY: 1
+  autoLockOnPlayerY: 0
 --- !u!114 &1834892438238971738
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -76,7 +76,7 @@ public class enemyAI : MonoBehaviour
 
                     if (gun != null && !gun.IsShooting() && gun.GetBulletsInClip() != 0)// shoot
                     {
-
+                        Debug.Log("Try to shoot");
                         for (shootPosIter = 0; shootPosIter < headPos.Count; shootPosIter++)
                         {
                             Debug.Log(shootPosIter);
@@ -243,6 +243,11 @@ public class enemyAI : MonoBehaviour
         }
     }
 
+    public Vector3 GetPlayerDirection()
+    {
+        return playerDirection;
+    }
+
 
     // ---------------Boss Functions---------------
     #region
@@ -260,8 +265,6 @@ public class enemyAI : MonoBehaviour
             headPos.Add(t);
         }
         bossInfo.NextShootPos();
-        Debug.Log(name + " is now using " + gun.name);
-        Debug.Log("HeadPos set" + headPos.Count);
     }
 
     void Phase2()

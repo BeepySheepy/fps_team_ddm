@@ -86,6 +86,7 @@ public class bullet : MonoBehaviour
     public void bulletShootInterface(int bulletSpeed)// overload
     {
         mBulletSpeed = bulletSpeed;
+        mShootDirection = transform.forward;
         bulletShootVector();// the overload without a inputted vector send the user straight into the non-interface version
     }
     /// <summary>

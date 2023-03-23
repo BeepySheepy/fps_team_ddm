@@ -756,7 +756,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mGun: {fileID: 11400000, guid: 10a722a0a0b8c5f46b234c9138279e50, type: 2}
   autoLockOnPlayer: 0
-  autoLockOnPlayerY: 1
+  autoLockOnPlayerY: 0
 --- !u!95 &2785143888127259757
 Animator:
   serializedVersion: 5
