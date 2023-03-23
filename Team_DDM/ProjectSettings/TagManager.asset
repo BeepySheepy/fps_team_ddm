@@ -11,6 +11,7 @@ TagManager:
   - Door
   - Shadow
   - Switch
+  - Room Obj
   layers:
   - Default
   - TransparentFX
