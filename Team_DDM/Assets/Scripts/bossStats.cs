@@ -36,7 +36,7 @@ public class bossStats : MonoBehaviour, IDamage
     {
         HP -= dmg;
         updateBossHPBar();
-        Debug.Log(this.gameObject.name + "took damage");
+        
         StartCoroutine(flashEnemyDamage());
         if (HP <= 0)
         {

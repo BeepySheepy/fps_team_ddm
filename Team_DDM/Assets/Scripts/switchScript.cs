@@ -16,7 +16,7 @@ public class switchScript : MonoBehaviour, IDamage
 
     public void takeDamage(int dmg)
     {
-        Debug.Log(name + " enters damage script");
+        
         ToggleSwitch();
         if (switchBool)
         {
