@@ -243,6 +243,11 @@ public class enemyAI : MonoBehaviour
         }
     }
 
+    public Vector3 GetPlayerDirection()
+    {
+        return playerDirection;
+    }
+
 
     // ---------------Boss Functions---------------
     #region
