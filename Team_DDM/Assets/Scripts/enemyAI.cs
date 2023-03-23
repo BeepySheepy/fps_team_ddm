@@ -76,15 +76,12 @@ public class enemyAI : MonoBehaviour
 
                     if (gun != null && !gun.IsShooting() && gun.GetBulletsInClip() != 0)// shoot
                     {
-                        Debug.Log("Try to shoot");
                         for (shootPosIter = 0; shootPosIter < headPos.Count; shootPosIter++)
                         {
-                            Debug.Log(shootPosIter);
                             // gun stuff
                             gun.SetShootPos(headPos[shootPosIter]);
                             FindPlayerDirection();
 
-                            Debug.Log("Enemy Shooting");
                             gun.shootInterface(playerDirection);// figure out a way to change playerDirection between shootPos changes
 
                         }
@@ -92,7 +89,6 @@ public class enemyAI : MonoBehaviour
                     }
                     else if (gun != null && !gun.IsShooting() && !gun.IsReloading() && gun.GetBulletsInClip() <= 0)// reload
                     {
-                        Debug.Log("Enemy Reloading");
                         gun.Reload();
                     }
                     else if (gun == null && navMesh.remainingDistance < (navMesh.stoppingDistance + meleeRange) && !isInMelee)// melee system
@@ -125,7 +121,6 @@ public class enemyAI : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player Entered An Enemy's Range");
             playerInRange = true;
         }
     }
@@ -137,7 +132,6 @@ public class enemyAI : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player Exited An Enemy's Range");
             playerInRange = false;
         }
     }
@@ -214,14 +208,12 @@ public class enemyAI : MonoBehaviour
     void rightFootStepParticleEffect()
     {
         PlayFootstepNoise();
-        Debug.Log("Right Foot Step");
         Instantiate(footStepParticle, rightFoot);
     }
 
     void leftFootStepParticleEffect()
     {
         PlayFootstepNoise();
-        Debug.Log("Left Foot Step");
         Instantiate(footStepParticle, leftFoot);
     }
 
@@ -254,7 +246,6 @@ public class enemyAI : MonoBehaviour
 
     void Phase1()
     {
-        Debug.Log("Enters Phase 1");
         gun = bossInfo.GetCurrentGun();
         bossInfo.NextGun();
         Transform[] tempTransformArray;
@@ -269,7 +260,6 @@ public class enemyAI : MonoBehaviour
 
     void Phase2()
     {
-        Debug.Log("Enters Phase 2");
         gun = bossInfo.GetCurrentGun();
         bossInfo.NextGun();
         Transform[] tempTransformArray;
@@ -284,7 +274,6 @@ public class enemyAI : MonoBehaviour
 
     void Phase3()
     {
-        Debug.Log("Enters Phase 3");
         gun = bossInfo.GetCurrentGun();
         Transform[] tempTransformArray;
         tempTransformArray = bossInfo.GetCurrentShootPositions();

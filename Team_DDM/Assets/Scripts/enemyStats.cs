@@ -53,7 +53,6 @@ public class enemyStats : MonoBehaviour, IDamage
         if (!isInv)// not invincible
         { 
             HP -= dmg;
-            Debug.Log(this.gameObject.name + "took damage");
             //aiScript.GetHeadPos().gameObject.GetComponent<Collider>().enabled = false;
             if (HP <= 0)
             {
