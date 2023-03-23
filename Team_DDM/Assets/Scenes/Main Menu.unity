@@ -1612,7 +1612,7 @@ MonoBehaviour:
   m_Navigation:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 1420276102}
+    m_SelectOnUp: {fileID: 1767081973}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 1447739361}
     m_SelectOnRight: {fileID: 0}
@@ -5233,8 +5233,8 @@ MonoBehaviour:
 
     . Ultimate 10+ Shader by The Developer
 
-    . Magic Effects
-    Free by Hovl Studio
+    . Magic Effects Free
+    by Hovl Studio
 
     . Legacy Particle Pack by Unity Technologies'
   m_isRightToLeft: 0
