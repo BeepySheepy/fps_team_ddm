@@ -705,7 +705,7 @@ MonoBehaviour:
   ammoToDrop: {fileID: 6521278121679382960, guid: 90e9c77c45601f743a097380c1b0bc6a, type: 3}
   healthToDrop: {fileID: 7586982086648885062, guid: c2f09c2d20a18a6468d92c6a7258caa8, type: 3}
   enemyInvTimer: 0
-  phaseChange: {fileID: 0}
+  phaseChangeParticle: {fileID: 0}
 --- !u!114 &2957459712945588864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -721,6 +721,7 @@ MonoBehaviour:
   meleeObject: {fileID: 4895884925667957289}
   meleeDamage: 0
   meleeAttackFX: {fileID: 298404609303114899, guid: 77511b648fcfd394791ec11e75614233, type: 3}
+  thisEnemyAIScript: {fileID: 3973748725887737475}
 --- !u!114 &8514673147778497885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -769,7 +770,7 @@ NavMeshAgent:
   m_Speed: 17
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 2000
   m_StoppingDistance: 1.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
