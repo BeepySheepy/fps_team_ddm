@@ -101,6 +101,18 @@ public class playerController : MonoBehaviour
             Debug.Log("Update Func Working.");
             StartCoroutine(shoot());
         }
+
+        #region Reloading Code
+        if (numShots == 6)
+        {
+            StartCoroutine(reload());
+        }
+        if (!isShooting && !isReloading && Input.GetButton("Reload") && numShots < 6 && numShots >= 1)
+        {
+            StartCoroutine(reload());
+        }
+        #endregion
+
         if (isBurning)
         {
             StartCoroutine(burnTick());
@@ -224,16 +236,13 @@ public class playerController : MonoBehaviour
             //    isShooting = false;
             //}
         }
-        else
-        {
-            StartCoroutine(reload());
-        }
     }
 
     IEnumerator reload()
     {
         isReloading = true;
         numShots = 0;
+        yield return new WaitForSeconds(.2f);
         gameManager.instance.reloadDisplay(true);
         while(mana < manaOrig )
         {
