@@ -698,13 +698,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a2d881143181b4488c673818e6f9340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 3
+  HP: 5
   charModel: {fileID: 2785143888131459757}
   gunToDrop: {fileID: 0}
   ammoToDrop: {fileID: 0}
   healthToDrop: {fileID: 0}
   enemyInvTimer: 0
-  phaseChange: {fileID: 0}
+  phaseChangeParticle: {fileID: 0}
 --- !u!114 &8514673147778497885
 MonoBehaviour:
   m_ObjectHideFlags: 0

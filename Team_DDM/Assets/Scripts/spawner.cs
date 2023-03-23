@@ -18,6 +18,7 @@ public class spawner : MonoBehaviour
     [SerializeField] bool stopSpawnWhenExitSpawner;
     [SerializeField] public bool isBoss;
     [SerializeField] public bool isFinalBoss;
+    [SerializeField] public bool multi;
 
     [SerializeField] GameObject[] doors = new GameObject[10];
     GameObject obj;
@@ -57,7 +58,10 @@ public class spawner : MonoBehaviour
         {
             playerInRange = true;
             GetComponent<Collider>().enabled = false;
-            gameManager.instance.doorSwitch();
+            if (!multi)
+            {
+                gameManager.instance.doorSwitch();
+            }
             gameManager.instance.currentRoom = this;
             //for (int i = 0; i < doorPos.Length; i++)
             //{
