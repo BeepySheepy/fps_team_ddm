@@ -10,7 +10,7 @@ public class checkPoint : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Checkpoint");
+            
             gameManager.instance.playerScript.checkpointHPTracker();
             gameManager.instance.playerSpawn.transform.position = transform.position;
             //Destroy(gameObject);

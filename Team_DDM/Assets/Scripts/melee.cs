@@ -19,14 +19,14 @@ public class melee : MonoBehaviour
 
     public void TurnOffMeleeCollider()
     {
-        Debug.Log("Hitbox turned off");
+        
         meleeHitbox.enabled = false;
     }
 
     public void TurnOnMeleeCollider()
     {
         
-        Debug.Log("Hitbox turned on");
+        
         meleeHitbox.enabled = true;
         Instantiate(meleeAttackFX, meleeHitbox.transform.position, Quaternion.LookRotation(thisEnemyAIScript.GetPlayerDirection()));
     }

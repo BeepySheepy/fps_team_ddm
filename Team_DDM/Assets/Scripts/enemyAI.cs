@@ -145,7 +145,7 @@ public class enemyAI : MonoBehaviour
         if (playerDistance < visionDistance)// player is close enough to see
         {
             angleTowardsPlayer = Vector3.Angle(new Vector3(playerDirection.x, 0, playerDirection.z), transform.forward);
-            Debug.DrawRay(headPos[0].position, playerDirection);// headPos[0] should always be the forward facing position of the enemy
+            
             RaycastHit hit;
             if (Physics.Raycast(headPos[0].position, playerDirection, out hit))//Raycast hit's something
             {

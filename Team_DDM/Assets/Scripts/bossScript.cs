@@ -11,19 +11,7 @@ public class bossScript : MonoBehaviour
     int shootPosIter;
     int gunArrayIter = 0;
 
-    // FOR DEBUG PURPOSES ONLY
-    private void Start()
-    {
-        int currentNumOfShootPosSum = 0;// finds sum
-        foreach (int numOfShootPos in currentNumOfShootPos)
-        {
-            currentNumOfShootPosSum += numOfShootPos;
-        }
-        if (currentNumOfShootPosSum != shootPos.Length - 1)
-        {
-            Debug.Log(currentNumOfShootPosSum + "!=" + (shootPos.Length - 1));// outputs if the sum and the num of shootPos' don't equal the same amount
-        }
-    }
+    
 
     /// <summary>
     /// 
