@@ -2640,6 +2640,7 @@ MonoBehaviour:
   player: {fileID: 0}
   playerScript: {fileID: 0}
   playerSpawn: {fileID: 0}
+  currentRoom: {fileID: 0}
   pauseMenu: {fileID: 1981166586624470691}
   activeMenu: {fileID: 0}
   isPaused: 0
@@ -5439,7 +5440,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3586227590113304494
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5672,7 +5673,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3586227590990616087
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7077,7 +7078,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3239301571459672810
 Transform:
   m_ObjectHideFlags: 0
